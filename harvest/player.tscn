@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b8xmwd4tud3ej"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rxf60"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i7avt"]
+radius = 82.0
+height = 232.0
+
+[node name="Player" type="CharacterBody2D" unique_id=665135049]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=950784915]
+sprite_frames = SubResource("SpriteFrames_rxf60")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1692044324]
+shape = SubResource("CapsuleShape2D_i7avt")
