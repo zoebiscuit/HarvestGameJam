@@ -16,6 +16,7 @@ atlas = ExtResource("3_1b50i")
 region = Rect2(0, 0, 128, 128)
 script = ExtResource("2_0isde")
 name = "None"
+count = 12
 metadata/_custom_type_script = "uid://5g0trtfgfiyl"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1b50i"]
@@ -23,12 +24,14 @@ atlas = ExtResource("3_1b50i")
 region = Rect2(0, 0, 128, 128)
 script = ExtResource("2_0isde")
 name = "None"
+count = 14
 metadata/_custom_type_script = "uid://5g0trtfgfiyl"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6tlpn"]
 atlas = ExtResource("3_1b50i")
 region = Rect2(0, 0, 128, 128)
 script = ExtResource("2_0isde")
+count = 34
 metadata/_custom_type_script = "uid://5g0trtfgfiyl"
 
 [node name="SelectionWheel" type="Control" unique_id=1889418954]
@@ -45,3 +48,15 @@ bkg_color = Color(0.7498423, 0.41070378, 0.40491286, 1)
 line_color = Color(0.9337432, 0.80241466, 0.61314154, 1)
 highlight_color = Color(0.7294118, 0, 0, 1)
 options = Array[ExtResource("2_0isde")]([SubResource("AtlasTexture_v5lg8"), SubResource("AtlasTexture_0isde"), SubResource("AtlasTexture_1b50i"), SubResource("AtlasTexture_6tlpn")])
+
+[node name="Count" type="Label" parent="." unique_id=1779747234]
+layout_mode = 0
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 49
+text = "##"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true

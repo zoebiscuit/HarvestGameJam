@@ -1,6 +1,8 @@
 @tool #runs in editor first
 extends Control
 
+@onready var count: Label = $Count
+
 const SPRITE_SIZE = Vector2(128,128)
 
 #gathering variables to edit
@@ -36,9 +38,9 @@ func _draw():
 				true
 			)
 			
-		if select == 0:
-			draw_circle(Vector2.ZERO, inner_radius, highlight_color)
-			
+		#if select == 0:
+			#draw_circle(Vector2.ZERO, inner_radius, highlight_color)
+			#
 		
 		draw_texture_rect_region(
 			options[0].atlas,
@@ -52,7 +54,7 @@ func _draw():
 			var mid_rads = (start_rads + end_rads)/2.0 * -1
 			var radius_mid = (inner_radius + outer_radius)/2
 			
-			if select==1:
+			if select == i:
 				var points_per_arc = 32
 				var points_inner = PackedVector2Array()
 				var points_outer = PackedVector2Array()
@@ -68,23 +70,29 @@ func _draw():
 					PackedColorArray([highlight_color])
 				)
 				
-					
-					
+				
 			var draw_pos = radius_mid * Vector2.from_angle(mid_rads) + offset
 			draw_texture_rect_region(
 				options[i].atlas,
 				Rect2(draw_pos, SPRITE_SIZE),
 				options[i].region
 			)
+			
 
 func _process(delta):
 	var mouse_pos = get_local_mouse_position()
 	var mouse_radius = mouse_pos.length()
 	
-	if mouse_radius < inner_radius:
+	if mouse_radius > outer_radius:
 		select = 0
 	else:
 		var mouse_rads = fposmod(mouse_pos.angle()* -1, TAU)
 		select = ceil((mouse_rads/TAU)*(len(options)-1)) #ceil = round up (integer wise)
+	
+	if is_instance_valid(count) and select > 0 and select < len(options) and options[select] != null:
+		count.text = str(options[select].count)
+	
+	if is_instance_valid(count) and mouse_radius > outer_radius:
+		count.text = ""
 		
 	queue_redraw()
