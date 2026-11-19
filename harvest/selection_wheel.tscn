@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://1w7jfqtblo6k"]
+
+[ext_resource type="Script" uid="uid://c3dquhljye6fp" path="res://selection_wheel.gd" id="1_ofd7g"]
+[ext_resource type="Script" uid="uid://5g0trtfgfiyl" path="res://wheel_option.gd" id="2_0isde"]
+[ext_resource type="Texture2D" uid="uid://bnw1ngfyj617q" path="res://icon.svg" id="3_1b50i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5lg8"]
+atlas = ExtResource("3_1b50i")
+region = Rect2(0, 0, 128, 128)
+script = ExtResource("2_0isde")
+name = "None"
+metadata/_custom_type_script = "uid://5g0trtfgfiyl"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0isde"]
+atlas = ExtResource("3_1b50i")
+region = Rect2(0, 0, 128, 128)
+script = ExtResource("2_0isde")
+name = "None"
+metadata/_custom_type_script = "uid://5g0trtfgfiyl"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1b50i"]
+atlas = ExtResource("3_1b50i")
+region = Rect2(0, 0, 128, 128)
+script = ExtResource("2_0isde")
+name = "None"
+metadata/_custom_type_script = "uid://5g0trtfgfiyl"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tlpn"]
+atlas = ExtResource("3_1b50i")
+region = Rect2(0, 0, 128, 128)
+script = ExtResource("2_0isde")
+metadata/_custom_type_script = "uid://5g0trtfgfiyl"
+
+[node name="SelectionWheel" type="Control" unique_id=1889418954]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ofd7g")
+bkg_color = Color(0.7498423, 0.41070378, 0.40491286, 1)
+line_color = Color(0.9337432, 0.80241466, 0.61314154, 1)
+options = Array[ExtResource("2_0isde")]([SubResource("AtlasTexture_v5lg8"), SubResource("AtlasTexture_0isde"), SubResource("AtlasTexture_1b50i"), SubResource("AtlasTexture_6tlpn")])
