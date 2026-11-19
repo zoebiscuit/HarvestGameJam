@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c3dquhljye6fp" path="res://selection_wheel.gd" id="1_ofd7g"]
 [ext_resource type="Script" uid="uid://5g0trtfgfiyl" path="res://wheel_option.gd" id="2_0isde"]
 [ext_resource type="Texture2D" uid="uid://bnw1ngfyj617q" path="res://icon.svg" id="3_1b50i"]
+[ext_resource type="Texture2D" uid="uid://u71cfknpg3rv" path="res://img/ItemMenu1.png" id="4_1b50i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5lg8"]
 atlas = ExtResource("3_1b50i")
@@ -44,19 +45,35 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ofd7g")
-bkg_color = Color(0.7498423, 0.41070378, 0.40491286, 1)
+bkg_color = Color(0.7490196, 0.4117647, 0.40392157, 0)
 line_color = Color(0.9337432, 0.80241466, 0.61314154, 1)
-highlight_color = Color(0.7294118, 0, 0, 1)
+highlight_color = Color(0.8181977, 0.14356071, 0.19979781, 1)
 options = Array[ExtResource("2_0isde")]([SubResource("AtlasTexture_v5lg8"), SubResource("AtlasTexture_0isde"), SubResource("AtlasTexture_1b50i"), SubResource("AtlasTexture_6tlpn")])
 
 [node name="Count" type="Label" parent="." unique_id=1779747234]
 layout_mode = 0
-offset_left = -40.0
-offset_top = -40.0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_font_sizes/font_size = 49
-text = "##"
+offset_left = -43.0
+offset_top = -45.0
+offset_right = 45.0
+offset_bottom = 46.0
+theme_override_colors/font_outline_color = Color(0.58772486, 0.2021285, 0, 1)
+theme_override_constants/outline_size = 33
+theme_override_font_sizes/font_size = 68
 horizontal_alignment = 1
 vertical_alignment = 1
-clip_text = true
+
+[node name="Background" type="TextureRect" parent="." unique_id=241842780]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 300.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_1b50i")

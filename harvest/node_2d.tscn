@@ -9,6 +9,7 @@
 script = ExtResource("1_0e48y")
 
 [node name="Label" type="Label" parent="UI" unique_id=1316872428]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Player equipped tool"
