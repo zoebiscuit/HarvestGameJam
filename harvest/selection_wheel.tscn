@@ -6,7 +6,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5lg8"]
 atlas = ExtResource("3_1b50i")
-region = Rect2(0, 0, 128, 128)
+region = Rect2(0, 0, 1, 1)
 script = ExtResource("2_0isde")
 name = "None"
 metadata/_custom_type_script = "uid://5g0trtfgfiyl"
@@ -43,4 +43,5 @@ grow_vertical = 2
 script = ExtResource("1_ofd7g")
 bkg_color = Color(0.7498423, 0.41070378, 0.40491286, 1)
 line_color = Color(0.9337432, 0.80241466, 0.61314154, 1)
+highlight_color = Color(0.7294118, 0, 0, 1)
 options = Array[ExtResource("2_0isde")]([SubResource("AtlasTexture_v5lg8"), SubResource("AtlasTexture_0isde"), SubResource("AtlasTexture_1b50i"), SubResource("AtlasTexture_6tlpn")])

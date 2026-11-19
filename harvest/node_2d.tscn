@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b3f5hqqfqiau6" path="res://ui.gd" id="1_0e48y"]
 [ext_resource type="PackedScene" uid="uid://1w7jfqtblo6k" path="res://selection_wheel.tscn" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://5g0trtfgfiyl" path="res://wheel_option.gd" id="3_epypp"]
 
 [node name="Main" type="Node" unique_id=27969217]
 
@@ -14,3 +15,5 @@ offset_bottom = 23.0
 text = "Player equipped tool"
 
 [node name="SelectionWheel" parent="UI" unique_id=1889418954 instance=ExtResource("1_wtcfe")]
+highlight_color = Color(0, 0, 0, 1)
+options = Array[ExtResource("3_epypp")]([])

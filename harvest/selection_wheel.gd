@@ -9,10 +9,11 @@ const SPRITE_SIZE = Vector2(128,128)
 @export var outer_radius: int = 256
 @export var inner_radius: int = 64
 @export var line_width: int = 4
+@export var highlight_color : Color
 
 @export var options: Array[WheelOption]
 
-
+var select = 0
 
 
 func _draw():
@@ -34,6 +35,11 @@ func _draw():
 				line_width,
 				true
 			)
+			
+		if select == 0:
+			draw_circle(Vector2.ZERO, inner_radius, highlight_color)
+			
+		
 		draw_texture_rect_region(
 			options[0].atlas,
 			Rect2(offset, SPRITE_SIZE),
@@ -43,9 +49,27 @@ func _draw():
 		for i in range(1, len(options)):
 			var start_rads = (TAU * (i-1)/ (len(options)-1))
 			var end_rads = (TAU*i) / (len(options)-1)
-			var mid_rads = (start_rads + end_rads)/2 * -1
+			var mid_rads = (start_rads + end_rads)/2.0 * -1
 			var radius_mid = (inner_radius + outer_radius)/2
 			
+			if select==1:
+				var points_per_arc = 32
+				var points_inner = PackedVector2Array()
+				var points_outer = PackedVector2Array()
+				
+				for j in range(points_per_arc+1):
+					var angle = start_rads + j * (end_rads - start_rads) / points_per_arc
+					points_inner.append(inner_radius * Vector2.from_angle(TAU-angle))
+					points_outer.append(outer_radius * Vector2.from_angle(TAU-angle))
+					
+				points_outer.reverse()
+				draw_polygon(
+					points_inner + points_outer,
+					PackedColorArray([highlight_color])
+				)
+				
+					
+					
 			var draw_pos = radius_mid * Vector2.from_angle(mid_rads) + offset
 			draw_texture_rect_region(
 				options[i].atlas,
@@ -54,4 +78,13 @@ func _draw():
 			)
 
 func _process(delta):
+	var mouse_pos = get_local_mouse_position()
+	var mouse_radius = mouse_pos.length()
+	
+	if mouse_radius < inner_radius:
+		select = 0
+	else:
+		var mouse_rads = fposmod(mouse_pos.angle()* -1, TAU)
+		select = ceil((mouse_rads/TAU)*(len(options)-1)) #ceil = round up (integer wise)
+		
 	queue_redraw()
