@@ -15,6 +15,7 @@ func _process(delta: float) -> void:
 		
 	elif Input.is_action_just_released("menu"):
 		
+
 		current_selection.current_selection = selection_wheel.options[
 			selection_wheel.last_select]
 		

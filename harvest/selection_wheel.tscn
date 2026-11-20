@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cmip1y1bwfey2" path="res://SFX/Actions/Highlight_06.ogg" id="5_v5lg8"]
 [ext_resource type="AudioStream" uid="uid://cua2hqp8wxmp8" path="res://SFX/Menus/Menu_Open_05.ogg" id="6_4l438"]
 [ext_resource type="AudioStream" uid="uid://cjowdyp5arcui" path="res://SFX/Menus/Menu_Close_05.ogg" id="7_pt43d"]
+[ext_resource type="AudioStream" uid="uid://c28omvmla6hwj" path="res://SFX/Positive/Success_04.ogg" id="8_pt43d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5lg8"]
 atlas = ExtResource("3_1b50i")
@@ -91,4 +92,9 @@ playback_type = 1
 
 [node name="CloseSFX" type="AudioStreamPlayer" parent="." unique_id=602691674]
 stream = ExtResource("7_pt43d")
+playback_type = 1
+
+[node name="NewSelectSFX" type="AudioStreamPlayer" parent="." unique_id=781399935]
+stream = ExtResource("8_pt43d")
+volume_db = -4.634
 playback_type = 1

@@ -5,6 +5,7 @@ extends Control
 @onready var highlight_sfx: AudioStreamPlayer = $HighlightSFX
 @onready var popup_sfx: AudioStreamPlayer = $PopupSFX
 @onready var close_sfx: AudioStreamPlayer = $CloseSFX
+@onready var new_select_sfx: AudioStreamPlayer = $NewSelectSFX
 
 const SPRITE_SIZE = Vector2(128,128)
 
@@ -20,6 +21,7 @@ const SPRITE_SIZE = Vector2(128,128)
 
 var select = 0
 var last_select: int = -1
+var confirmed_select: int = 0
 
 var can_open := true
 
@@ -100,7 +102,14 @@ func _process(delta):
 				popup_sfx_played = true
 				
 		elif Input.is_action_just_released("menu"):
-			if is_instance_valid(close_sfx): close_sfx.play()
+			if select != 0 and select != confirmed_select: 
+				confirmed_select = select                 
+				if is_instance_valid(new_select_sfx): 
+					new_select_sfx.play()
+			else:
+				if is_instance_valid(close_sfx): 
+					close_sfx.play()
+			
 			if is_instance_valid(highlight_sfx): highlight_sfx.volume_db = -80.0
 			popup_sfx_played = false
 			hide()
@@ -122,9 +131,18 @@ func _process(delta):
 		select = ceil((mouse_rads/TAU)*(len(options)-1)) #ceil = round up (integer wise)
 	
 	if select != last_select:
-		last_select = select
-		queue_redraw()
-
+		
+		#if is_instance_valid(close_sfx): 
+			#close_sfx.play()
+			
+		#print("Select: ", select)
+		#print("Last Select: ", last_select)
+		
+		if select == 0:
+			last_select = last_select
+		else:
+			last_select = select
+		
 		if select > 0 and select < len(options) and options[select] != null:
 			if is_instance_valid(count):
 				count.text = str(options[select].count)

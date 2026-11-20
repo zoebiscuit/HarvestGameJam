@@ -11,6 +11,5 @@ func _process(delta: float) -> void:
 	
 	if current_selection:
 		icon.texture = current_selection.atlas
-		
 		count.text = str(current_selection.count)
 	
