@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bnw1ngfyj617q" path="res://icon.svg" id="3_1b50i"]
 [ext_resource type="Texture2D" uid="uid://u71cfknpg3rv" path="res://img/ItemMenu1.png" id="4_1b50i"]
 [ext_resource type="AudioStream" uid="uid://cmip1y1bwfey2" path="res://SFX/Actions/Highlight_06.ogg" id="5_v5lg8"]
+[ext_resource type="AudioStream" uid="uid://cua2hqp8wxmp8" path="res://SFX/Menus/Menu_Open_05.ogg" id="6_4l438"]
+[ext_resource type="AudioStream" uid="uid://cjowdyp5arcui" path="res://SFX/Menus/Menu_Close_05.ogg" id="7_pt43d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5lg8"]
 atlas = ExtResource("3_1b50i")
@@ -37,7 +39,6 @@ count = 34
 metadata/_custom_type_script = "uid://5g0trtfgfiyl"
 
 [node name="SelectionWheel" type="Control" unique_id=1889418954]
-visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -49,7 +50,8 @@ grow_vertical = 2
 script = ExtResource("1_ofd7g")
 bkg_color = Color(0.7490196, 0.4117647, 0.40392157, 0)
 line_color = Color(0.9337432, 0.80241466, 0.61314154, 1)
-highlight_color = Color(0.8181977, 0.14356071, 0.19979781, 1)
+line_width = 8
+highlight_color = Color(0.81960785, 0.14509805, 0.2, 0.5921569)
 options = Array[ExtResource("2_0isde")]([SubResource("AtlasTexture_v5lg8"), SubResource("AtlasTexture_0isde"), SubResource("AtlasTexture_1b50i"), SubResource("AtlasTexture_6tlpn")])
 
 [node name="Count" type="Label" parent="." unique_id=1779747234]
@@ -80,5 +82,13 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_1b50i")
 
-[node name="HighlightSFX" type="AudioStreamPlayer2D" parent="." unique_id=968163573]
+[node name="HighlightSFX" type="AudioStreamPlayer" parent="." unique_id=1937458405]
 stream = ExtResource("5_v5lg8")
+
+[node name="PopupSFX" type="AudioStreamPlayer" parent="." unique_id=1853443768]
+stream = ExtResource("6_4l438")
+playback_type = 1
+
+[node name="CloseSFX" type="AudioStreamPlayer" parent="." unique_id=602691674]
+stream = ExtResource("7_pt43d")
+playback_type = 1

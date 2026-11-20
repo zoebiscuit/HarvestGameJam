@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://prtkjxifeov1"]
+
+[ext_resource type="Script" uid="uid://c5yta61e60k0p" path="res://item_menu.gd" id="1_opj5j"]
+[ext_resource type="PackedScene" uid="uid://dly1xhu8nejgo" path="res://current_selection.tscn" id="2_7nvyc"]
+[ext_resource type="PackedScene" uid="uid://1w7jfqtblo6k" path="res://selection_wheel.tscn" id="3_y7jtx"]
+
+[node name="ItemMenu" type="Control" unique_id=1901322293]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_opj5j")
+
+[node name="SelectionWheel" parent="." unique_id=1889418954 instance=ExtResource("3_y7jtx")]
+layout_mode = 1
+
+[node name="current_selection" parent="." unique_id=309242596 instance=ExtResource("2_7nvyc")]
+layout_mode = 1

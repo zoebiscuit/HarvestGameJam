@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://b8xmwd4tud3ej"]
 
 [ext_resource type="Script" uid="uid://dg2tfuho4dbyb" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="AudioStream" uid="uid://82fa3gyvekxp" path="res://SFX/Foley/footstep_grass_000.ogg" id="2_i3pqv"]
+[ext_resource type="AudioStream" uid="uid://cnpqqrd4tebqx" path="res://SFX/Foley/footstep_grass_001.ogg" id="3_hqtel"]
+[ext_resource type="AudioStream" uid="uid://cqadyyvrnduvl" path="res://SFX/Foley/footstep_grass_002.ogg" id="4_sweqy"]
+[ext_resource type="AudioStream" uid="uid://v7gxau75r6bm" path="res://SFX/Foley/footstep_grass_004.ogg" id="5_2hs0m"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rxf60"]
 
@@ -22,3 +26,19 @@ offset_left = -47.0
 offset_top = -91.0
 offset_right = 47.0
 offset_bottom = 96.0
+
+[node name="Footstep1" type="AudioStreamPlayer2D" parent="." unique_id=1159033846]
+position = Vector2(-21, 52)
+stream = ExtResource("2_i3pqv")
+
+[node name="Footstep2" type="AudioStreamPlayer2D" parent="." unique_id=1761084718]
+position = Vector2(24, 53)
+stream = ExtResource("3_hqtel")
+
+[node name="Footstep3" type="AudioStreamPlayer2D" parent="." unique_id=1205158492]
+position = Vector2(24, 53)
+stream = ExtResource("4_sweqy")
+
+[node name="Footstep4" type="AudioStreamPlayer2D" parent="." unique_id=1457415222]
+position = Vector2(24, 53)
+stream = ExtResource("5_2hs0m")

@@ -2,7 +2,9 @@
 extends Control
 
 @onready var count: Label = $Count
-@onready var highlight_sfx: AudioStreamPlayer2D = $HighlightSFX
+@onready var highlight_sfx: AudioStreamPlayer = $HighlightSFX
+@onready var popup_sfx: AudioStreamPlayer = $PopupSFX
+@onready var close_sfx: AudioStreamPlayer = $CloseSFX
 
 const SPRITE_SIZE = Vector2(128,128)
 
@@ -11,7 +13,7 @@ const SPRITE_SIZE = Vector2(128,128)
 @export var line_color: Color
 @export var outer_radius: int = 256
 @export var inner_radius: int = 64
-@export var line_width: int = 4
+@export var line_width: int = 13
 @export var highlight_color : Color
 
 @export var options: Array[WheelOption]
@@ -81,18 +83,29 @@ func _draw():
 				options[i].region
 			)
 
-var highlight_sfx_played = false
+var highlight_sfx_played := false
+var popup_sfx_played := false
 
 func _process(delta):
 	var mouse_pos = get_local_mouse_position()
 	var mouse_radius = mouse_pos.length()
 	
 	if InputMap.has_action("menu"):
-		if Input.is_action_pressed("menu") and can_open:
+		if Input.is_action_just_pressed("menu") and can_open:
+			if is_instance_valid(highlight_sfx): highlight_sfx.volume_db = -10.0
 			show()
+		elif Input.is_action_pressed("menu"):
+			if is_instance_valid(popup_sfx) and !popup_sfx_played: 
+				popup_sfx.play()
+				popup_sfx_played = true
+				
 		elif Input.is_action_just_released("menu"):
+			if is_instance_valid(close_sfx): close_sfx.play()
+			if is_instance_valid(highlight_sfx): highlight_sfx.volume_db = -80.0
+			popup_sfx_played = false
 			hide()
 		else:
+			if is_instance_valid(highlight_sfx): highlight_sfx.volume_db = -80.0
 			hide()
 	
 	
