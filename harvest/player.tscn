@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://b8xmwd4tud3ej"]
 
+[ext_resource type="Script" uid="uid://dg2tfuho4dbyb" path="res://player.gd" id="1_4flbx"]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_rxf60"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i7avt"]
@@ -7,9 +9,16 @@ radius = 82.0
 height = 232.0
 
 [node name="Player" type="CharacterBody2D" unique_id=665135049]
+script = ExtResource("1_4flbx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=950784915]
 sprite_frames = SubResource("SpriteFrames_rxf60")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1692044324]
 shape = SubResource("CapsuleShape2D_i7avt")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1629541131]
+offset_left = -47.0
+offset_top = -91.0
+offset_right = 47.0
+offset_bottom = 96.0

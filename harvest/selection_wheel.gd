@@ -2,6 +2,7 @@
 extends Control
 
 @onready var count: Label = $Count
+@onready var highlight_sfx: AudioStreamPlayer2D = $HighlightSFX
 
 const SPRITE_SIZE = Vector2(128,128)
 
@@ -16,7 +17,9 @@ const SPRITE_SIZE = Vector2(128,128)
 @export var options: Array[WheelOption]
 
 var select = 0
+var last_select: int = -1
 
+var can_open := true
 
 func _draw():
 	
@@ -77,22 +80,46 @@ func _draw():
 				Rect2(draw_pos, SPRITE_SIZE),
 				options[i].region
 			)
-			
+
+var highlight_sfx_played = false
 
 func _process(delta):
 	var mouse_pos = get_local_mouse_position()
 	var mouse_radius = mouse_pos.length()
 	
+	if InputMap.has_action("menu"):
+		if Input.is_action_pressed("menu") and can_open:
+			show()
+		elif Input.is_action_just_released("menu"):
+			hide()
+		else:
+			hide()
+	
+	
 	if mouse_radius > outer_radius:
 		select = 0
+		highlight_sfx_played = false
+		
+		if is_instance_valid(highlight_sfx):
+			highlight_sfx.stop()
+	
+	
 	else:
 		var mouse_rads = fposmod(mouse_pos.angle()* -1, TAU)
 		select = ceil((mouse_rads/TAU)*(len(options)-1)) #ceil = round up (integer wise)
 	
-	if is_instance_valid(count) and select > 0 and select < len(options) and options[select] != null:
-		count.text = str(options[select].count)
-	
-	if is_instance_valid(count) and mouse_radius > outer_radius:
-		count.text = ""
+	if select != last_select:
+		last_select = select
+		queue_redraw()
+
+		if select > 0 and select < len(options) and options[select] != null:
+			if is_instance_valid(count):
+				count.text = str(options[select].count)
+			if is_instance_valid(highlight_sfx):
+				highlight_sfx.stop() 
+				highlight_sfx.play()
+		else:
+			if is_instance_valid(count):
+				count.text = ""
 		
 	queue_redraw()
