@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d161jue2t2wut"
+path="res://.godot/imported/WE Light Inside Rain 7.wav-7684b61de1b7968f8adaea3a2a0f41ad.sample"
+
+[deps]
+
+source_file="res://SFX/Foley/Weather Elements/WE Light Inside Rain 7.wav"
+dest_files=["res://.godot/imported/WE Light Inside Rain 7.wav-7684b61de1b7968f8adaea3a2a0f41ad.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

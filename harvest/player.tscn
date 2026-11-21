@@ -8,37 +8,39 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rxf60"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i7avt"]
-radius = 82.0
-height = 232.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
+size = Vector2(95, 43)
 
 [node name="Player" type="CharacterBody2D" unique_id=665135049]
+y_sort_enabled = true
 script = ExtResource("1_4flbx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=950784915]
+position = Vector2(0, -60)
 sprite_frames = SubResource("SpriteFrames_rxf60")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1692044324]
-shape = SubResource("CapsuleShape2D_i7avt")
+position = Vector2(-0.5, 12.5)
+shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1629541131]
 offset_left = -47.0
-offset_top = -91.0
+offset_top = -151.0
 offset_right = 47.0
-offset_bottom = 96.0
+offset_bottom = 36.0
 
 [node name="Footstep1" type="AudioStreamPlayer2D" parent="." unique_id=1159033846]
-position = Vector2(-21, 52)
+position = Vector2(-21, 23)
 stream = ExtResource("2_i3pqv")
 
 [node name="Footstep2" type="AudioStreamPlayer2D" parent="." unique_id=1761084718]
-position = Vector2(24, 53)
+position = Vector2(24, 24)
 stream = ExtResource("3_hqtel")
 
 [node name="Footstep3" type="AudioStreamPlayer2D" parent="." unique_id=1205158492]
-position = Vector2(24, 53)
+position = Vector2(24, 24)
 stream = ExtResource("4_sweqy")
 
 [node name="Footstep4" type="AudioStreamPlayer2D" parent="." unique_id=1457415222]
-position = Vector2(24, 53)
+position = Vector2(24, 24)
 stream = ExtResource("5_2hs0m")

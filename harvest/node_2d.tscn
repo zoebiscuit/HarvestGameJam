@@ -2,508 +2,29 @@
 
 [ext_resource type="PackedScene" uid="uid://prtkjxifeov1" path="res://item_menu.tscn" id="1_0e48y"]
 [ext_resource type="PackedScene" uid="uid://b8xmwd4tud3ej" path="res://player.tscn" id="2_0e48y"]
-[ext_resource type="Texture2D" uid="uid://dvwod2yihnce1" path="res://img/TEST_TilesetFloor.png" id="2_epypp"]
+[ext_resource type="Texture2D" uid="uid://cstx186jm6fb0" path="res://img/test_layout_mainarea.png" id="2_epypp"]
+[ext_resource type="Texture2D" uid="uid://btqf87i258e2w" path="res://img/leaf.png" id="3_d21ai"]
+[ext_resource type="PackedScene" uid="uid://huiixuyd4cne" path="res://terrain/tree.tscn" id="4_0hol4"]
+[ext_resource type="Shader" uid="uid://cfcslgorr0waa" path="res://fallingLeaves.gdshader" id="5_q6r6c"]
+[ext_resource type="AudioStream" uid="uid://dtqgf6cj5eq4e" path="res://SFX/Foley/leaves_wind.wav" id="6_kdubu"]
+[ext_resource type="AudioStream" uid="uid://cosjt4yhhcl8y" path="res://SFX/Songs/Happy_Theme.ogg" id="8_rj586"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hol4"]
-texture = ExtResource("2_epypp")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-11:0/0 = 0
-12:0/0 = 0
-13:0/0 = 0
-14:0/0 = 0
-15:0/0 = 0
-16:0/0 = 0
-17:0/0 = 0
-18:0/0 = 0
-19:0/0 = 0
-20:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
-11:1/0 = 0
-12:1/0 = 0
-13:1/0 = 0
-14:1/0 = 0
-15:1/0 = 0
-16:1/0 = 0
-17:1/0 = 0
-18:1/0 = 0
-19:1/0 = 0
-20:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-8:2/0 = 0
-9:2/0 = 0
-10:2/0 = 0
-11:2/0 = 0
-12:2/0 = 0
-13:2/0 = 0
-14:2/0 = 0
-15:2/0 = 0
-16:2/0 = 0
-17:2/0 = 0
-18:2/0 = 0
-19:2/0 = 0
-20:2/0 = 0
-21:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-8:3/0 = 0
-9:3/0 = 0
-10:3/0 = 0
-11:3/0 = 0
-12:3/0 = 0
-13:3/0 = 0
-14:3/0 = 0
-15:3/0 = 0
-16:3/0 = 0
-17:3/0 = 0
-18:3/0 = 0
-19:3/0 = 0
-20:3/0 = 0
-21:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-7:4/0 = 0
-8:4/0 = 0
-11:4/0 = 0
-12:4/0 = 0
-15:4/0 = 0
-16:4/0 = 0
-17:4/0 = 0
-18:4/0 = 0
-19:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-11:5/0 = 0
-12:5/0 = 0
-13:5/0 = 0
-14:5/0 = 0
-15:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-11:6/0 = 0
-12:6/0 = 0
-13:6/0 = 0
-14:6/0 = 0
-15:6/0 = 0
-16:6/0 = 0
-0:7/0 = 0
-0:7/0/terrain_set = 0
-0:7/0/terrain = 0
-0:7/0/terrains_peering_bit/bottom_right_corner = 0
-1:7/0 = 0
-1:7/0/terrain_set = 0
-1:7/0/terrain = 0
-1:7/0/terrains_peering_bit/bottom_right_corner = 0
-1:7/0/terrains_peering_bit/bottom_left_corner = 0
-2:7/0 = 0
-2:7/0/terrain_set = 0
-2:7/0/terrain = 0
-2:7/0/terrains_peering_bit/bottom_left_corner = 0
-3:7/0 = 0
-4:7/0 = 0
-5:7/0 = 0
-6:7/0 = 0
-7:7/0 = 0
-8:7/0 = 0
-9:7/0 = 0
-11:7/0 = 0
-12:7/0 = 0
-13:7/0 = 0
-14:7/0 = 0
-15:7/0 = 0
-16:7/0 = 0
-17:7/0 = 0
-18:7/0 = 0
-19:7/0 = 0
-20:7/0 = 0
-0:8/0 = 0
-0:8/0/terrain_set = 0
-0:8/0/terrain = 0
-0:8/0/terrains_peering_bit/bottom_right_corner = 0
-0:8/0/terrains_peering_bit/top_right_corner = 0
-1:8/0 = 0
-1:8/0/terrain_set = 0
-1:8/0/terrain = 0
-1:8/0/terrains_peering_bit/bottom_right_corner = 0
-1:8/0/terrains_peering_bit/bottom_left_corner = 0
-1:8/0/terrains_peering_bit/top_left_corner = 0
-1:8/0/terrains_peering_bit/top_right_corner = 0
-2:8/0 = 0
-2:8/0/terrain_set = 0
-2:8/0/terrain = 0
-2:8/0/terrains_peering_bit/bottom_left_corner = 0
-2:8/0/terrains_peering_bit/top_left_corner = 0
-3:8/0 = 0
-4:8/0 = 0
-5:8/0 = 0
-6:8/0 = 0
-7:8/0 = 0
-8:8/0 = 0
-9:8/0 = 0
-11:8/0 = 0
-12:8/0 = 0
-13:8/0 = 0
-14:8/0 = 0
-15:8/0 = 0
-16:8/0 = 0
-17:8/0 = 0
-18:8/0 = 0
-19:8/0 = 0
-20:8/0 = 0
-0:9/0 = 0
-0:9/0/terrain_set = 0
-0:9/0/terrain = 0
-0:9/0/terrains_peering_bit/top_right_corner = 0
-1:9/0 = 0
-1:9/0/terrain_set = 0
-1:9/0/terrain = 0
-1:9/0/terrains_peering_bit/top_left_corner = 0
-1:9/0/terrains_peering_bit/top_right_corner = 0
-2:9/0 = 0
-2:9/0/terrain_set = 0
-2:9/0/terrain = 0
-2:9/0/terrains_peering_bit/top_left_corner = 0
-3:9/0 = 0
-4:9/0 = 0
-5:9/0 = 0
-6:9/0 = 0
-7:9/0 = 0
-8:9/0 = 0
-9:9/0 = 0
-10:9/0 = 0
-11:9/0 = 0
-12:9/0 = 0
-13:9/0 = 0
-14:9/0 = 0
-15:9/0 = 0
-16:9/0 = 0
-17:9/0 = 0
-18:9/0 = 0
-19:9/0 = 0
-20:9/0 = 0
-21:9/0 = 0
-0:10/0 = 0
-1:10/0 = 0
-2:10/0 = 0
-3:10/0 = 0
-4:10/0 = 0
-5:10/0 = 0
-6:10/0 = 0
-7:10/0 = 0
-8:10/0 = 0
-9:10/0 = 0
-10:10/0 = 0
-11:10/0 = 0
-12:10/0 = 0
-13:10/0 = 0
-14:10/0 = 0
-15:10/0 = 0
-16:10/0 = 0
-17:10/0 = 0
-18:10/0 = 0
-19:10/0 = 0
-20:10/0 = 0
-21:10/0 = 0
-0:11/0 = 0
-1:11/0 = 0
-2:11/0 = 0
-3:11/0 = 0
-4:11/0 = 0
-5:11/0 = 0
-6:11/0 = 0
-7:11/0 = 0
-8:11/0 = 0
-11:11/0 = 0
-12:11/0 = 0
-14:11/0 = 0
-15:11/0 = 0
-16:11/0 = 0
-17:11/0 = 0
-18:11/0 = 0
-19:11/0 = 0
-0:12/0 = 0
-1:12/0 = 0
-2:12/0 = 0
-3:12/0 = 0
-4:12/0 = 0
-11:12/0 = 0
-12:12/0 = 0
-13:12/0 = 0
-14:12/0 = 0
-15:12/0 = 0
-0:13/0 = 0
-1:13/0 = 0
-2:13/0 = 0
-3:13/0 = 0
-4:13/0 = 0
-5:13/0 = 0
-11:13/0 = 0
-12:13/0 = 0
-13:13/0 = 0
-14:13/0 = 0
-15:13/0 = 0
-16:13/0 = 0
-0:14/0 = 0
-1:14/0 = 0
-2:14/0 = 0
-3:14/0 = 0
-4:14/0 = 0
-5:14/0 = 0
-6:14/0 = 0
-7:14/0 = 0
-8:14/0 = 0
-9:14/0 = 0
-11:14/0 = 0
-12:14/0 = 0
-13:14/0 = 0
-14:14/0 = 0
-15:14/0 = 0
-16:14/0 = 0
-17:14/0 = 0
-18:14/0 = 0
-19:14/0 = 0
-20:14/0 = 0
-0:15/0 = 0
-1:15/0 = 0
-2:15/0 = 0
-3:15/0 = 0
-4:15/0 = 0
-5:15/0 = 0
-6:15/0 = 0
-7:15/0 = 0
-8:15/0 = 0
-9:15/0 = 0
-11:15/0 = 0
-12:15/0 = 0
-13:15/0 = 0
-14:15/0 = 0
-15:15/0 = 0
-16:15/0 = 0
-17:15/0 = 0
-18:15/0 = 0
-19:15/0 = 0
-20:15/0 = 0
-0:16/0 = 0
-1:16/0 = 0
-2:16/0 = 0
-3:16/0 = 0
-4:16/0 = 0
-5:16/0 = 0
-6:16/0 = 0
-7:16/0 = 0
-8:16/0 = 0
-9:16/0 = 0
-10:16/0 = 0
-11:16/0 = 0
-12:16/0 = 0
-13:16/0 = 0
-14:16/0 = 0
-15:16/0 = 0
-16:16/0 = 0
-17:16/0 = 0
-18:16/0 = 0
-19:16/0 = 0
-20:16/0 = 0
-21:16/0 = 0
-0:17/0 = 0
-1:17/0 = 0
-2:17/0 = 0
-3:17/0 = 0
-4:17/0 = 0
-5:17/0 = 0
-6:17/0 = 0
-7:17/0 = 0
-8:17/0 = 0
-9:17/0 = 0
-10:17/0 = 0
-11:17/0 = 0
-12:17/0 = 0
-13:17/0 = 0
-14:17/0 = 0
-15:17/0 = 0
-16:17/0 = 0
-17:17/0 = 0
-18:17/0 = 0
-19:17/0 = 0
-20:17/0 = 0
-21:17/0 = 0
-0:18/0 = 0
-1:18/0 = 0
-3:18/0 = 0
-4:18/0 = 0
-5:18/0 = 0
-6:18/0 = 0
-7:18/0 = 0
-8:18/0 = 0
-11:18/0 = 0
-12:18/0 = 0
-14:18/0 = 0
-15:18/0 = 0
-16:18/0 = 0
-17:18/0 = 0
-18:18/0 = 0
-19:18/0 = 0
-0:19/0 = 0
-1:19/0 = 0
-2:19/0 = 0
-3:19/0 = 0
-4:19/0 = 0
-11:19/0 = 0
-12:19/0 = 0
-13:19/0 = 0
-14:19/0 = 0
-15:19/0 = 0
-0:20/0 = 0
-1:20/0 = 0
-2:20/0 = 0
-3:20/0 = 0
-4:20/0 = 0
-5:20/0 = 0
-11:20/0 = 0
-12:20/0 = 0
-13:20/0 = 0
-14:20/0 = 0
-15:20/0 = 0
-16:20/0 = 0
-0:21/0 = 0
-1:21/0 = 0
-2:21/0 = 0
-3:21/0 = 0
-4:21/0 = 0
-5:21/0 = 0
-6:21/0 = 0
-7:21/0 = 0
-8:21/0 = 0
-9:21/0 = 0
-11:21/0 = 0
-12:21/0 = 0
-13:21/0 = 0
-14:21/0 = 0
-15:21/0 = 0
-16:21/0 = 0
-17:21/0 = 0
-18:21/0 = 0
-19:21/0 = 0
-20:21/0 = 0
-0:22/0 = 0
-1:22/0 = 0
-2:22/0 = 0
-3:22/0 = 0
-4:22/0 = 0
-5:22/0 = 0
-6:22/0 = 0
-7:22/0 = 0
-8:22/0 = 0
-9:22/0 = 0
-11:22/0 = 0
-12:22/0 = 0
-13:22/0 = 0
-14:22/0 = 0
-15:22/0 = 0
-16:22/0 = 0
-17:22/0 = 0
-18:22/0 = 0
-19:22/0 = 0
-20:22/0 = 0
-0:23/0 = 0
-1:23/0 = 0
-2:23/0 = 0
-3:23/0 = 0
-4:23/0 = 0
-5:23/0 = 0
-6:23/0 = 0
-7:23/0 = 0
-8:23/0 = 0
-9:23/0 = 0
-10:23/0 = 0
-11:23/0 = 0
-12:23/0 = 0
-13:23/0 = 0
-14:23/0 = 0
-15:23/0 = 0
-16:23/0 = 0
-17:23/0 = 0
-18:23/0 = 0
-19:23/0 = 0
-20:23/0 = 0
-21:23/0 = 0
-0:24/0 = 0
-1:24/0 = 0
-2:24/0 = 0
-4:24/0 = 0
-5:24/0 = 0
-6:24/0 = 0
-7:24/0 = 0
-8:24/0 = 0
-9:24/0 = 0
-10:24/0 = 0
-11:24/0 = 0
-12:24/0 = 0
-13:24/0 = 0
-15:24/0 = 0
-16:24/0 = 0
-17:24/0 = 0
-18:24/0 = 0
-19:24/0 = 0
-20:24/0 = 0
-21:24/0 = 0
-0:25/0 = 0
-4:25/0 = 0
-5:25/0 = 0
-6:25/0 = 0
-7:25/0 = 0
-8:25/0 = 0
-15:25/0 = 0
-16:25/0 = 0
-17:25/0 = 0
-18:25/0 = 0
-19:25/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_rxf60"]
-terrain_set_0/mode = 1
-terrain_set_0/terrain_0/name = "Grass"
-terrain_set_0/terrain_0/color = Color(0.80784315, 0.34509805, 0.2509804, 1)
-sources/0 = SubResource("TileSetAtlasSource_0hol4")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rxf60"]
+shader = ExtResource("5_q6r6c")
+shader_parameter/dimensions = Vector2(1152, 648)
+shader_parameter/rows = 10.0
+shader_parameter/columns = 5.0
+shader_parameter/vertical_scroll = 0.029999976977439946
+shader_parameter/horizontal_scroll = 0.0899999756363199
+shader_parameter/size_min = 0.10000000149012
+shader_parameter/size_max = 0.10000000149012
+shader_parameter/wave_min = 0.1
+shader_parameter/wave_max = 0.5000000074506
+shader_parameter/wave_speed = 0.80000001192096
+shader_parameter/wave_rotation = 1.0
+shader_parameter/far_color = Color(0.5019608, 0.73333335, 0.5019608, 0.6)
+shader_parameter/near_color = Color(1, 1, 1, 1)
+shader_parameter/particle_texture = ExtResource("3_d21ai")
 
 [node name="Main" type="Node" unique_id=27969217]
 
@@ -521,18 +42,171 @@ offset_bottom = 23.0
 text = "Player equipped tool"
 
 [node name="ItemMenu" parent="UI" unique_id=1901322293 instance=ExtResource("1_0e48y")]
-offset_left = -297.0
-offset_top = 573.0
-offset_right = -297.0
-offset_bottom = 573.0
-scale = Vector2(0.5437672, 0.5437672)
+offset_left = 957.0
+offset_top = 556.0
+offset_right = -963.0
+offset_bottom = -524.0
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1131732626]
-scale = Vector2(21.824736, 21.824736)
-tile_set = SubResource("TileSet_rxf60")
+[node name="PlayScene" type="Node2D" parent="." unique_id=589162470]
+y_sort_enabled = true
 
-[node name="Player" parent="." unique_id=665135049 instance=ExtResource("2_0e48y")]
-position = Vector2(2587, 4740)
+[node name="FallingLeaves" type="ColorRect" parent="PlayScene" unique_id=174389275]
+z_index = 10
+material = SubResource("ShaderMaterial_rxf60")
+offset_right = 5034.0
+offset_bottom = 5585.0
+color = Color(1, 1, 1, 0.3137255)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=328253252]
+[node name="TextureRect" type="TextureRect" parent="PlayScene" unique_id=1717447691]
+visible = false
+offset_right = 8313.0
+offset_bottom = 8451.334
+scale = Vector2(0.87, 0.87)
+texture = ExtResource("2_epypp")
+
+[node name="Player" parent="PlayScene" unique_id=665135049 instance=ExtResource("2_0e48y")]
+position = Vector2(2470, 1308)
+
+[node name="Camera2D" type="Camera2D" parent="PlayScene/Player" unique_id=328253252]
 position_smoothing_enabled = true
+
+[node name="Trees" type="Node2D" parent="PlayScene" unique_id=1730463499]
+y_sort_enabled = true
+
+[node name="Tree" parent="PlayScene/Trees" unique_id=1882930009 instance=ExtResource("4_0hol4")]
+position = Vector2(2248.4287, 903.8126)
+metadata/_scene_painted = true
+
+[node name="Tree2" parent="PlayScene/Trees" unique_id=1857556862 instance=ExtResource("4_0hol4")]
+position = Vector2(2051.1953, 789.29016)
+metadata/_scene_painted = true
+
+[node name="Tree3" parent="PlayScene/Trees" unique_id=1413049893 instance=ExtResource("4_0hol4")]
+position = Vector2(2515.648, 732.02893)
+metadata/_scene_painted = true
+
+[node name="Tree4" parent="PlayScene/Trees" unique_id=1828935467 instance=ExtResource("4_0hol4")]
+position = Vector2(2242.0664, 483.89673)
+metadata/_scene_painted = true
+
+[node name="Tree5" parent="PlayScene/Trees" unique_id=1026059018 instance=ExtResource("4_0hol4")]
+position = Vector2(2464.749, 961.074)
+metadata/_scene_painted = true
+
+[node name="Tree6" parent="PlayScene/Trees" unique_id=1699044047 instance=ExtResource("4_0hol4")]
+position = Vector2(2649.2573, 808.3772)
+metadata/_scene_painted = true
+
+[node name="Tree7" parent="PlayScene/Trees" unique_id=1857069172 instance=ExtResource("4_0hol4")]
+position = Vector2(2776.505, 1024.6975)
+metadata/_scene_painted = true
+
+[node name="Tree8" parent="PlayScene/Trees" unique_id=1689745110 instance=ExtResource("4_0hol4")]
+position = Vector2(2178.4429, 999.24805)
+metadata/_scene_painted = true
+
+[node name="Tree9" parent="PlayScene/Trees" unique_id=1935023070 instance=ExtResource("4_0hol4")]
+position = Vector2(2462.204, 567.8799)
+metadata/_scene_painted = true
+
+[node name="Tree10" parent="PlayScene/Trees" unique_id=290129913 instance=ExtResource("4_0hol4")]
+position = Vector2(2468.5664, 396.09613)
+metadata/_scene_painted = true
+
+[node name="Tree11" parent="PlayScene/Trees" unique_id=444913595 instance=ExtResource("4_0hol4")]
+position = Vector2(1972.302, 1095.9559)
+metadata/_scene_painted = true
+
+[node name="Tree12" parent="PlayScene/Trees" unique_id=559086529 instance=ExtResource("4_0hol4")]
+position = Vector2(1921.4032, 1280.4644)
+metadata/_scene_painted = true
+
+[node name="Tree13" parent="PlayScene/Trees" unique_id=1058773709 instance=ExtResource("4_0hol4")]
+position = Vector2(1749.6194, 1344.088)
+metadata/_scene_painted = true
+
+[node name="Tree14" parent="PlayScene/Trees" unique_id=1405693708 instance=ExtResource("4_0hol4")]
+position = Vector2(1749.6194, 1477.6976)
+metadata/_scene_painted = true
+
+[node name="Tree15" parent="PlayScene/Trees" unique_id=2066629959 instance=ExtResource("4_0hol4")]
+position = Vector2(1902.316, 1604.9448)
+metadata/_scene_painted = true
+
+[node name="Tree16" parent="PlayScene/Trees" unique_id=210723565 instance=ExtResource("4_0hol4")]
+position = Vector2(1870.5043, 1783.0911)
+metadata/_scene_painted = true
+
+[node name="Tree17" parent="PlayScene/Trees" unique_id=1534828921 instance=ExtResource("4_0hol4")]
+position = Vector2(1997.7515, 1916.7007)
+metadata/_scene_painted = true
+
+[node name="Tree18" parent="PlayScene/Trees" unique_id=804029149 instance=ExtResource("4_0hol4")]
+position = Vector2(2233.159, 1948.5125)
+metadata/_scene_painted = true
+
+[node name="Tree19" parent="PlayScene/Trees" unique_id=1292643200 instance=ExtResource("4_0hol4")]
+position = Vector2(2462.204, 2024.8608)
+metadata/_scene_painted = true
+
+[node name="Tree20" parent="PlayScene/Trees" unique_id=617554156 instance=ExtResource("4_0hol4")]
+position = Vector2(2678.5244, 1923.063)
+metadata/_scene_painted = true
+
+[node name="Tree21" parent="PlayScene/Trees" unique_id=297565123 instance=ExtResource("4_0hol4")]
+position = Vector2(2863.0327, 1986.6865)
+metadata/_scene_painted = true
+
+[node name="Tree22" parent="PlayScene/Trees" unique_id=122677879 instance=ExtResource("4_0hol4")]
+position = Vector2(3028.4543, 1789.4534)
+metadata/_scene_painted = true
+
+[node name="Tree23" parent="PlayScene/Trees" unique_id=1778472496 instance=ExtResource("4_0hol4")]
+position = Vector2(3181.151, 1738.5544)
+metadata/_scene_painted = true
+
+[node name="Tree24" parent="PlayScene/Trees" unique_id=939137755 instance=ExtResource("4_0hol4")]
+position = Vector2(3365.6594, 1821.2651)
+metadata/_scene_painted = true
+
+[node name="Tree25" parent="PlayScene/Trees" unique_id=1694395038 instance=ExtResource("4_0hol4")]
+position = Vector2(3372.0217, 1624.032)
+metadata/_scene_painted = true
+
+[node name="Tree26" parent="PlayScene/Trees" unique_id=1878777396 instance=ExtResource("4_0hol4")]
+position = Vector2(3581.9797, 1579.4954)
+metadata/_scene_painted = true
+
+[node name="Tree27" parent="PlayScene/Trees" unique_id=1708462254 instance=ExtResource("4_0hol4")]
+position = Vector2(3626.5164, 1744.9167)
+metadata/_scene_painted = true
+
+[node name="Tree28" parent="PlayScene/Trees" unique_id=846941661 instance=ExtResource("4_0hol4")]
+position = Vector2(3651.9658, 1980.3242)
+metadata/_scene_painted = true
+
+[node name="Tree29" parent="PlayScene/Trees" unique_id=288481856 instance=ExtResource("4_0hol4")]
+position = Vector2(3613.7915, 2158.4705)
+metadata/_scene_painted = true
+
+[node name="Tree30" parent="PlayScene/Trees" unique_id=1618525867 instance=ExtResource("4_0hol4")]
+position = Vector2(3709.227, 2234.8186)
+metadata/_scene_painted = true
+
+[node name="Tree31" parent="PlayScene/Trees" unique_id=2011656684 instance=ExtResource("4_0hol4")]
+position = Vector2(3658.3281, 2349.3413)
+metadata/_scene_painted = true
+
+[node name="Tree32" parent="PlayScene/Trees" unique_id=923054921 instance=ExtResource("4_0hol4")]
+position = Vector2(3753.7634, 2355.7036)
+metadata/_scene_painted = true
+
+[node name="Wind" type="AudioStreamPlayer" parent="." unique_id=1936971665]
+stream = ExtResource("6_kdubu")
+volume_db = 4.262
+autoplay = true
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1233279197]
+stream = ExtResource("8_rj586")
+volume_db = -7.312
+autoplay = true

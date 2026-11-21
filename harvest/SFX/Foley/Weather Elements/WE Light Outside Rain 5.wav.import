@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dr4o04wp0yjsb"
+path="res://.godot/imported/WE Light Outside Rain 5.wav-5987f3a971af324739d61b83a8f185eb.sample"
+
+[deps]
+
+source_file="res://SFX/Foley/Weather Elements/WE Light Outside Rain 5.wav"
+dest_files=["res://.godot/imported/WE Light Outside Rain 5.wav-5987f3a971af324739d61b83a8f185eb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

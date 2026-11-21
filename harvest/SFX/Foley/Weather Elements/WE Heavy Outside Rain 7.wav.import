@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://boj3ncy82b1wf"
+path="res://.godot/imported/WE Heavy Outside Rain 7.wav-3aa9d1dc6a8382e2e9d421ed75b18707.sample"
+
+[deps]
+
+source_file="res://SFX/Foley/Weather Elements/WE Heavy Outside Rain 7.wav"
+dest_files=["res://.godot/imported/WE Heavy Outside Rain 7.wav-3aa9d1dc6a8382e2e9d421ed75b18707.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

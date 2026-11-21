@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://q0dau88o8hf4"
+path="res://.godot/imported/WE Heavy Wind Whistle 6.wav-ab49fbea759632921d5cba3abcfe4a2c.sample"
+
+[deps]
+
+source_file="res://SFX/Foley/Weather Elements/WE Heavy Wind Whistle 6.wav"
+dest_files=["res://.godot/imported/WE Heavy Wind Whistle 6.wav-ab49fbea759632921d5cba3abcfe4a2c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
