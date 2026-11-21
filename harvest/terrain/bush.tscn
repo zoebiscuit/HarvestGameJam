@@ -49,7 +49,7 @@ material = SubResource("ShaderMaterial_onf8i")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=448820018]
 use_parent_material = true
-position = Vector2(1, -53)
+position = Vector2(1, 50)
 scale = Vector2(0.77890897, 0.77890897)
 texture = ExtResource("1_lvnc6")
 
