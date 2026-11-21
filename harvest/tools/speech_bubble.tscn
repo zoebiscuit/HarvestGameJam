@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://2okxefglgr87" path="res://SFX/Dialogue/Dialogue_Expression_Neutral_01.ogg" id="4_ll58w"]
 [ext_resource type="AudioStream" uid="uid://o8b0kegh6ip2" path="res://SFX/Dialogue/Dialogue_Expression_Negative_01.ogg" id="5_3xlt3"]
 [ext_resource type="AudioStream" uid="uid://d1mnwbo88bi82" path="res://SFX/Dialogue/Dialogue_Expression_Positive_01.ogg" id="6_3uy15"]
+[ext_resource type="AudioStream" uid="uid://cq0l03ci6nrc7" path="res://SFX/Menus/Transition_02.ogg" id="7_ll58w"]
 
 [node name="SpeechBubble" type="Node2D" unique_id=120089912]
 z_index = 5
@@ -48,8 +49,6 @@ theme_override_constants/margin_bottom = 12
 custom_minimum_size = Vector2(270, 0)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 25
-text = "Well, I don't follow...
-what do you mean?"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
@@ -68,3 +67,7 @@ stream = ExtResource("5_3xlt3")
 
 [node name="VoicePositive" type="AudioStreamPlayer2D" parent="." unique_id=146628823]
 stream = ExtResource("6_3uy15")
+
+[node name="Advance" type="AudioStreamPlayer2D" parent="." unique_id=199527623]
+stream = ExtResource("7_ll58w")
+pitch_scale = 2.34

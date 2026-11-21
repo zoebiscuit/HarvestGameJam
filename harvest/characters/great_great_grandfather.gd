@@ -4,15 +4,21 @@ extends Node2D
 
 @export var player : CharacterBody2D
 
-# Called when the node enters the scene tree for the first time.
+var _snoring := true
+
 func _ready() -> void:
+	snoring.play()
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	speech_bubble.player = player
-
-
+func _unhandled_input(event: InputEvent) -> void:
+	if _snoring and event.is_action_pressed("enter"):
+		start_conversation()
+		
 func start_conversation():
-	pass
+	_snoring = false
+	snoring.stop()
+	await speech_bubble.say("mmmmmm...", "neutral")
+	await speech_bubble.say("mmmmmmHM...!", "neutral")
+	await speech_bubble.say("Who is it!?", "positive")
+	await speech_bubble.say("Oh.
+	It's you!", "positive")

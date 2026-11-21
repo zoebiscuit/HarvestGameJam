@@ -17,10 +17,8 @@ volume_db = -5.967
 attenuation = 3.4822018
 panning_strength = 5.84
 
-[node name="Voice" type="AudioStreamPlayer2D" parent="." unique_id=403820744]
-
 [node name="SpeechBubble" parent="." unique_id=120089912 instance=ExtResource("3_fqm1p")]
-position = Vector2(-146, -261)
+position = Vector2(0, -234)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1742648464]
 

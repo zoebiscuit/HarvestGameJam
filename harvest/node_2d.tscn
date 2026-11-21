@@ -582,8 +582,9 @@ metadata/_scene_painted = true
 [node name="Characters" type="Node2D" parent="PlayScene" unique_id=62022517]
 y_sort_enabled = true
 
-[node name="GreatGreatGrandfather" parent="PlayScene/Characters" unique_id=495964256 instance=ExtResource("9_hqns4")]
+[node name="GreatGreatGrandfather" parent="PlayScene/Characters" unique_id=495964256 node_paths=PackedStringArray("player") instance=ExtResource("9_hqns4")]
 position = Vector2(2425, 1106)
+player = NodePath("../../Player")
 
 [node name="Wind" type="AudioStreamPlayer" parent="." unique_id=1936971665]
 stream = ExtResource("6_kdubu")
