@@ -36,7 +36,7 @@ metadata/_custom_type_script = "uid://5g0trtfgfiyl"
 atlas = ExtResource("3_1b50i")
 region = Rect2(0, 0, 128, 128)
 script = ExtResource("2_0isde")
-count = 34
+count = -1
 metadata/_custom_type_script = "uid://5g0trtfgfiyl"
 
 [node name="SelectionWheel" type="Control" unique_id=1889418954]

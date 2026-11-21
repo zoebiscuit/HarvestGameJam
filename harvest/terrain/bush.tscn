@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cawl8d28clsyh"]
+
+[ext_resource type="Texture2D" uid="uid://8eqplxdkp0uw" path="res://img/bush.png" id="1_lvnc6"]
+
+[sub_resource type="Shader" id="Shader_lvnc6"]
+code = "shader_type canvas_item;
+
+
+uniform float wind_start_threshold : hint_range(0,1) = 0.1;
+uniform float wind_end_threshold : hint_range(0,10) = 2;
+uniform float wind_end_threshold_2 : hint_range(0,2) = .1;
+uniform float wind_strength : hint_range(0,1.5) = .2;
+uniform float wind_speed  : hint_range(.2,5) = 1;
+uniform float scale = 2.0;
+
+void vertex() {
+	VERTEX *= scale;
+}
+
+void fragment() {
+    vec2 uv = (UV - REGION_RECT.xy) / REGION_RECT.zw * scale;
+	uv -= (scale - 1.) / scale;
+	
+	float dist_amount = smoothstep(wind_start_threshold * pow((1.0 - uv.y), wind_end_threshold), wind_end_threshold_2, 1.-uv.y);
+    uv.x += sin(TIME * wind_speed) * pow((1.0 - uv.y), wind_end_threshold) * dist_amount  * wind_strength ;
+    
+	COLOR = texture(TEXTURE, uv * REGION_RECT.zw + REGION_RECT.xy);
+    vec2 border = step(vec2(0.0), uv) * step(uv, vec2(1.0));
+    COLOR.a *= border.x * border.y;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_onf8i"]
+shader = SubResource("Shader_lvnc6")
+shader_parameter/wind_start_threshold = 0.0
+shader_parameter/wind_end_threshold = 2.97200014117
+shader_parameter/wind_end_threshold_2 = 0.2230000105925
+shader_parameter/wind_strength = 0.0310000014725
+shader_parameter/wind_speed = 1.0020000410752299
+shader_parameter/scale = 2.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rxf60"]
+radius = 37.0
+height = 74.0
+
+[node name="Bush" type="StaticBody2D" unique_id=1875478540]
+material = SubResource("ShaderMaterial_onf8i")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=448820018]
+use_parent_material = true
+position = Vector2(1, 8)
+scale = Vector2(0.77890897, 0.77890897)
+texture = ExtResource("1_lvnc6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1662868468]
+position = Vector2(6, 1)
+shape = SubResource("CapsuleShape2D_rxf60")
+disabled = true

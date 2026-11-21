@@ -3,17 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://gfmq78hbf35d" path="res://img/TREE.png" id="1_mwxsk"]
 [ext_resource type="Shader" uid="uid://bql2epru6tg7n" path="res://terrain/tree_sway.gdshader" id="1_nrxdg"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sm03v"]
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q6r6c"]
 shader = ExtResource("1_nrxdg")
-shader_parameter/render_noise = false
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_sm03v")
-shader_parameter/amplitude = 0.03999999910592
-shader_parameter/time_scale = 0.13999999687072
-shader_parameter/noise_scale = 0.00289999992663
-shader_parameter/rotation_strength = 0.5000000074506
-shader_parameter/rotation_pivot = Vector2(0.5, 1.11)
+shader_parameter/wind_start_threshold = 0.0
+shader_parameter/wind_end_threshold = 2.97200014117
+shader_parameter/wind_end_threshold_2 = 0.1
+shader_parameter/wind_strength = 0.0310000014725
+shader_parameter/wind_speed = 1.00100004102773
+shader_parameter/scale = 2.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3f5hn"]
 radius = 53.0

@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var footstep_3: AudioStreamPlayer2D = $Footstep3
 @onready var footstep_4: AudioStreamPlayer2D = $Footstep4
 
+@export var sound_effect : AudioStreamPlayer2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0

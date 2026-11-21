@@ -145,7 +145,10 @@ func _process(delta):
 		
 		if select > 0 and select < len(options) and options[select] != null:
 			if is_instance_valid(count):
-				count.text = str(options[select].count)
+				
+				if options[select].count < 0: count.text = ""
+				else: count.text = str(options[select].count)
+				
 			if is_instance_valid(highlight_sfx):
 				highlight_sfx.stop() 
 				highlight_sfx.play()

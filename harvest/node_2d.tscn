@@ -2,11 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://prtkjxifeov1" path="res://item_menu.tscn" id="1_0e48y"]
 [ext_resource type="PackedScene" uid="uid://b8xmwd4tud3ej" path="res://player.tscn" id="2_0e48y"]
+[ext_resource type="Script" uid="uid://bew33jb8ivbre" path="res://play_scene.gd" id="2_4d7sh"]
 [ext_resource type="Texture2D" uid="uid://cstx186jm6fb0" path="res://img/test_layout_mainarea.png" id="2_epypp"]
 [ext_resource type="Texture2D" uid="uid://btqf87i258e2w" path="res://img/leaf.png" id="3_d21ai"]
 [ext_resource type="PackedScene" uid="uid://huiixuyd4cne" path="res://terrain/tree.tscn" id="4_0hol4"]
 [ext_resource type="Shader" uid="uid://cfcslgorr0waa" path="res://fallingLeaves.gdshader" id="5_q6r6c"]
 [ext_resource type="AudioStream" uid="uid://dtqgf6cj5eq4e" path="res://SFX/Foley/leaves_wind.wav" id="6_kdubu"]
+[ext_resource type="PackedScene" uid="uid://cawl8d28clsyh" path="res://terrain/bush.tscn" id="8_ir8iy"]
 [ext_resource type="AudioStream" uid="uid://cosjt4yhhcl8y" path="res://SFX/Songs/Happy_Theme.ogg" id="8_rj586"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rxf60"]
@@ -49,6 +51,7 @@ offset_bottom = -524.0
 
 [node name="PlayScene" type="Node2D" parent="." unique_id=589162470]
 y_sort_enabled = true
+script = ExtResource("2_4d7sh")
 
 [node name="FallingLeaves" type="ColorRect" parent="PlayScene" unique_id=174389275]
 z_index = 10
@@ -158,7 +161,7 @@ position = Vector2(2863.0327, 1986.6865)
 metadata/_scene_painted = true
 
 [node name="Tree22" parent="PlayScene/Trees" unique_id=122677879 instance=ExtResource("4_0hol4")]
-position = Vector2(3028.4543, 1789.4534)
+position = Vector2(3032, 1855)
 metadata/_scene_painted = true
 
 [node name="Tree23" parent="PlayScene/Trees" unique_id=1778472496 instance=ExtResource("4_0hol4")]
@@ -166,11 +169,11 @@ position = Vector2(3181.151, 1738.5544)
 metadata/_scene_painted = true
 
 [node name="Tree24" parent="PlayScene/Trees" unique_id=939137755 instance=ExtResource("4_0hol4")]
-position = Vector2(3365.6594, 1821.2651)
+position = Vector2(3343, 1913)
 metadata/_scene_painted = true
 
 [node name="Tree25" parent="PlayScene/Trees" unique_id=1694395038 instance=ExtResource("4_0hol4")]
-position = Vector2(3372.0217, 1624.032)
+position = Vector2(3361, 1583)
 metadata/_scene_painted = true
 
 [node name="Tree26" parent="PlayScene/Trees" unique_id=1878777396 instance=ExtResource("4_0hol4")]
@@ -182,15 +185,15 @@ position = Vector2(3626.5164, 1744.9167)
 metadata/_scene_painted = true
 
 [node name="Tree28" parent="PlayScene/Trees" unique_id=846941661 instance=ExtResource("4_0hol4")]
-position = Vector2(3651.9658, 1980.3242)
+position = Vector2(3757, 1949)
 metadata/_scene_painted = true
 
 [node name="Tree29" parent="PlayScene/Trees" unique_id=288481856 instance=ExtResource("4_0hol4")]
-position = Vector2(3613.7915, 2158.4705)
+position = Vector2(3520, 2134)
 metadata/_scene_painted = true
 
 [node name="Tree30" parent="PlayScene/Trees" unique_id=1618525867 instance=ExtResource("4_0hol4")]
-position = Vector2(3709.227, 2234.8186)
+position = Vector2(3786, 2214)
 metadata/_scene_painted = true
 
 [node name="Tree31" parent="PlayScene/Trees" unique_id=2011656684 instance=ExtResource("4_0hol4")]
@@ -198,15 +201,31 @@ position = Vector2(3658.3281, 2349.3413)
 metadata/_scene_painted = true
 
 [node name="Tree32" parent="PlayScene/Trees" unique_id=923054921 instance=ExtResource("4_0hol4")]
-position = Vector2(3753.7634, 2355.7036)
+position = Vector2(3789, 2464)
+metadata/_scene_painted = true
+
+[node name="Bushes" type="Node2D" parent="PlayScene" unique_id=907903047]
+y_sort_enabled = true
+
+[node name="Bush" parent="PlayScene/Bushes" unique_id=1875478540 instance=ExtResource("8_ir8iy")]
+position = Vector2(2343.8364, 1038.7294)
+metadata/_scene_painted = true
+
+[node name="Bush2" parent="PlayScene/Bushes" unique_id=1863736713 instance=ExtResource("8_ir8iy")]
+position = Vector2(2062.4097, 2010.7476)
+metadata/_scene_painted = true
+
+[node name="Bush3" parent="PlayScene/Bushes" unique_id=1276793985 instance=ExtResource("8_ir8iy")]
+position = Vector2(2701.1074, 2004.0945)
 metadata/_scene_painted = true
 
 [node name="Wind" type="AudioStreamPlayer" parent="." unique_id=1936971665]
 stream = ExtResource("6_kdubu")
-volume_db = 4.262
+volume_db = 6.525
 autoplay = true
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1233279197]
 stream = ExtResource("8_rj586")
-volume_db = -7.312
+volume_db = -17.468
 autoplay = true
+playback_type = 1
