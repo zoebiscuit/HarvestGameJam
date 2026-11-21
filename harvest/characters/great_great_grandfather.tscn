@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ia7b8gjawlki"]
+
+[ext_resource type="AudioStream" uid="uid://0knl58rwcnq7" path="res://SFX/Characters/Snoring.ogg" id="1_gmcqu"]
+[ext_resource type="Script" uid="uid://bi8wkyawq0xel" path="res://characters/great_great_grandfather.gd" id="1_u6rx4"]
+[ext_resource type="PackedScene" uid="uid://boclgs3nc0qty" path="res://tools/speech_bubble.tscn" id="3_fqm1p"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rxf60"]
+radius = 145.0
+height = 300.0
+
+[node name="GreatGreatGrandfather" type="Node2D" unique_id=495964256]
+script = ExtResource("1_u6rx4")
+
+[node name="Snoring" type="AudioStreamPlayer2D" parent="." unique_id=723353913]
+stream = ExtResource("1_gmcqu")
+volume_db = -5.967
+attenuation = 3.4822018
+panning_strength = 5.84
+
+[node name="Voice" type="AudioStreamPlayer2D" parent="." unique_id=403820744]
+
+[node name="SpeechBubble" parent="." unique_id=120089912 instance=ExtResource("3_fqm1p")]
+position = Vector2(-146, -261)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1742648464]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=658146152]
+position = Vector2(0, -20)
+shape = SubResource("CapsuleShape2D_rxf60")

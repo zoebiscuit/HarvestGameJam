@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var sound_effect : AudioStreamPlayer2D
 
 const SPEED = 300.0
+const SPRINT_SPEED = 500.0
 const JUMP_VELOCITY = -400.0
 
 
@@ -14,6 +15,7 @@ func _physics_process(delta: float) -> void:
 	#var step_played : bool = false 
 	var input_vector = Vector2.ZERO
 	#var rand_footstep = randi_range(1, 5)
+	var actual_speed : float
 	
 	if Input.is_action_pressed("up"):
 		input_vector.y -= 1
@@ -24,7 +26,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("right"):
 		input_vector.x += 1
 	
-	velocity = input_vector * SPEED
+	if Input.is_action_pressed("shift"):
+		actual_speed = SPRINT_SPEED
+	else: actual_speed = SPEED
+		
+	velocity = input_vector * actual_speed
 
 	move_and_slide()
 

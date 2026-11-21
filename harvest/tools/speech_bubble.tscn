@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://boclgs3nc0qty"]
+
+[ext_resource type="Script" uid="uid://ftx7mgtg047c" path="res://tools/speech_bubble.gd" id="1_e6mr3"]
+[ext_resource type="Texture2D" uid="uid://bnw1ngfyj617q" path="res://icon.svg" id="1_k48yj"]
+[ext_resource type="AudioStream" uid="uid://ts1xiucil25w" path="res://SFX/Dialogue/Dialogue_Expression_Angry_01.ogg" id="3_7da3q"]
+[ext_resource type="AudioStream" uid="uid://2okxefglgr87" path="res://SFX/Dialogue/Dialogue_Expression_Neutral_01.ogg" id="4_ll58w"]
+[ext_resource type="AudioStream" uid="uid://o8b0kegh6ip2" path="res://SFX/Dialogue/Dialogue_Expression_Negative_01.ogg" id="5_3xlt3"]
+[ext_resource type="AudioStream" uid="uid://d1mnwbo88bi82" path="res://SFX/Dialogue/Dialogue_Expression_Positive_01.ogg" id="6_3uy15"]
+
+[node name="SpeechBubble" type="Node2D" unique_id=120089912]
+z_index = 5
+script = ExtResource("1_e6mr3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1198736902]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.0
+offset_top = -42.0
+offset_right = 147.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=93131497]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/PanelContainer" unique_id=1746775706]
+layout_mode = 2
+texture = ExtResource("1_k48yj")
+region_rect = Rect2(10.546112, 103.17349, 15.627274, 16.049637)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer" unique_id=491825651]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/PanelContainer/MarginContainer" unique_id=1768861563]
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "Well, I don't follow...
+what do you mean?"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=1016316630]
+layout_mode = 2
+
+[node name="VoiceAngry" type="AudioStreamPlayer2D" parent="." unique_id=1493796734]
+stream = ExtResource("3_7da3q")
+
+[node name="VoiceNeutral" type="AudioStreamPlayer2D" parent="." unique_id=639714484]
+stream = ExtResource("4_ll58w")
+
+[node name="VoiceNegative" type="AudioStreamPlayer2D" parent="." unique_id=786692719]
+stream = ExtResource("5_3xlt3")
+
+[node name="VoicePositive" type="AudioStreamPlayer2D" parent="." unique_id=146628823]
+stream = ExtResource("6_3uy15")
