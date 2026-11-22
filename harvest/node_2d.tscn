@@ -342,7 +342,7 @@ y_sort_enabled = true
 script = ExtResource("2_4d7sh")
 
 [node name="Camera2D" type="Camera2D" parent="PlayScene" unique_id=328253252]
-position = Vector2(3610, 7408)
+position = Vector2(3610, 13007)
 limit_left = 0
 limit_top = 0
 limit_right = 8311
@@ -359,8 +359,8 @@ texture = ExtResource("5_hqns4")
 [node name="FallingLeaves" type="ColorRect" parent="PlayScene" unique_id=174389275]
 z_index = 10
 material = SubResource("ShaderMaterial_rxf60")
-offset_right = 5034.0
-offset_bottom = 5585.0
+offset_right = 8417.0
+offset_bottom = 5841.0
 mouse_filter = 2
 color = Color(1, 1, 1, 0.3137255)
 

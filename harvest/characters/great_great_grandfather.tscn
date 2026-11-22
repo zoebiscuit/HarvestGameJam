@@ -11,11 +11,7 @@ height = 300.0
 [node name="GreatGreatGrandfather" type="Node2D" unique_id=495964256]
 script = ExtResource("1_u6rx4")
 
-[node name="Snoring" type="AudioStreamPlayer2D" parent="." unique_id=723353913]
-stream = ExtResource("1_gmcqu")
-volume_db = -5.967
-attenuation = 3.4822018
-panning_strength = 5.84
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1882209439]
 
 [node name="SpeechBubble" parent="." unique_id=120089912 instance=ExtResource("3_fqm1p")]
 position = Vector2(0, -234)
@@ -25,3 +21,9 @@ position = Vector2(0, -234)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=658146152]
 position = Vector2(0, -20)
 shape = SubResource("CapsuleShape2D_rxf60")
+
+[node name="Snoring" type="AudioStreamPlayer2D" parent="." unique_id=723353913]
+stream = ExtResource("1_gmcqu")
+volume_db = -5.967
+attenuation = 3.4822018
+panning_strength = 5.84

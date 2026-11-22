@@ -1,0 +1,170 @@
+[gd_scene format=3 uid="uid://ddvfhiuggeofu"]
+
+[ext_resource type="Shader" uid="uid://bumcigor5l6vh" path="res://title_screen.gdshader" id="1_3ykye"]
+[ext_resource type="Texture2D" uid="uid://ceb21asnxh1v0" path="res://img/question.png" id="2_gc0em"]
+[ext_resource type="Theme" uid="uid://btibvqkkc41uo" path="res://themes/GeneralButtonTheme.tres" id="3_cj1lu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_71mqq"]
+shader = ExtResource("1_3ykye")
+shader_parameter/pattern = ExtResource("2_gc0em")
+shader_parameter/pattern_color = Color(1, 1, 1, 1)
+shader_parameter/tiling = 100.0
+shader_parameter/speed = Vector2(0.1, 0.5)
+shader_parameter/rotation = 0.0
+
+[node name="Settings" type="Control" unique_id=628070999]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG2" type="ColorRect" parent="." unique_id=1082394620]
+material = SubResource("ShaderMaterial_71mqq")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.99999994, 0.865041, 0.7338919, 1)
+
+[node name="Settings" type="MarginContainer" parent="." unique_id=389612410]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 175
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 175
+theme_override_constants/margin_bottom = 100
+
+[node name="TabContainer" type="TabContainer" parent="Settings" unique_id=196310737]
+layout_mode = 2
+theme = ExtResource("3_cj1lu")
+theme_override_constants/tab_separation = 18
+current_tab = 0
+clip_tabs = false
+
+[node name="Settings" type="TabBar" parent="Settings/TabContainer" unique_id=81009652]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Settings/TabContainer/Settings" unique_id=2136267303]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Settings/TabContainer/Settings/MarginContainer" unique_id=490121970]
+layout_mode = 2
+theme_override_constants/separation = 42
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Settings/TabContainer/Settings/MarginContainer/VBoxContainer3" unique_id=1314254396]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme_override_constants/separation = 69
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Settings/TabContainer/Settings/MarginContainer/VBoxContainer3/VBoxContainer" unique_id=1253331634]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/normal_font_size = 45
+text = "Master"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="HSlider" parent="Settings/TabContainer/Settings/MarginContainer/VBoxContainer3/VBoxContainer" unique_id=1036554266]
+custom_minimum_size = Vector2(800, 100)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="Settings/TabContainer/Settings/MarginContainer/VBoxContainer3" unique_id=912316402]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme_override_constants/separation = 69
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Settings/TabContainer/Settings/MarginContainer/VBoxContainer3/VBoxContainer2" unique_id=966890535]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/normal_font_size = 45
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="HSlider" parent="Settings/TabContainer/Settings/MarginContainer/VBoxContainer3/VBoxContainer2" unique_id=1779458072]
+custom_minimum_size = Vector2(800, 100)
+layout_mode = 2
+
+[node name="VBoxContainer3" type="HBoxContainer" parent="Settings/TabContainer/Settings/MarginContainer/VBoxContainer3" unique_id=1884578858]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme_override_constants/separation = 69
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Settings/TabContainer/Settings/MarginContainer/VBoxContainer3/VBoxContainer3" unique_id=1612831445]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/normal_font_size = 45
+text = "Ambience"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="HSlider" parent="Settings/TabContainer/Settings/MarginContainer/VBoxContainer3/VBoxContainer3" unique_id=2135029009]
+custom_minimum_size = Vector2(800, 100)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Settings/TabContainer/Settings/MarginContainer" unique_id=1735087238]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="Settings/TabContainer/Settings/MarginContainer/Control" unique_id=1086019346 groups=["normal_buttons"]]
+layout_mode = 0
+offset_left = 564.0
+offset_top = 426.0
+offset_right = 958.0
+offset_bottom = 578.0
+text = "Mute"
+alignment = 1
+
+[node name="Help" type="TabBar" parent="Settings/TabContainer" unique_id=1517387239]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/TabContainer/Help" unique_id=258535388]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Settings/TabContainer/Help/VBoxContainer" unique_id=318156649]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Settings/TabContainer/Help/VBoxContainer/MarginContainer" unique_id=137859232]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 36
+text = "Need Help? Here's a short guide for u gng:"
+
+[node name="About" type="TabBar" parent="Settings/TabContainer" unique_id=659653739]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2

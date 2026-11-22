@@ -1,10 +1,15 @@
 extends Node
 
-var point = load("res://img/point.png")
+var point: Texture2D = preload("res://img/point.png")
+var button_sfx: AudioStream = preload("res://SFX/Actions/Button_Pressed_09.ogg")
+var audio_player := AudioStreamPlayer.new()
 
 func _ready() -> void:
-	pass
+	add_child(audio_player)
+	audio_player.stream = button_sfx
+	
+	for button: BaseButton in get_tree().get_nodes_in_group("normal_buttons"):
+		button.pressed.connect(_on_group_button_pressed.bind(button))
 
-
-func _process(delta: float) -> void:
-	Input.set_custom_mouse_cursor(point, Input.CURSOR_POINTING_HAND)
+func _on_group_button_pressed(button: BaseButton) -> void:
+	audio_player.play()
