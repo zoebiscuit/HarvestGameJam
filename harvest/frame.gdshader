@@ -1,124 +1,43 @@
-
 shader_type canvas_item;
 
-// Hole radius in pixels
-uniform float hole_radius = 10.0;
+// Shader for creating an animated pattern background.
+// Works well with kenney's pattern pack: https://kenney.nl/assets/pattern-pack-extra
 
-// Smoothstep for antialiasing
-uniform float edge_smoothstep = .5;
+// Assign this shader to a ColorRect node and set "Anchors Preset" to "Full Rect" to create a background.
+// Works with other 2D nodes as well.
 
-// Node size in pixels (Have to inject it by node script)
-instance uniform vec2 size = vec2(100.0, 100.0);
-instance uniform vec4 border_color: source_color = vec4(1.0);
-instance uniform vec4 shadow_color : source_color = vec4(1.0, 0.0, 0.0, .5);
-// Shadow offset
-instance uniform vec2 shadow = vec2(3.0, 5.0);
+// Assign the pattern texture here.
+// Should be a black and white square texture containing the base pattern.
+uniform sampler2D pattern: repeat_enable;
+// The color you want the pattern to appear as.
+uniform vec4 pattern_color: source_color = vec4(1.0);
 
-// UV in Pixels
-varying vec2 uv_pixels;
+// Factor by which UVs are divided.
+// Affects the size of each repeating pattern.
+uniform float tiling = 100.0;
+// How fast the background moves.
+uniform vec2 speed = vec2(0.1, 0.5);
+// Rotation of the base pattern in a range from -2pi to 2pi.
+// You can also use a range from -360 to 360 degrees and convert to radians in the vertex shader.
+uniform float rotation: hint_range(-6.28318530717959, 6.28318530717959) = 0.0;
 
+// Compute UVs in the vertex shader and pass them to the fragment shader.
+varying vec2 tiled_uv;
+
+// Called for every vertex the material is visible on.
 void vertex() {
-
-    // Środek ustawiamy na (0.5, 0.5)
-    vec2 norm_pos = UV - vec2(0.5);
-    
-    // Margines potrzebny aby narysować cień
-    float margin_pixels = max(abs(shadow.x), abs(shadow.y));
-    
-    // VERTEX powiększony o margines
-    VERTEX += norm_pos * margin_pixels * 2.0;
-    
-    // uv w pixelach
-    uv_pixels = norm_pos * (size + margin_pixels * 2.0);
+	// Compute UVs to sample the pattern texture
+	// We use VERTEX instead of UV to avoid stretching on rectangular backgrounds
+	tiled_uv = VERTEX / tiling + TIME * speed;
+	// Apply a rotation using a rotation matrix
+	float c = cos(rotation);
+	float s = sin(rotation);
+	tiled_uv = mat2(vec2(c, -s), vec2(s, c)) * tiled_uv;
 }
 
-// Budujemy jednocześnie obie strony ramki w kierunku jednej osi
-float build_border(float main_axis_position, float cross_axis_position, float obj_dimention, float obj_cross_dimention) {
-  // Zakładam że ramka składa się z n dziur o promieniu r, 
-  // rozdzielonych przerwami o wymiarze p >= r.
-  // Pierwsze dziury zaczynają sie na rogach
-  
-  // Teoretyczna ilość dziur (nie licząc narożnych).
-  float fnX = obj_dimention / (3.0 * hole_radius) - 1.0;
-  
-  // Praktyczne (całkowita) ilość dziur.
-  float nX = floor(fnX);
-  
-  // Szerokość obiektu jezeli x = r;
-  float ideal_obj_width = 3.0 * hole_radius * (1.0 + nX);
-  
-  // Róznica między idealną a prawdziwą szerokością obiektu
-  float dnX = obj_dimention - ideal_obj_width;
-  
-  // Ilość przerw
-  float pX = nX + 1.0;
-  
-  // Korekta szerokości przerwy.
-  float dpWidht = dnX / pX;
-  
-  // Realna szerokość przerw
-  float pWidth = hole_radius + dpWidht;
-  
-  // Kazdy segment składa się z dwóch promieni dziury i jednej przerwy
-  // Szerowkość segmentu.
-  float segmentWidth = 2.0 * hole_radius + pWidth;
-
-  // Wyliczamy x w relacji do segmentu
-  float dx = mod(main_axis_position, segmentWidth);
-  dx -= step(segmentWidth / 2.0, dx) * segmentWidth;
-
-  // Dziura górna
-  vec2 c1 = vec2(0.0, 0.0);
-  // Dzira dolna
-  vec2 c2 = vec2(0.0, obj_cross_dimention);
-  
-  // UV w segmencie w pixelach
-  vec2 uv = vec2(dx, cross_axis_position);
-  
-  // Odleglość od górnej dziury
-  float l1 = length(uv - c1);
-  
-  // Odleglość od dolnej dziury
-  float l2 = length(uv - c2);
-  
-  // Odleglość do najbliższej dziury
-  float l = min(l1, l2);
-  
-  // Smoothstep aby pozbyć się pixelozy przy obracaniu obiektem
-  return smoothstep(hole_radius - edge_smoothstep, hole_radius + edge_smoothstep, l);
-}
-
-// Kształ zbudowany jest z dwóch części: wzoru osi X i wzoru osi Y;
-float get_shape(float x, float y) {
-  vec2 half_size = size / 2.0;
-  float is_in_shape = step(-half_size.x, x) * step(x, half_size.x) * step(-half_size.y, y) * step(y, half_size.y);
-  
-  float _x = x + half_size.x;
-  float _y = y + half_size.y;
-  float x_alpha = build_border(_x, _y, size.x, size.y);
-  float y_alpha = build_border(_y, _x, size.y, size.x);
-  return is_in_shape * x_alpha * y_alpha;
-}
-
+// Called for every pixel the material is visible on.
 void fragment() {
-  float x = uv_pixels.x;
-  float y = uv_pixels.y;
-  
-  // Głowny kształ znaczka
-  float shape = get_shape(x, y);
-  
-  // Przesunięsie cienia
-  float _sx = x + size.x / 2.0 - shadow.x;
-  float _sy = y + size.y / 2.0 - shadow.y;
-  
-  // Kształ cienia
-  float shadow_shape = get_shape(x - shadow.x, y - shadow.y);
-  
-  vec4 final_color_1 = mix(vec4(shadow_color.rgb, 0.0), shadow_color, shadow_shape);
-  vec4 final_color_2 = mix(vec4(border_color.rgb, 0.0), shadow_color, shape);
-  
-  vec4 final_color = mix(final_color_1, border_color, shape);
-  
-  COLOR = final_color;
-  
+	// Mix the color of the ColorRect with the color of the pattern based on the pattern texture
+	// The third parameter is basically the value of the pattern and tells how much of each color to use in the mix
+	COLOR = mix(COLOR, pattern_color, texture(pattern, tiled_uv));
 }

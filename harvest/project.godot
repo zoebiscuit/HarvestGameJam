@@ -11,9 +11,17 @@ config_version=5
 [application]
 
 config/name="Harvest"
-run/main_scene="uid://dbsmgjxiiw0hg"
+run/main_scene="uid://w6iqx0mitg1k"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
 config/icon="res://icon.svg"
+
+[autoload]
+
+PauseMenu="*uid://ctau4q0l26fcg"
+Global="*uid://brac4lgxh2gnt"
+Settings="*uid://ddvfhiuggeofu"
 
 [display]
 

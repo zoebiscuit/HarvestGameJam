@@ -2,24 +2,32 @@
 
 [ext_resource type="Texture2D" uid="uid://dse8wf7p08ukn" path="res://img/Ninepactrect1.png" id="1_dty46"]
 [ext_resource type="Script" uid="uid://dkh3gkjiimmk8" path="res://tools/pause_menu.gd" id="1_nya6k"]
-[ext_resource type="Shader" uid="uid://bpo1cie3dsbim" path="res://tools/blur.gdshader" id="1_vkouy"]
+[ext_resource type="Shader" uid="uid://ic0yi2ip4hdu" path="res://frame.gdshader" id="2_5pj7p"]
 [ext_resource type="Theme" uid="uid://btibvqkkc41uo" path="res://themes/GeneralButtonTheme.tres" id="2_13hoa"]
+[ext_resource type="Texture2D" uid="uid://ceb21asnxh1v0" path="res://img/question.png" id="3_kftxt"]
+[ext_resource type="AudioStream" uid="uid://d3r0n75eu1fgn" path="res://SFX/Songs/hold_music.wav" id="5_exgn4"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v6uli"]
-shader = ExtResource("1_vkouy")
-shader_parameter/offset = 0.0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bume2"]
+shader = ExtResource("2_5pj7p")
+shader_parameter/pattern = ExtResource("3_kftxt")
+shader_parameter/pattern_color = Color(1, 1, 0.94509804, 1)
+shader_parameter/tiling = 100.0
+shader_parameter/speed = Vector2(0.1, 0.5)
+shader_parameter/rotation = 0.0
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=411784264]
 process_mode = 3
+layer = 5
 script = ExtResource("1_nya6k")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1311188272]
-material = SubResource("ShaderMaterial_v6uli")
+[node name="BG2" type="ColorRect" parent="." unique_id=1484450644]
+material = SubResource("ShaderMaterial_bume2")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.3342203, 0.7825712, 0.9511847, 1)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=2135639503]
 self_modulate = Color(0.3633784, 0.3720935, 0.5311437, 1)
@@ -74,4 +82,21 @@ text = "Settings
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme = ExtResource("2_13hoa")
-text = "Exit"
+text = "Exit Game?"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1182490669]
+stream = ExtResource("5_exgn4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1241518523]
+clip_contents = false
+offset_left = 23.0
+offset_top = 1009.0
+offset_right = 903.0
+offset_bottom = 1132.0
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/normal_font_size = 40
+text = "Rate us well (pls gng)."
+
+[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
