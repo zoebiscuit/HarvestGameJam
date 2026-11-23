@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bwpvdq5ugv863"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ib765"]
+load_path = "res://.godot/imported/atlas_extra.png-008b1b96a6e92bb31d6848f2e1d83aaf.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_al2aa"]
+atlas = SubResource("CompressedTexture2D_ib765")
+region = Rect2(0, 560, 280, 280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwitp"]
+size = Vector2(196, 124.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8y08"]
+size = Vector2(88, 276)
+
+[node name="TopRight" type="StaticBody2D" unique_id=1875478540]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=448820018]
+use_parent_material = true
+texture = SubResource("AtlasTexture_al2aa")
+offset = Vector2(0, -55)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1662868468]
+position = Vector2(41, 83.75)
+shape = SubResource("RectangleShape2D_dwitp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1612191948]
+position = Vector2(-14, -55)
+shape = SubResource("RectangleShape2D_x8y08")

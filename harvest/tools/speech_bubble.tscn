@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ftx7mgtg047c" path="res://tools/speech_bubble.gd" id="1_e6mr3"]
 [ext_resource type="Texture2D" uid="uid://dse8wf7p08ukn" path="res://img/Ninepactrect1.png" id="2_ll58w"]
+[ext_resource type="FontFile" uid="uid://dnmvb5rlgc3ls" path="res://font/BadComic_Font_0_98/Web Open Font Format (.woff)/BadComic-Italic.woff2" id="3_3xlt3"]
 [ext_resource type="AudioStream" uid="uid://ts1xiucil25w" path="res://SFX/Dialogue/Dialogue_Expression_Angry_01.ogg" id="3_7da3q"]
 [ext_resource type="AudioStream" uid="uid://2okxefglgr87" path="res://SFX/Dialogue/Dialogue_Expression_Neutral_01.ogg" id="4_ll58w"]
 [ext_resource type="AudioStream" uid="uid://o8b0kegh6ip2" path="res://SFX/Dialogue/Dialogue_Expression_Negative_01.ogg" id="5_3xlt3"]
@@ -33,6 +34,7 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_3uy15")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/PanelContainer" unique_id=1746775706]
+modulate = Color(0.015501714, 0, 0.15382448, 1)
 layout_mode = 2
 texture = ExtResource("2_ll58w")
 patch_margin_left = 50
@@ -50,8 +52,10 @@ theme_override_constants/margin_bottom = 20
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/PanelContainer/MarginContainer" unique_id=1768861563]
 custom_minimum_size = Vector2(270, 0)
 layout_mode = 2
-theme_override_colors/default_color = Color(0.18039216, 0.20784314, 0.35686275, 1)
+theme_override_colors/default_color = Color(0.93886495, 0.94694656, 0.97757405, 1)
+theme_override_fonts/normal_font = ExtResource("3_3xlt3")
 theme_override_font_sizes/normal_font_size = 25
+text = "Drinking jack all by myself."
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1

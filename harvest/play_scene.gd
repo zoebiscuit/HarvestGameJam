@@ -7,9 +7,13 @@ extends Node2D
 
 func _ready() -> void:
 	
-	boat_scene_animation.play("opening_boat_scene")
+	# NOTE DO NOT FORGET TO TURN THIS BACK ON IF OFF!!!
+	
+	boat_scene_animation.play("opening_boat_scene") 
 	item_menu.can_open = false
 	await boat_scene_animation.animation_finished
+	
+	Ui.show()
 	item_menu.can_open = true
 	music.play()
 	wind.play()

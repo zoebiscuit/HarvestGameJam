@@ -1,12 +1,26 @@
 [gd_scene format=3 uid="uid://b8xmwd4tud3ej"]
 
 [ext_resource type="Script" uid="uid://dg2tfuho4dbyb" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://x54kwww3ajxk" path="res://img/charactertest2.png" id="2_2hs0m"]
 [ext_resource type="AudioStream" uid="uid://82fa3gyvekxp" path="res://SFX/Foley/footstep_grass_000.ogg" id="2_i3pqv"]
 [ext_resource type="AudioStream" uid="uid://cnpqqrd4tebqx" path="res://SFX/Foley/footstep_grass_001.ogg" id="3_hqtel"]
 [ext_resource type="AudioStream" uid="uid://cqadyyvrnduvl" path="res://SFX/Foley/footstep_grass_002.ogg" id="4_sweqy"]
 [ext_resource type="AudioStream" uid="uid://v7gxau75r6bm" path="res://SFX/Foley/footstep_grass_004.ogg" id="5_2hs0m"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
+atlas = ExtResource("2_2hs0m")
+region = Rect2(0, 0, 560, 560)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_rxf60"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jxqw")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
 size = Vector2(95, 43)
@@ -16,18 +30,14 @@ y_sort_enabled = true
 script = ExtResource("1_4flbx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=950784915]
-position = Vector2(0, -60)
+position = Vector2(0, -53)
+scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_rxf60")
+offset = Vector2(0, 100)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1692044324]
-position = Vector2(-0.5, 12.5)
+position = Vector2(-0.5, 112)
 shape = SubResource("RectangleShape2D_q6r6c")
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1629541131]
-offset_left = -47.0
-offset_top = -151.0
-offset_right = 47.0
-offset_bottom = 36.0
 
 [node name="Footstep1" type="AudioStreamPlayer2D" parent="." unique_id=1159033846]
 position = Vector2(-21, 23)

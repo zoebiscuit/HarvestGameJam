@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://domhm5yuqkyji"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ib765"]
+load_path = "res://.godot/imported/atlas_extra.png-008b1b96a6e92bb31d6848f2e1d83aaf.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqcmg"]
+atlas = SubResource("CompressedTexture2D_ib765")
+region = Rect2(840, 0, 280, 280)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rxf60"]
+radius = 37.0
+height = 74.0
+
+[node name="Small_Big" type="StaticBody2D" unique_id=1875478540]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=448820018]
+use_parent_material = true
+scale = Vector2(0.77890897, 0.77890897)
+texture = SubResource("AtlasTexture_bqcmg")
+offset = Vector2(0, -100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1662868468]
+position = Vector2(6, 1)
+shape = SubResource("CapsuleShape2D_rxf60")
+disabled = true

@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://c8j4c02aee1gb"]
+
+[ext_resource type="Script" uid="uid://bew33jb8ivbre" path="res://play_scene.gd" id="2_yqdd5"]
+[ext_resource type="Texture2D" uid="uid://dg5ib3ae3nvd" path="res://img/Layout1_farm.png" id="3_h5dms"]
+[ext_resource type="Shader" uid="uid://cfcslgorr0waa" path="res://fallingLeaves.gdshader" id="4_itmos"]
+[ext_resource type="Texture2D" uid="uid://btqf87i258e2w" path="res://img/leaf.png" id="5_1twoj"]
+[ext_resource type="PackedScene" uid="uid://b8xmwd4tud3ej" path="res://player.tscn" id="6_0nhun"]
+[ext_resource type="AudioStream" uid="uid://dtqgf6cj5eq4e" path="res://SFX/Foley/leaves_wind.wav" id="25_kviaf"]
+[ext_resource type="AudioStream" uid="uid://cosjt4yhhcl8y" path="res://SFX/Songs/Happy_Theme.ogg" id="26_7ai1v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rxf60"]
+shader = ExtResource("4_itmos")
+shader_parameter/dimensions = Vector2(1152, 648)
+shader_parameter/rows = 11.0
+shader_parameter/columns = 6.0
+shader_parameter/vertical_scroll = 0.02999997697743994
+shader_parameter/horizontal_scroll = 0.0899999756363199
+shader_parameter/size_min = 0.10000000149012
+shader_parameter/size_max = 0.10000000149012
+shader_parameter/wave_min = 0.1
+shader_parameter/wave_max = 0.5000000074506
+shader_parameter/wave_speed = 0.80000001192096
+shader_parameter/wave_rotation = 1.0
+shader_parameter/far_color = Color(0.5019608, 0.73333335, 0.5019608, 0.6)
+shader_parameter/near_color = Color(1, 1, 1, 1)
+shader_parameter/particle_texture = ExtResource("5_1twoj")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxf60"]
+size = Vector2(1031, 830)
+
+[node name="Main" type="Node" unique_id=27969217]
+
+[node name="PlayScene" type="Node2D" parent="." unique_id=589162470]
+y_sort_enabled = true
+script = ExtResource("2_yqdd5")
+
+[node name="Camera2D" type="Camera2D" parent="PlayScene" unique_id=328253252]
+position = Vector2(3610, 13007)
+limit_left = 0
+limit_top = 0
+limit_right = 8311
+limit_bottom = 12000
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+
+[node name="Floor" type="TextureRect" parent="PlayScene" unique_id=1717447691]
+offset_right = 8313.0
+offset_bottom = 8451.334
+scale = Vector2(0.87, 0.87)
+texture = ExtResource("3_h5dms")
+
+[node name="FallingLeaves" type="ColorRect" parent="PlayScene" unique_id=174389275]
+z_index = 10
+material = SubResource("ShaderMaterial_rxf60")
+offset_right = 8417.0
+offset_bottom = 5841.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0.3137255)
+
+[node name="Water" type="ColorRect" parent="PlayScene" unique_id=1517970674]
+offset_top = 8447.0
+offset_right = 9615.0
+offset_bottom = 18222.0
+scale = Vector2(0.87, 0.87)
+color = Color(0.34509805, 0.68235296, 1, 1)
+
+[node name="Player" parent="PlayScene" unique_id=665135049 instance=ExtResource("6_0nhun")]
+position = Vector2(538, 1070)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayScene/Player" unique_id=3568664]
+
+[node name="Borders" type="StaticBody2D" parent="PlayScene" unique_id=131699400]
+modulate = Color(1, 1, 1, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayScene/Borders" unique_id=112262717]
+polygon = PackedVector2Array(8377, 16964, 8, 16913, 5, 6792, 701, 6901, 2309, 6318, 3791, 6774, 4618, 6475, 4637, 6043, 4778, 6033, 4810, 7690, 5416, 7700, 5421, 6061, 5552, 6071, 5566, 6470, 6088, 6259, 7064, 6540, 8402, 6305)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="PlayScene/Borders" unique_id=521666428]
+polygon = PackedVector2Array(-46, 8372, 5, -10, 8361, 29, 8361, 8461, 9609, 8473, 9380, -876, -963, -1003, -1269, 8601)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="PlayScene/Borders" unique_id=1660256887]
+polygon = PackedVector2Array(4079, -14, 4048, 1187, 4903, 854, 5963, 788, 7317, 779, 7330, 1252, 6660, 1349, 5932, 1380, 5650, 1481, 5494, 1643, 5310, 1778, 5249, 1932, 8373, 1940, 8373, -62)
+
+[node name="Terrain" type="Node2D" parent="PlayScene" unique_id=1730463499]
+y_sort_enabled = true
+position = Vector2(810, 478)
+
+[node name="Characters" type="Node2D" parent="PlayScene" unique_id=62022517]
+y_sort_enabled = true
+
+[node name="Area2D" type="Area2D" parent="PlayScene" unique_id=1658584691]
+position = Vector2(227, 655)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayScene/Area2D" unique_id=1555303720]
+position = Vector2(273.5, 405)
+shape = SubResource("RectangleShape2D_rxf60")
+debug_color = Color(0.72221476, 0.2476643, 1, 0.41960785)
+
+[node name="Wind" type="AudioStreamPlayer" parent="." unique_id=1936971665]
+stream = ExtResource("25_kviaf")
+volume_db = 6.525
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1233279197]
+stream = ExtResource("26_7ai1v")
+volume_db = -17.468
+playback_type = 1

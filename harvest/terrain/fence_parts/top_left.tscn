@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cy4c63duru61w"]
+
+[ext_resource type="Texture2D" uid="uid://likglba7m2qn" path="res://terrain/fence_extra_atlas.tres" id="1_qd0pq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwitp"]
+size = Vector2(196, 60.5)
+
+[node name="TopRight" type="StaticBody2D" unique_id=1875478540]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=448820018]
+use_parent_material = true
+texture = ExtResource("1_qd0pq")
+offset = Vector2(0, -55)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1662868468]
+position = Vector2(42, 50.75)
+shape = SubResource("RectangleShape2D_dwitp")

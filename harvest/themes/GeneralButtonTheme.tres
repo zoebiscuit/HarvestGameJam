@@ -15,6 +15,14 @@ texture_margin_left = 50.0
 texture_margin_top = 50.0
 texture_margin_right = 50.0
 texture_margin_bottom = 50.0
+modulate_color = Color(1.2307941, 1.2307941, 1.2307941, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1j5fg"]
+texture = ExtResource("1_74rsg")
+texture_margin_left = 50.0
+texture_margin_top = 50.0
+texture_margin_right = 50.0
+texture_margin_bottom = 50.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vkouy"]
 texture = ExtResource("1_74rsg")
@@ -92,11 +100,12 @@ expand_margin_bottom = 4.0
 
 [resource]
 Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
 Button/constants/outline_size = 19
 Button/font_sizes/font_size = 45
 Button/styles/disabled = SubResource("StyleBoxTexture_v6uli")
 Button/styles/focus = SubResource("StyleBoxTexture_74rsg")
-Button/styles/hover = SubResource("StyleBoxTexture_74rsg")
+Button/styles/hover = SubResource("StyleBoxTexture_1j5fg")
 Button/styles/normal = SubResource("StyleBoxTexture_vkouy")
 Button/styles/pressed = SubResource("StyleBoxTexture_5m7uw")
 TabBar/styles/tab_selected = SubResource("StyleBoxFlat_1j5fg")

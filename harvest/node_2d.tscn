@@ -10,19 +10,29 @@
 [ext_resource type="AudioStream" uid="uid://dtqgf6cj5eq4e" path="res://SFX/Foley/leaves_wind.wav" id="6_kdubu"]
 [ext_resource type="PackedScene" uid="uid://cawl8d28clsyh" path="res://terrain/bush.tscn" id="8_ir8iy"]
 [ext_resource type="AudioStream" uid="uid://cosjt4yhhcl8y" path="res://SFX/Songs/Happy_Theme.ogg" id="8_rj586"]
+[ext_resource type="PackedScene" uid="uid://dbgwud4t4bqri" path="res://terrain/fence_parts/top_middle.tscn" id="9_2nhjh"]
 [ext_resource type="PackedScene" uid="uid://ia7b8gjawlki" path="res://characters/great_great_grandfather.tscn" id="9_hqns4"]
 [ext_resource type="Script" uid="uid://d2cjrduhappak" path="res://boat.gd" id="10_0h7mo"]
+[ext_resource type="PackedScene" uid="uid://c0nktkkwar5wc" path="res://terrain/fence_parts/side_right.tscn" id="10_bjha6"]
 [ext_resource type="AudioStream" uid="uid://cg4nypobpnwli" path="res://SFX/Foley/boathorn.wav" id="10_nr8wp"]
 [ext_resource type="AudioStream" uid="uid://cidynesrjhwgo" path="res://SFX/Foley/water-boat.ogg" id="11_d2bti"]
+[ext_resource type="PackedScene" uid="uid://b2wmoes0ibcpg" path="res://terrain/fence_parts/top-right.tscn" id="11_gt76g"]
 [ext_resource type="Texture2D" uid="uid://bxkak5d8sp6yc" path="res://img/boat.png" id="11_nr8wp"]
+[ext_resource type="PackedScene" uid="uid://c8ujghxh2g4i3" path="res://terrain/fence_parts/bottom_right.tscn" id="12_1fr6y"]
+[ext_resource type="PackedScene" uid="uid://5iungss8i0f5" path="res://terrain/fence_parts/bottom_middle.tscn" id="13_2hxjc"]
 [ext_resource type="FontFile" uid="uid://dk6ggj11oqke3" path="res://font/BadComic_Font_0_98/OpenType (.otf)/BadComic-Regular.otf" id="13_rjqkl"]
+[ext_resource type="PackedScene" uid="uid://bwpvdq5ugv863" path="res://terrain/fence_parts/bottom_left.tscn" id="14_ebxd8"]
+[ext_resource type="PackedScene" uid="uid://ymnqe7d8lpe5" path="res://terrain/fence_parts/side_left.tscn" id="15_2u7jv"]
+[ext_resource type="PackedScene" uid="uid://domhm5yuqkyji" path="res://terrain/small_big.tscn" id="16_bjha6"]
 [ext_resource type="AudioStream" uid="uid://bh2kayfl6fajt" path="res://SFX/Songs/opening_melody.mp3" id="16_ta5nu"]
+[ext_resource type="PackedScene" uid="uid://c60m60xts43ok" path="res://terrain/rock_small.tscn" id="17_1fr6y"]
+[ext_resource type="PackedScene" uid="uid://da4dcfn1ua5fe" path="res://terrain/seashells.tscn" id="18_2hxjc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rxf60"]
 shader = ExtResource("5_q6r6c")
 shader_parameter/dimensions = Vector2(1152, 648)
-shader_parameter/rows = 10.0
-shader_parameter/columns = 5.0
+shader_parameter/rows = 11.0
+shader_parameter/columns = 6.0
 shader_parameter/vertical_scroll = 0.02999997697743994
 shader_parameter/horizontal_scroll = 0.0899999756363199
 shader_parameter/size_min = 0.10000000149012
@@ -312,6 +322,9 @@ _data = {
 &"opening_boat_scene": SubResource("Animation_nr8wp")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxf60"]
+size = Vector2(1031, 830)
+
 [node name="Main" type="Node" unique_id=27969217]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=726812213]
@@ -369,10 +382,10 @@ offset_top = 8447.0
 offset_right = 9615.0
 offset_bottom = 18222.0
 scale = Vector2(0.87, 0.87)
-color = Color(0.34509805, 0.68235296, 1, 1)
+color = Color(0.3882353, 0.7372549, 0.99215686, 1)
 
 [node name="Player" parent="PlayScene" unique_id=665135049 instance=ExtResource("2_0e48y")]
-position = Vector2(5103, 7184)
+position = Vector2(4846, 5706)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayScene/Player" unique_id=3568664]
 
@@ -384,6 +397,9 @@ polygon = PackedVector2Array(8377, 16964, 8, 16913, 5, 6792, 701, 6901, 2309, 63
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="PlayScene/Borders" unique_id=521666428]
 polygon = PackedVector2Array(-46, 8372, 5, -10, 8361, 29, 8361, 8461, 9609, 8473, 9380, -876, -963, -1003, -1269, 8601)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="PlayScene/Borders" unique_id=1660256887]
+polygon = PackedVector2Array(4079, -14, 4048, 1187, 4903, 854, 5963, 788, 7317, 779, 7330, 1252, 6660, 1349, 5932, 1380, 5650, 1481, 5494, 1643, 5310, 1778, 5249, 1932, 8373, 1940, 8373, -62)
 
 [node name="Terrain" type="Node2D" parent="PlayScene" unique_id=1730463499]
 y_sort_enabled = true
@@ -438,7 +454,7 @@ position = Vector2(-225.90216, 1471.06)
 metadata/_scene_painted = true
 
 [node name="Tree4" parent="PlayScene/Terrain" unique_id=1700189304 instance=ExtResource("4_0hol4")]
-position = Vector2(-85.94745, 1013.0265)
+position = Vector2(193, 734)
 metadata/_scene_painted = true
 
 [node name="Tree5" parent="PlayScene/Terrain" unique_id=91876852 instance=ExtResource("4_0hol4")]
@@ -450,7 +466,7 @@ position = Vector2(91.95239, 1842.9714)
 metadata/_scene_painted = true
 
 [node name="Tree7" parent="PlayScene/Terrain" unique_id=299396218 instance=ExtResource("4_0hol4")]
-position = Vector2(168.29132, 2059.2651)
+position = Vector2(211, 2031)
 metadata/_scene_painted = true
 
 [node name="Tree8" parent="PlayScene/Terrain" unique_id=1459389640 instance=ExtResource("4_0hol4")]
@@ -486,19 +502,19 @@ position = Vector2(31.729431, 4244.2544)
 metadata/_scene_painted = true
 
 [node name="Tree16" parent="PlayScene/Terrain" unique_id=1714926580 instance=ExtResource("4_0hol4")]
-position = Vector2(462.60724, 4467.0483)
+position = Vector2(1575, 4301)
 metadata/_scene_painted = true
 
 [node name="Tree17" parent="PlayScene/Terrain" unique_id=1354557568 instance=ExtResource("4_0hol4")]
-position = Vector2(216.62628, 4584.0996)
+position = Vector2(362.00006, 4977)
 metadata/_scene_painted = true
 
 [node name="Tree18" parent="PlayScene/Terrain" unique_id=1072663805 instance=ExtResource("4_0hol4")]
-position = Vector2(343.8578, 4422.9385)
+position = Vector2(1080, 4055)
 metadata/_scene_painted = true
 
 [node name="Tree19" parent="PlayScene/Terrain" unique_id=1148791818 instance=ExtResource("4_0hol4")]
-position = Vector2(-205.76947, 4026.2612)
+position = Vector2(960.00006, 4698)
 metadata/_scene_painted = true
 
 [node name="Tree20" parent="PlayScene/Terrain" unique_id=805573912 instance=ExtResource("4_0hol4")]
@@ -506,11 +522,11 @@ position = Vector2(-65.8147, 3818.4495)
 metadata/_scene_painted = true
 
 [node name="Tree21" parent="PlayScene/Terrain" unique_id=1136914359 instance=ExtResource("4_0hol4")]
-position = Vector2(-337.24213, 3797.2441)
+position = Vector2(-475, 3457)
 metadata/_scene_painted = true
 
 [node name="Tree22" parent="PlayScene/Terrain" unique_id=512799970 instance=ExtResource("4_0hol4")]
-position = Vector2(-515.36633, 4055.9487)
+position = Vector2(-475, 4744)
 metadata/_scene_painted = true
 
 [node name="Tree23" parent="PlayScene/Terrain" unique_id=132271886 instance=ExtResource("4_0hol4")]
@@ -554,23 +570,23 @@ position = Vector2(6801, 1427)
 metadata/_scene_painted = true
 
 [node name="Tree33" parent="PlayScene/Terrain" unique_id=1957563980 instance=ExtResource("4_0hol4")]
-position = Vector2(5019, 2528)
+position = Vector2(6383, 4858)
 metadata/_scene_painted = true
 
 [node name="Tree34" parent="PlayScene/Terrain" unique_id=1535470488 instance=ExtResource("4_0hol4")]
-position = Vector2(5260.9336, 2601.8293)
+position = Vector2(5173, 2292)
 metadata/_scene_painted = true
 
 [node name="Tree35" parent="PlayScene/Terrain" unique_id=181378518 instance=ExtResource("4_0hol4")]
-position = Vector2(5252.4517, 2835.0874)
+position = Vector2(5240, 2671)
 metadata/_scene_painted = true
 
 [node name="Tree36" parent="PlayScene/Terrain" unique_id=1649958327 instance=ExtResource("4_0hol4")]
-position = Vector2(5333.0303, 2265.9377)
+position = Vector2(5434, 2070)
 metadata/_scene_painted = true
 
 [node name="Tree37" parent="PlayScene/Terrain" unique_id=2145758226 instance=ExtResource("4_0hol4")]
-position = Vector2(5561, 1957)
+position = Vector2(6338, 1616)
 metadata/_scene_painted = true
 
 [node name="Tree38" parent="PlayScene/Terrain" unique_id=716247152 instance=ExtResource("4_0hol4")]
@@ -582,7 +598,7 @@ position = Vector2(6190, 1971)
 metadata/_scene_painted = true
 
 [node name="Tree40" parent="PlayScene/Terrain" unique_id=943822170 instance=ExtResource("4_0hol4")]
-position = Vector2(6270.3027, 2172.6348)
+position = Vector2(6504, 2192)
 metadata/_scene_painted = true
 
 [node name="Tree41" parent="PlayScene/Terrain" unique_id=1024821793 instance=ExtResource("4_0hol4")]
@@ -590,7 +606,7 @@ position = Vector2(6694, 1922)
 metadata/_scene_painted = true
 
 [node name="Tree42" parent="PlayScene/Terrain" unique_id=43482957 instance=ExtResource("4_0hol4")]
-position = Vector2(6656.2383, 2261.6968)
+position = Vector2(7218, 1573)
 metadata/_scene_painted = true
 
 [node name="Tree43" parent="PlayScene/Terrain" unique_id=117836797 instance=ExtResource("4_0hol4")]
@@ -634,7 +650,7 @@ position = Vector2(6477, 4117)
 metadata/_scene_painted = true
 
 [node name="Tree53" parent="PlayScene/Terrain" unique_id=1713501642 instance=ExtResource("4_0hol4")]
-position = Vector2(6009, 3651)
+position = Vector2(5946, 3960)
 metadata/_scene_painted = true
 
 [node name="Tree54" parent="PlayScene/Terrain" unique_id=554602623 instance=ExtResource("4_0hol4")]
@@ -642,7 +658,7 @@ position = Vector2(5718.966, 3614.5925)
 metadata/_scene_painted = true
 
 [node name="Tree55" parent="PlayScene/Terrain" unique_id=1296858243 instance=ExtResource("4_0hol4")]
-position = Vector2(5613, 3911.0002)
+position = Vector2(5588, 4391)
 metadata/_scene_painted = true
 
 [node name="Tree56" parent="PlayScene/Terrain" unique_id=1887210868 instance=ExtResource("4_0hol4")]
@@ -690,7 +706,7 @@ position = Vector2(4366.0693, 4323.694)
 metadata/_scene_painted = true
 
 [node name="Tree67" parent="PlayScene/Terrain" unique_id=754376397 instance=ExtResource("4_0hol4")]
-position = Vector2(4221.874, 4518.782)
+position = Vector2(7000, 4386)
 metadata/_scene_painted = true
 
 [node name="Tree68" parent="PlayScene/Terrain" unique_id=1726453263 instance=ExtResource("4_0hol4")]
@@ -698,7 +714,7 @@ position = Vector2(4087, 4958)
 metadata/_scene_painted = true
 
 [node name="Tree69" parent="PlayScene/Terrain" unique_id=930379813 instance=ExtResource("4_0hol4")]
-position = Vector2(5133, 4282)
+position = Vector2(5764, 5305)
 metadata/_scene_painted = true
 
 [node name="Tree70" parent="PlayScene/Terrain" unique_id=1814040111 instance=ExtResource("4_0hol4")]
@@ -746,7 +762,7 @@ position = Vector2(4872, 1584)
 metadata/_scene_painted = true
 
 [node name="Tree81" parent="PlayScene/Terrain" unique_id=668191848 instance=ExtResource("4_0hol4")]
-position = Vector2(5235, 1689)
+position = Vector2(5342, 4929)
 metadata/_scene_painted = true
 
 [node name="Tree82" parent="PlayScene/Terrain" unique_id=1078933630 instance=ExtResource("4_0hol4")]
@@ -766,7 +782,7 @@ position = Vector2(5879, 1110)
 metadata/_scene_painted = true
 
 [node name="Tree86" parent="PlayScene/Terrain" unique_id=545774279 instance=ExtResource("4_0hol4")]
-position = Vector2(5898, 1559)
+position = Vector2(5753, 1767)
 metadata/_scene_painted = true
 
 [node name="Tree87" parent="PlayScene/Terrain" unique_id=404003159 instance=ExtResource("4_0hol4")]
@@ -806,11 +822,11 @@ position = Vector2(3673.9998, 521.00006)
 metadata/_scene_painted = true
 
 [node name="Tree96" parent="PlayScene/Terrain" unique_id=1153125969 instance=ExtResource("4_0hol4")]
-position = Vector2(4146, 333.99994)
+position = Vector2(4519, 220)
 metadata/_scene_painted = true
 
 [node name="Tree97" parent="PlayScene/Terrain" unique_id=397982884 instance=ExtResource("4_0hol4")]
-position = Vector2(3805.9998, 211)
+position = Vector2(3919.9998, -48)
 metadata/_scene_painted = true
 
 [node name="Tree98" parent="PlayScene/Terrain" unique_id=1356994444 instance=ExtResource("4_0hol4")]
@@ -885,6 +901,346 @@ metadata/_scene_painted = true
 position = Vector2(4824.368, 615.8939)
 metadata/_scene_painted = true
 
+[node name="TopMiddle" parent="PlayScene/Terrain" unique_id=374893923 instance=ExtResource("9_2nhjh")]
+position = Vector2(1540, -140)
+metadata/_scene_painted = true
+
+[node name="TopMiddle2" parent="PlayScene/Terrain" unique_id=307009401 instance=ExtResource("9_2nhjh")]
+position = Vector2(1260, -140)
+metadata/_scene_painted = true
+
+[node name="TopMiddle3" parent="PlayScene/Terrain" unique_id=1695327114 instance=ExtResource("9_2nhjh")]
+position = Vector2(1820, -140)
+metadata/_scene_painted = true
+
+[node name="TopMiddle4" parent="PlayScene/Terrain" unique_id=1281746958 instance=ExtResource("9_2nhjh")]
+position = Vector2(2100, -140)
+metadata/_scene_painted = true
+
+[node name="TopMiddle5" parent="PlayScene/Terrain" unique_id=1406851792 instance=ExtResource("9_2nhjh")]
+position = Vector2(2380, -140)
+metadata/_scene_painted = true
+
+[node name="TopMiddle6" parent="PlayScene/Terrain" unique_id=1312249503 instance=ExtResource("9_2nhjh")]
+position = Vector2(2660, -140)
+metadata/_scene_painted = true
+
+[node name="TopMiddle7" parent="PlayScene/Terrain" unique_id=1446820456 instance=ExtResource("9_2nhjh")]
+position = Vector2(2940, -140)
+metadata/_scene_painted = true
+
+[node name="TopRight" parent="PlayScene/Terrain" unique_id=545204849 instance=ExtResource("10_bjha6")]
+position = Vector2(3220, 140)
+metadata/_scene_painted = true
+
+[node name="TopRight2" parent="PlayScene/Terrain" unique_id=481504679 instance=ExtResource("10_bjha6")]
+position = Vector2(3220, 420)
+metadata/_scene_painted = true
+
+[node name="TopRight3" parent="PlayScene/Terrain" unique_id=134473285 instance=ExtResource("10_bjha6")]
+position = Vector2(3220, 700)
+metadata/_scene_painted = true
+
+[node name="TopRight4" parent="PlayScene/Terrain" unique_id=123898471 instance=ExtResource("10_bjha6")]
+position = Vector2(3220, 980)
+metadata/_scene_painted = true
+
+[node name="TopRight5" parent="PlayScene/Terrain" unique_id=1738560700 instance=ExtResource("10_bjha6")]
+position = Vector2(3220, 1260)
+metadata/_scene_painted = true
+
+[node name="TopRight9" parent="PlayScene/Terrain" unique_id=12756894 instance=ExtResource("11_gt76g")]
+position = Vector2(3220, -140)
+metadata/_scene_painted = true
+
+[node name="TopRight7" parent="PlayScene/Terrain" unique_id=1622584957 instance=ExtResource("10_bjha6")]
+position = Vector2(3220, 2380)
+metadata/_scene_painted = true
+
+[node name="TopRight6" parent="PlayScene/Terrain" unique_id=1518805047 instance=ExtResource("10_bjha6")]
+position = Vector2(3220, 2100)
+metadata/_scene_painted = true
+
+[node name="TopRight8" parent="PlayScene/Terrain" unique_id=1255422521 instance=ExtResource("10_bjha6")]
+position = Vector2(3220, 2660)
+metadata/_scene_painted = true
+
+[node name="TopRight10" parent="PlayScene/Terrain" unique_id=432143363 instance=ExtResource("10_bjha6")]
+position = Vector2(3220, 2940)
+metadata/_scene_painted = true
+
+[node name="TopRight11" parent="PlayScene/Terrain" unique_id=1977129519 instance=ExtResource("10_bjha6")]
+position = Vector2(3220, 3220)
+metadata/_scene_painted = true
+
+[node name="TopRight12" parent="PlayScene/Terrain" unique_id=970105493 instance=ExtResource("12_1fr6y")]
+position = Vector2(3220, 3500)
+metadata/_scene_painted = true
+
+[node name="TopRight13" parent="PlayScene/Terrain" unique_id=870392600 instance=ExtResource("13_2hxjc")]
+position = Vector2(2940, 3500)
+metadata/_scene_painted = true
+
+[node name="TopRight14" parent="PlayScene/Terrain" unique_id=822168115 instance=ExtResource("13_2hxjc")]
+position = Vector2(2660, 3500)
+metadata/_scene_painted = true
+
+[node name="TopRight15" parent="PlayScene/Terrain" unique_id=1907077560 instance=ExtResource("13_2hxjc")]
+position = Vector2(2380, 3500)
+metadata/_scene_painted = true
+
+[node name="TopRight16" parent="PlayScene/Terrain" unique_id=1532972301 instance=ExtResource("13_2hxjc")]
+position = Vector2(2100, 3500)
+metadata/_scene_painted = true
+
+[node name="TopRight17" parent="PlayScene/Terrain" unique_id=765346875 instance=ExtResource("13_2hxjc")]
+position = Vector2(1820, 3500)
+metadata/_scene_painted = true
+
+[node name="TopRight19" parent="PlayScene/Terrain" unique_id=1490504232 instance=ExtResource("13_2hxjc")]
+position = Vector2(1540, 3500)
+metadata/_scene_painted = true
+
+[node name="TopRight21" parent="PlayScene/Terrain" unique_id=215575585 instance=ExtResource("13_2hxjc")]
+position = Vector2(1260, 3500)
+metadata/_scene_painted = true
+
+[node name="TopRight23" parent="PlayScene/Terrain" unique_id=2144983567 instance=ExtResource("13_2hxjc")]
+position = Vector2(980, 3500)
+metadata/_scene_painted = true
+
+[node name="TopRight25" parent="PlayScene/Terrain" unique_id=1979704435 instance=ExtResource("13_2hxjc")]
+position = Vector2(700, 3500)
+metadata/_scene_painted = true
+
+[node name="TopRight30" parent="PlayScene/Terrain" unique_id=73674407 instance=ExtResource("14_ebxd8")]
+position = Vector2(420, 3500)
+metadata/_scene_painted = true
+
+[node name="TopRight31" parent="PlayScene/Terrain" unique_id=1947976706 instance=ExtResource("15_2u7jv")]
+position = Vector2(420, 3220)
+metadata/_scene_painted = true
+
+[node name="TopRight32" parent="PlayScene/Terrain" unique_id=589514128 instance=ExtResource("15_2u7jv")]
+position = Vector2(420, 3220)
+metadata/_scene_painted = true
+
+[node name="TopRight33" parent="PlayScene/Terrain" unique_id=670247656 instance=ExtResource("15_2u7jv")]
+position = Vector2(420, 3220)
+metadata/_scene_painted = true
+
+[node name="TopRight34" parent="PlayScene/Terrain" unique_id=1924413013 instance=ExtResource("15_2u7jv")]
+position = Vector2(420, 2940)
+metadata/_scene_painted = true
+
+[node name="TopRight35" parent="PlayScene/Terrain" unique_id=921823864 instance=ExtResource("15_2u7jv")]
+position = Vector2(420, 2940)
+metadata/_scene_painted = true
+
+[node name="TopRight36" parent="PlayScene/Terrain" unique_id=336838622 instance=ExtResource("15_2u7jv")]
+position = Vector2(420, 2660)
+metadata/_scene_painted = true
+
+[node name="TopRight37" parent="PlayScene/Terrain" unique_id=1144261199 instance=ExtResource("15_2u7jv")]
+position = Vector2(420, 2660)
+metadata/_scene_painted = true
+
+[node name="TopRight38" parent="PlayScene/Terrain" unique_id=383835237 instance=ExtResource("15_2u7jv")]
+position = Vector2(420, 2380)
+metadata/_scene_painted = true
+
+[node name="TopRight39" parent="PlayScene/Terrain" unique_id=562226860 instance=ExtResource("15_2u7jv")]
+position = Vector2(420, 2380)
+metadata/_scene_painted = true
+
+[node name="TopRight40" parent="PlayScene/Terrain" unique_id=999118852 instance=ExtResource("15_2u7jv")]
+position = Vector2(420, 2100)
+metadata/_scene_painted = true
+
+[node name="TopRight41" parent="PlayScene/Terrain" unique_id=542526127 instance=ExtResource("15_2u7jv")]
+position = Vector2(420, 2100)
+metadata/_scene_painted = true
+
+[node name="TopRight42" parent="PlayScene/Terrain" unique_id=669552038 instance=ExtResource("15_2u7jv")]
+position = Vector2(420, 2100)
+metadata/_scene_painted = true
+
+[node name="TopRight43" parent="PlayScene/Terrain" unique_id=257302862 instance=ExtResource("15_2u7jv")]
+position = Vector2(420, 2100)
+metadata/_scene_painted = true
+
+[node name="TopRight44" parent="PlayScene/Terrain" unique_id=237349322 instance=ExtResource("13_2hxjc")]
+position = Vector2(980, -140)
+metadata/_scene_painted = true
+
+[node name="TopRight45" parent="PlayScene/Terrain" unique_id=277318734 instance=ExtResource("13_2hxjc")]
+position = Vector2(700, -140)
+metadata/_scene_painted = true
+
+[node name="TopRight46" parent="PlayScene/Terrain" unique_id=1328060533 instance=ExtResource("13_2hxjc")]
+position = Vector2(420, -140)
+metadata/_scene_painted = true
+
+[node name="TopRight47" parent="PlayScene/Terrain" unique_id=1877337194 instance=ExtResource("13_2hxjc")]
+position = Vector2(140, -140)
+metadata/_scene_painted = true
+
+[node name="TopRight48" parent="PlayScene/Terrain" unique_id=1989462889 instance=ExtResource("13_2hxjc")]
+position = Vector2(-140, -140)
+metadata/_scene_painted = true
+
+[node name="TopRight49" parent="PlayScene/Terrain" unique_id=920934218 instance=ExtResource("13_2hxjc")]
+position = Vector2(-420, -140)
+metadata/_scene_painted = true
+
+[node name="TopRight50" parent="PlayScene/Terrain" unique_id=1932127810 instance=ExtResource("13_2hxjc")]
+position = Vector2(-700, -140)
+metadata/_scene_painted = true
+
+[node name="TopRight51" parent="PlayScene/Terrain" unique_id=2022622083 instance=ExtResource("13_2hxjc")]
+position = Vector2(-980, -140)
+metadata/_scene_painted = true
+
+[node name="TopRight52" parent="PlayScene/Terrain" unique_id=877397874 instance=ExtResource("11_gt76g")]
+position = Vector2(391, 1820)
+metadata/_scene_painted = true
+
+[node name="Small_Big" parent="PlayScene/Terrain" unique_id=1211864473 instance=ExtResource("16_bjha6")]
+position = Vector2(2667, 3955)
+metadata/_scene_painted = true
+
+[node name="Small_Rock" parent="PlayScene/Terrain" unique_id=1654079751 instance=ExtResource("17_1fr6y")]
+position = Vector2(3306.2866, 3646.8066)
+metadata/_scene_painted = true
+
+[node name="Small_Rock2" parent="PlayScene/Terrain" unique_id=2075498915 instance=ExtResource("17_1fr6y")]
+position = Vector2(5494.7554, 3423.814)
+metadata/_scene_painted = true
+
+[node name="Small_Rock3" parent="PlayScene/Terrain" unique_id=845592573 instance=ExtResource("17_1fr6y")]
+position = Vector2(4699.9883, 2846.3208)
+metadata/_scene_painted = true
+
+[node name="Small_Rock4" parent="PlayScene/Terrain" unique_id=759135456 instance=ExtResource("17_1fr6y")]
+position = Vector2(3726.5405, 2250.2437)
+metadata/_scene_painted = true
+
+[node name="Small_Rock5" parent="PlayScene/Terrain" unique_id=507941388 instance=ExtResource("17_1fr6y")]
+position = Vector2(3393.4814, 1275.3665)
+metadata/_scene_painted = true
+
+[node name="Small_Rock6" parent="PlayScene/Terrain" unique_id=74964741 instance=ExtResource("17_1fr6y")]
+position = Vector2(3983.8394, 401.97986)
+metadata/_scene_painted = true
+
+[node name="Small_Big2" parent="PlayScene/Terrain" unique_id=1043504687 instance=ExtResource("16_bjha6")]
+position = Vector2(3540.7134, 630.68994)
+metadata/_scene_painted = true
+
+[node name="Small_Big3" parent="PlayScene/Terrain" unique_id=157367893 instance=ExtResource("16_bjha6")]
+position = Vector2(5899.287, 1841.4236)
+metadata/_scene_painted = true
+
+[node name="Small_Big4" parent="PlayScene/Terrain" unique_id=972201514 instance=ExtResource("16_bjha6")]
+position = Vector2(5170.274, 2949.238)
+metadata/_scene_painted = true
+
+[node name="Small_Big5" parent="PlayScene/Terrain" unique_id=1459958516 instance=ExtResource("16_bjha6")]
+position = Vector2(5433.2896, 3611.068)
+metadata/_scene_painted = true
+
+[node name="Small_Big6" parent="PlayScene/Terrain" unique_id=1357329853 instance=ExtResource("16_bjha6")]
+position = Vector2(2056.957, 4294.34)
+metadata/_scene_painted = true
+
+[node name="Small_Big7" parent="PlayScene/Terrain" unique_id=440068986 instance=ExtResource("16_bjha6")]
+position = Vector2(2135.5762, 5100.5425)
+metadata/_scene_painted = true
+
+[node name="Small_Big8" parent="PlayScene/Terrain" unique_id=1057341357 instance=ExtResource("16_bjha6")]
+position = Vector2(112.92151, 4714.594)
+metadata/_scene_painted = true
+
+[node name="Small_Big9" parent="PlayScene/Terrain" unique_id=1829114465 instance=ExtResource("16_bjha6")]
+position = Vector2(4658.534, 5229.192)
+metadata/_scene_painted = true
+
+[node name="Small_Big10" parent="PlayScene/Terrain" unique_id=58856765 instance=ExtResource("16_bjha6")]
+position = Vector2(3089.0115, 1261.0729)
+metadata/_scene_painted = true
+
+[node name="Small_Big11" parent="PlayScene/Terrain" unique_id=890395817 instance=ExtResource("16_bjha6")]
+position = Vector2(568.9121, 3209.3965)
+metadata/_scene_painted = true
+
+[node name="Seashells" parent="PlayScene/Terrain" unique_id=1481879850 instance=ExtResource("18_2hxjc")]
+position = Vector2(2931.773, 6002.5176)
+metadata/_scene_painted = true
+
+[node name="Seashells2" parent="PlayScene/Terrain" unique_id=677418434 instance=ExtResource("18_2hxjc")]
+position = Vector2(658.9667, 5845.2793)
+metadata/_scene_painted = true
+
+[node name="Seashells3" parent="PlayScene/Terrain" unique_id=1852671448 instance=ExtResource("18_2hxjc")]
+position = Vector2(5058.777, 5683.752)
+metadata/_scene_painted = true
+
+[node name="Seashells4" parent="PlayScene/Terrain" unique_id=621664450 instance=ExtResource("18_2hxjc")]
+position = Vector2(4458.413, 7127.4844)
+metadata/_scene_painted = true
+
+[node name="Seashells5" parent="PlayScene/Terrain" unique_id=1620461185 instance=ExtResource("18_2hxjc")]
+position = Vector2(6738.366, 5919.6094)
+metadata/_scene_painted = true
+
+[node name="Seashells6" parent="PlayScene/Terrain" unique_id=242018887 instance=ExtResource("18_2hxjc")]
+position = Vector2(7244.3877, 5526.5156)
+metadata/_scene_painted = true
+
+[node name="Small_Big12" parent="PlayScene/Terrain" unique_id=1002437316 instance=ExtResource("16_bjha6")]
+position = Vector2(3443.5122, 2897.7769)
+metadata/_scene_painted = true
+
+[node name="Small_Big13" parent="PlayScene/Terrain" unique_id=198902624 instance=ExtResource("16_bjha6")]
+position = Vector2(3343.4517, 2947.8071)
+metadata/_scene_painted = true
+
+[node name="Small_Big14" parent="PlayScene/Terrain" unique_id=65967415 instance=ExtResource("16_bjha6")]
+position = Vector2(4302.605, 396.26056)
+metadata/_scene_painted = true
+
+[node name="Small_Big15" parent="PlayScene/Terrain" unique_id=2045646200 instance=ExtResource("16_bjha6")]
+position = Vector2(5644.8486, 274.7583)
+metadata/_scene_painted = true
+
+[node name="Small_Big16" parent="PlayScene/Terrain" unique_id=634803192 instance=ExtResource("16_bjha6")]
+position = Vector2(4534.1753, 2466.0864)
+metadata/_scene_painted = true
+
+[node name="Small_Big17" parent="PlayScene/Terrain" unique_id=1817749065 instance=ExtResource("16_bjha6")]
+position = Vector2(7002.8125, 3712.558)
+metadata/_scene_painted = true
+
+[node name="Small_Big18" parent="PlayScene/Terrain" unique_id=1863389370 instance=ExtResource("16_bjha6")]
+position = Vector2(5977.906, 4460.1543)
+metadata/_scene_painted = true
+
+[node name="Small_Big19" parent="PlayScene/Terrain" unique_id=1594652688 instance=ExtResource("16_bjha6")]
+position = Vector2(7085.7197, 5089.1074)
+metadata/_scene_painted = true
+
+[node name="Small_Rock7" parent="PlayScene/Terrain" unique_id=921005877 instance=ExtResource("17_1fr6y")]
+position = Vector2(6070.8193, 4517.332)
+metadata/_scene_painted = true
+
+[node name="Small_Rock8" parent="PlayScene/Terrain" unique_id=465076347 instance=ExtResource("17_1fr6y")]
+position = Vector2(6892.746, 5203.462)
+metadata/_scene_painted = true
+
+[node name="Small_Rock9" parent="PlayScene/Terrain" unique_id=727972357 instance=ExtResource("17_1fr6y")]
+position = Vector2(7141.468, 3802.6133)
+metadata/_scene_painted = true
+
 [node name="Characters" type="Node2D" parent="PlayScene" unique_id=62022517]
 y_sort_enabled = true
 
@@ -930,6 +1286,14 @@ theme_override_font_sizes/normal_font_size = 120
 bbcode_enabled = true
 text = "[wave]a game by
 ava and zoe"
+
+[node name="Area2D" type="Area2D" parent="PlayScene" unique_id=1658584691]
+position = Vector2(6929, 655)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayScene/Area2D" unique_id=1555303720]
+position = Vector2(273.5, 405)
+shape = SubResource("RectangleShape2D_rxf60")
+debug_color = Color(0.72221476, 0.2476643, 1, 0.41960785)
 
 [node name="Wind" type="AudioStreamPlayer" parent="." unique_id=1936971665]
 stream = ExtResource("6_kdubu")

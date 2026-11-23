@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 PauseMenu="*uid://ctau4q0l26fcg"
 Global="*uid://brac4lgxh2gnt"
 Settings="*uid://ddvfhiuggeofu"
+Ui="*uid://dvb5lq7u41pyb"
 
 [display]
 
@@ -100,3 +101,4 @@ Pause={
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
