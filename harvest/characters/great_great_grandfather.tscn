@@ -20,7 +20,7 @@ script = ExtResource("1_u6rx4")
 texture = ExtResource("2_aoh68")
 
 [node name="SpeechBubble" parent="." unique_id=120089912 instance=ExtResource("3_fqm1p")]
-position = Vector2(0, -452)
+position = Vector2(0, -504.99997)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1742648464]
 

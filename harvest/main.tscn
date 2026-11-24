@@ -1434,25 +1434,25 @@ position = Vector2(2775.3313, 1332.658)
 player = NodePath("../../Player")
 
 [node name="vertical_planter" parent="PlayScene/Interactables" unique_id=556786655 node_paths=PackedStringArray("player") instance=ExtResource("22_abqjc")]
-position = Vector2(1929, 2500)
+position = Vector2(1959, 2466)
 scale = Vector2(0.36, 0.36)
 player = NodePath("../../Player")
 metadata/_scene_painted = true
 
-[node name="horizontal_planter" parent="PlayScene/Interactables" unique_id=1702410561 node_paths=PackedStringArray("player") instance=ExtResource("23_6iyjs")]
-position = Vector2(2853, 2248)
+[node name="vertical_planter2" parent="PlayScene/Interactables" unique_id=995295315 node_paths=PackedStringArray("player") instance=ExtResource("22_abqjc")]
+position = Vector2(3096, 2466)
 scale = Vector2(0.36, 0.36)
 player = NodePath("../../Player")
 metadata/_scene_painted = true
 
 [node name="horizontal_planter2" parent="PlayScene/Interactables" unique_id=2119888091 node_paths=PackedStringArray("player") instance=ExtResource("23_6iyjs")]
-position = Vector2(2853, 2752)
+position = Vector2(2793, 2735)
 scale = Vector2(0.36, 0.36)
 player = NodePath("../../Player")
 metadata/_scene_painted = true
 
 [node name="horizontal_planter3" parent="PlayScene/Interactables" unique_id=667648640 node_paths=PackedStringArray("player") instance=ExtResource("23_6iyjs")]
-position = Vector2(2349, 2752)
+position = Vector2(2289, 2735)
 scale = Vector2(0.36, 0.36)
 player = NodePath("../../Player")
 metadata/_scene_painted = true
