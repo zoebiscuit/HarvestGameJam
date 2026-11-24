@@ -17,8 +17,8 @@ func _ready():
 	
 	var tween = get_tree().create_tween()
 	tween.set_loops()
-	tween.tween_property(self, "global_position", Vector2(1900.0,0), 4)
-	tween.tween_property(self, "global_position", Vector2(100,0), 4)
+	tween.tween_property(self, "global_position:x", 1900.0, 4)
+	tween.tween_property(self, "global_position:x", 100.0, 4)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -31,7 +31,8 @@ func _process(delta: float) -> void:
 		has_passed = true
 		
 func Setup(target_x: float):
-	global_position = Vector2(target_x, init_y_pos)
+	global_position.x = target_x
+	global_position.y = -500
 	set_process(true)
 
 

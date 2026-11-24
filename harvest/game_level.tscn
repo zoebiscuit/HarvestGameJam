@@ -10,17 +10,5 @@
 [node name="KeyListener" parent="." unique_id=1098729343 instance=ExtResource("1_bwyfi")]
 position = Vector2(-818, 400)
 
-[node name="KeyListener2" parent="." unique_id=484486622 instance=ExtResource("1_bwyfi")]
-position = Vector2(-390, 400)
-
-[node name="KeyListener3" parent="." unique_id=2011965068 instance=ExtResource("1_bwyfi")]
-position = Vector2(38, 400)
-
-[node name="KeyListener4" parent="." unique_id=1767626457 instance=ExtResource("1_bwyfi")]
-position = Vector2(466, 400)
-
-[node name="KeyListener5" parent="." unique_id=356792750 instance=ExtResource("1_bwyfi")]
-position = Vector2(894, 400)
-
 [node name="FallingKey" parent="." unique_id=1491063159 instance=ExtResource("2_df5pp")]
 position = Vector2(-772, -708)
