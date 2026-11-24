@@ -9,6 +9,12 @@ var audio_player := AudioStreamPlayer.new()
 
 var next_scene : String 
 
+##
+#NOTE: CHECKS FOR PLAY SCENE STUFF!
+var politician_cutscene := false
+var grandpa_start_debrief := false
+##
+
 var loading_screen = preload("res://loading_screen.tscn")
 
 func _ready() -> void:

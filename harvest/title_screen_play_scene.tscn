@@ -1,0 +1,459 @@
+[gd_scene format=3 uid="uid://cbwa4pnt8gpm"]
+
+[ext_resource type="Script" uid="uid://bb3ipqhkopkps" path="res://open_title_screen.gd" id="1_mtpuf"]
+[ext_resource type="Texture2D" uid="uid://dg5ib3ae3nvd" path="res://img/Layout1_farm.png" id="2_d53d1"]
+[ext_resource type="Script" uid="uid://d2cjrduhappak" path="res://boat.gd" id="3_kofew"]
+[ext_resource type="Texture2D" uid="uid://bxkak5d8sp6yc" path="res://img/boat.png" id="4_cl5gc"]
+[ext_resource type="AudioStream" uid="uid://cg4nypobpnwli" path="res://SFX/Foley/boathorn.wav" id="5_5vcfc"]
+[ext_resource type="AudioStream" uid="uid://cidynesrjhwgo" path="res://SFX/Foley/water-boat.ogg" id="6_3xpm4"]
+[ext_resource type="FontFile" uid="uid://dk6ggj11oqke3" path="res://font/BadComic_Font_0_98/OpenType (.otf)/BadComic-Regular.otf" id="7_x8jaw"]
+[ext_resource type="Texture2D" uid="uid://bc2kolt2tr0ar" path="res://img/Character_final.png" id="8_jvj4u"]
+[ext_resource type="AudioStream" uid="uid://dtqgf6cj5eq4e" path="res://SFX/Foley/leaves_wind.wav" id="9_al14k"]
+[ext_resource type="PackedScene" uid="uid://p2fbgt884e8k" path="res://title_screen_details.tscn" id="9_d53d1"]
+[ext_resource type="AudioStream" uid="uid://bh2kayfl6fajt" path="res://SFX/Songs/opening_melody.mp3" id="10_6pd66"]
+
+[sub_resource type="Animation" id="Animation_0h7mo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-366, 813)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WaterMoving:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WaterMoving:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Horn:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Credits:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../UI/FadeColor:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../UI/FadeColor:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.15032649, 0.013993294, 0.21153146, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Camera2D:limit_smoothed")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite2D:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Camera2D:position_smoothing_enabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../Camera2D:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4702, 5944)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../../OpeningMusic:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("TitleScreen:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3wb5j"]
+resource_name = "credits_scene"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Camera2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 29.666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4702, 5944), Vector2(4702, 12500)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(7.633333, 29.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-366, -4469), Vector2(-366, 2100)]
+}
+
+[sub_resource type="Animation" id="Animation_jq2sk"]
+resource_name = "opening_boat_scene_2"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 19.9948),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-366, 813), Vector2(-366, -4786)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WaterMoving:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WaterMoving:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 20.0144, 21.964401),
+"transitions": PackedFloat32Array(1, 1, 2.2973945),
+"update": 0,
+"values": [0.0, 0.0, -50.358]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Horn:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Credits:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 10.026667, 10.966666, 14.833333, 18.026669),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../UI/FadeColor:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../UI/FadeColor:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.14901961, 0.015686275, 0.21176471, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Camera2D:limit_smoothed")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 27.37),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite2D:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 27.3122),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Camera2D:position_smoothing_enabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 27.021593),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../../OpeningMusic:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("TitleScreen:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(26.966667, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d2bti"]
+_data = {
+&"RESET": SubResource("Animation_0h7mo"),
+&"credits_scene": SubResource("Animation_3wb5j"),
+&"opening_boat_scene": SubResource("Animation_jq2sk")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxf60"]
+atlas = ExtResource("8_jvj4u")
+region = Rect2(0, 1120, 560, 560)
+
+[node name="TitleScreenPlayScene" type="Node" unique_id=27969217]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=726812213]
+
+[node name="FadeColor" type="ColorRect" parent="UI" unique_id=491122041]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15032649, 0.013993294, 0.21153146, 1)
+
+[node name="PlayScene" type="Node2D" parent="." unique_id=589162470]
+y_sort_enabled = true
+script = ExtResource("1_mtpuf")
+
+[node name="Camera2D" type="Camera2D" parent="PlayScene" unique_id=328253252]
+position = Vector2(4702, 5944)
+limit_left = 0
+limit_top = 0
+limit_right = 8311
+limit_bottom = 12000
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+
+[node name="Floor" type="TextureRect" parent="PlayScene" unique_id=1717447691]
+offset_right = 8313.0
+offset_bottom = 8451.334
+scale = Vector2(0.87, 0.87)
+texture = ExtResource("2_d53d1")
+
+[node name="Water" type="ColorRect" parent="PlayScene" unique_id=1517970674]
+offset_top = 8447.0
+offset_right = 9615.0
+offset_bottom = 18222.0
+scale = Vector2(0.87, 0.87)
+color = Color(0.3882353, 0.7372549, 0.99215686, 1)
+
+[node name="Boat" type="Node2D" parent="PlayScene" unique_id=880378050]
+z_index = 2
+position = Vector2(-366, 813)
+script = ExtResource("3_kofew")
+
+[node name="TextureRect" type="TextureRect" parent="PlayScene/Boat" unique_id=2115890295]
+offset_left = 4117.0
+offset_top = 11477.0
+offset_right = 4823.0
+offset_bottom = 12732.0
+texture = ExtResource("4_cl5gc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayScene/Boat" unique_id=1395098626]
+libraries/ = SubResource("AnimationLibrary_d2bti")
+autoplay = &"opening_boat_scene"
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayScene/Boat" unique_id=1488708679]
+position = Vector2(3976, 12194)
+remote_path = NodePath("../../Camera2D")
+
+[node name="Horn" type="AudioStreamPlayer2D" parent="PlayScene/Boat" unique_id=1184920677]
+position = Vector2(4479, 12291.957)
+stream = ExtResource("5_5vcfc")
+
+[node name="WaterMoving" type="AudioStreamPlayer2D" parent="PlayScene/Boat" unique_id=1982313146]
+position = Vector2(4476, 12037.957)
+stream = ExtResource("6_3xpm4")
+
+[node name="Credits" type="RichTextLabel" parent="PlayScene/Boat" unique_id=1111838727]
+modulate = Color(1, 1, 1, 0)
+offset_left = 3223.0
+offset_top = 11922.083
+offset_right = 4086.0
+offset_bottom = 12503.083
+theme_override_fonts/normal_font = ExtResource("7_x8jaw")
+theme_override_font_sizes/normal_font_size = 120
+bbcode_enabled = true
+text = "[wave]a game by
+ava and zoe"
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayScene/Boat" unique_id=1743857781]
+visible = false
+position = Vector2(4415, 12321)
+scale = Vector2(0.8166035, 0.8166035)
+texture = SubResource("AtlasTexture_rxf60")
+
+[node name="TitleScreen" parent="PlayScene/Boat" unique_id=1052669730 instance=ExtResource("9_d53d1")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(3206, 11846)
+
+[node name="Wind" type="AudioStreamPlayer" parent="." unique_id=1936971665]
+stream = ExtResource("9_al14k")
+volume_db = 6.525
+
+[node name="OpeningMusic" type="AudioStreamPlayer" parent="." unique_id=1915171922]
+stream = ExtResource("10_6pd66")
+volume_db = -24.161
+playback_type = 1
+
+[connection signal="start" from="PlayScene/Boat/TitleScreen" to="PlayScene" method="_on_title_screen_start"]

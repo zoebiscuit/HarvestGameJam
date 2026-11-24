@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://p2fbgt884e8k"]
+
+[ext_resource type="FontFile" uid="uid://dk6ggj11oqke3" path="res://font/BadComic_Font_0_98/OpenType (.otf)/BadComic-Regular.otf" id="1_2mfa1"]
+[ext_resource type="Script" uid="uid://bxifkikpd61a0" path="res://title_screen_details.gd" id="1_y2ud3"]
+[ext_resource type="FontFile" uid="uid://d1mec3qmuoe66" path="res://font/BadComic_Font_0_98/Web Open Font Format (.woff)/BadComic-Regular.woff2" id="2_y2ud3"]
+[ext_resource type="Script" uid="uid://cnxs6b2sco2sp" path="res://button_texthover.gd" id="3_r77nq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jq2sk"]
+
+[node name="TitleScreen" type="Node2D" unique_id=1052669730]
+script = ExtResource("1_y2ud3")
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=670304872]
+offset_right = 863.0
+offset_bottom = 389.917
+theme_override_colors/font_outline_color = Color(0.17455706, 0.5513576, 0.5568505, 1)
+theme_override_colors/font_shadow_color = Color(0.4386656, 0.72087115, 0.90503, 1)
+theme_override_constants/shadow_outline_size = 52
+theme_override_constants/shadow_offset_x = 7
+theme_override_constants/shadow_offset_y = 7
+theme_override_constants/outline_size = 26
+theme_override_fonts/normal_font = ExtResource("1_2mfa1")
+theme_override_font_sizes/normal_font_size = 151
+bbcode_enabled = true
+text = "[wave]Our Hedgy Harvest"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1892008242]
+offset_left = 21.0
+offset_top = 402.917
+offset_right = 592.0
+offset_bottom = 722.834
+
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=1024235309 groups=["normal_buttons"]]
+custom_minimum_size = Vector2(1000, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.970393, 0.9703931, 0.970393, 1)
+theme_override_colors/font_outline_color = Color(0.09411765, 0.4627451, 0.47843137, 1)
+theme_override_constants/outline_size = 17
+theme_override_fonts/font = ExtResource("2_y2ud3")
+theme_override_font_sizes/font_size = 49
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jq2sk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jq2sk")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jq2sk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_jq2sk")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_jq2sk")
+text = "Start Game"
+alignment = 0
+script = ExtResource("3_r77nq")
+
+[node name="Settings" type="Button" parent="VBoxContainer" unique_id=2059991034 groups=["normal_buttons"]]
+custom_minimum_size = Vector2(1000, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.970393, 0.9703931, 0.970393, 1)
+theme_override_colors/font_outline_color = Color(0.09411765, 0.4627451, 0.47843137, 1)
+theme_override_constants/outline_size = 17
+theme_override_fonts/font = ExtResource("2_y2ud3")
+theme_override_font_sizes/font_size = 49
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jq2sk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jq2sk")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jq2sk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_jq2sk")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_jq2sk")
+text = "Settings
+"
+alignment = 0
+script = ExtResource("3_r77nq")
+
+[connection signal="mouse_entered" from="VBoxContainer/Start" to="VBoxContainer/Start" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Start" to="VBoxContainer/Start" method="_on_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Settings" to="VBoxContainer/Settings" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Settings" to="VBoxContainer/Settings" method="_on_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]

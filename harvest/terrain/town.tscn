@@ -35,7 +35,7 @@ y_sort_enabled = true
 script = ExtResource("1_386tj")
 
 [node name="Camera2D" type="Camera2D" parent="PlayScene" unique_id=328253252]
-position = Vector2(538, 1070)
+position = Vector2(1256, 1070)
 limit_left = 0
 limit_top = 0
 limit_right = 8311
@@ -65,7 +65,7 @@ scale = Vector2(0.87, 0.87)
 color = Color(0.34509805, 0.68235296, 1, 1)
 
 [node name="Player" parent="PlayScene" unique_id=665135049 instance=ExtResource("6_0nhun")]
-position = Vector2(538, 1070)
+position = Vector2(1256, 1070)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayScene/Player" unique_id=3568664]
 remote_path = NodePath("../../Camera2D")
@@ -79,9 +79,6 @@ polygon = PackedVector2Array(8377, 16964, 8, 16913, 5, 6792, 701, 6901, 2309, 63
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="PlayScene/Borders" unique_id=521666428]
 polygon = PackedVector2Array(-46, 8372, 5, -10, 8361, 29, 8361, 8461, 9609, 8473, 9380, -876, -963, -1003, -1269, 8601)
 
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="PlayScene/Borders" unique_id=1660256887]
-polygon = PackedVector2Array(4079, -14, 4048, 1187, 4903, 854, 5963, 788, 7317, 779, 7330, 1252, 6660, 1349, 5932, 1380, 5650, 1481, 5494, 1643, 5310, 1778, 5249, 1932, 8373, 1940, 8373, -62)
-
 [node name="Terrain" type="Node2D" parent="PlayScene" unique_id=1730463499]
 y_sort_enabled = true
 position = Vector2(810, 478)
@@ -89,10 +86,10 @@ position = Vector2(810, 478)
 [node name="Characters" type="Node2D" parent="PlayScene" unique_id=62022517]
 y_sort_enabled = true
 
-[node name="Area2D" type="Area2D" parent="PlayScene" unique_id=1658584691]
+[node name="Portal" type="Area2D" parent="PlayScene" unique_id=1658584691]
 position = Vector2(227, 655)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayScene/Area2D" unique_id=1555303720]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayScene/Portal" unique_id=1555303720]
 position = Vector2(273.5, 405)
 shape = SubResource("RectangleShape2D_rxf60")
 debug_color = Color(0.72221476, 0.2476643, 1, 0.41960785)

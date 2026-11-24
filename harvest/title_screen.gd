@@ -18,6 +18,7 @@ func _on_button_pressed() -> void:
 	animation_player.play("transition")
 	await animation_player.animation_finished
 	
+	PauseMenu.can_open = true
 	Global.next_scene = "res://main.tscn"
 	get_tree().change_scene_to_packed(Global.loading_screen)
 

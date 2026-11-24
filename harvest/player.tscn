@@ -153,8 +153,7 @@ shape = SubResource("RectangleShape2D_q6r6c")
 position = Vector2(0, -227)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_rxf60")
-animation = &"up_idle"
-frame_progress = 0.8093436
+animation = &"side_walk"
 offset = Vector2(0, 100)
 
 [node name="Footstep1" type="AudioStreamPlayer2D" parent="." unique_id=1159033846]

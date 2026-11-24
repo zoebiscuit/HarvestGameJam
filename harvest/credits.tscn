@@ -1,0 +1,721 @@
+[gd_scene format=3 uid="uid://bhk3nmtedvlu7"]
+
+[ext_resource type="Script" uid="uid://bqd3l04aq62fi" path="res://credits.gd" id="1_hh5ci"]
+[ext_resource type="Texture2D" uid="uid://dg5ib3ae3nvd" path="res://img/Layout1_farm.png" id="2_ex0t3"]
+[ext_resource type="Shader" uid="uid://cfcslgorr0waa" path="res://fallingLeaves.gdshader" id="3_xix5j"]
+[ext_resource type="Texture2D" uid="uid://btqf87i258e2w" path="res://img/leaf.png" id="4_auy6k"]
+[ext_resource type="PackedScene" uid="uid://cawl8d28clsyh" path="res://terrain/bush.tscn" id="6_mip28"]
+[ext_resource type="PackedScene" uid="uid://huiixuyd4cne" path="res://terrain/tree.tscn" id="7_3t5mb"]
+[ext_resource type="PackedScene" uid="uid://domhm5yuqkyji" path="res://terrain/small_big.tscn" id="15_an74x"]
+[ext_resource type="PackedScene" uid="uid://c60m60xts43ok" path="res://terrain/rock_small.tscn" id="16_ditui"]
+[ext_resource type="FontFile" uid="uid://cugn4yssf4ect" path="res://font/BadComic_Font_0_98/OpenType (.otf)/BadComic-Italic.otf" id="17_fa2y2"]
+[ext_resource type="Texture2D" uid="uid://nop2q3miks1m" path="res://img/dot.png" id="17_hh5ci"]
+[ext_resource type="PackedScene" uid="uid://da4dcfn1ua5fe" path="res://terrain/seashells.tscn" id="17_lep1p"]
+[ext_resource type="PackedScene" uid="uid://vuxhedmi3csx" path="res://terrain/sign.tscn" id="19_0gymt"]
+[ext_resource type="AudioStream" uid="uid://gcuwkq4i8teb" path="res://SFX/Songs/770969__nicpressley__jazz-chords-gm-approximately.ogg" id="19_hh5ci"]
+[ext_resource type="Script" uid="uid://d2cjrduhappak" path="res://boat.gd" id="22_a7558"]
+[ext_resource type="Texture2D" uid="uid://bxkak5d8sp6yc" path="res://img/boat.png" id="23_bb7hx"]
+[ext_resource type="AudioStream" uid="uid://cg4nypobpnwli" path="res://SFX/Foley/boathorn.wav" id="24_caql8"]
+[ext_resource type="AudioStream" uid="uid://cidynesrjhwgo" path="res://SFX/Foley/water-boat.ogg" id="25_bwir6"]
+[ext_resource type="FontFile" uid="uid://dk6ggj11oqke3" path="res://font/BadComic_Font_0_98/OpenType (.otf)/BadComic-Regular.otf" id="26_rvbrs"]
+[ext_resource type="Texture2D" uid="uid://bc2kolt2tr0ar" path="res://img/Character_final.png" id="27_h0j5p"]
+[ext_resource type="AudioStream" uid="uid://dtqgf6cj5eq4e" path="res://SFX/Foley/leaves_wind.wav" id="29_uyqir"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rxf60"]
+shader = ExtResource("3_xix5j")
+shader_parameter/dimensions = Vector2(1152, 648)
+shader_parameter/rows = 11.0
+shader_parameter/columns = 6.0
+shader_parameter/vertical_scroll = 0.02999997697743994
+shader_parameter/horizontal_scroll = 0.0899999756363199
+shader_parameter/size_min = 0.10000000149012
+shader_parameter/size_max = 0.10000000149012
+shader_parameter/wave_min = 0.1
+shader_parameter/wave_max = 0.5000000074506
+shader_parameter/wave_speed = 0.80000001192096
+shader_parameter/wave_rotation = 1.0
+shader_parameter/far_color = Color(0.5019608, 0.73333335, 0.5019608, 0.6)
+shader_parameter/near_color = Color(1, 1, 1, 1)
+shader_parameter/particle_texture = ExtResource("4_auy6k")
+
+[sub_resource type="Animation" id="Animation_0h7mo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-366, 813)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WaterMoving:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WaterMoving:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Horn:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Credits:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../UI/FadeColor:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../UI/FadeColor:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.15032649, 0.013993294, 0.21153146, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Camera2D:limit_smoothed")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite2D:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Camera2D:position_smoothing_enabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../Camera2D:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4702, 5944)]
+}
+
+[sub_resource type="Animation" id="Animation_3wb5j"]
+resource_name = "credits_scene"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Camera2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 29.666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4702, 5944), Vector2(4702, 12500)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(7.633333, 29.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-366, -4469), Vector2(-366, 2100)]
+}
+
+[sub_resource type="Animation" id="Animation_nr8wp"]
+resource_name = "opening_boat_scene"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 19.9948),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-366, 813), Vector2(-366, -4786)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WaterMoving:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WaterMoving:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 20.0144, 21.964401),
+"transitions": PackedFloat32Array(1, 1, 2.2973945),
+"update": 0,
+"values": [0.0, 0.0, -50.358]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Horn:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Credits:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 10.026667, 10.966666, 14.833333, 18.026669),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../UI/FadeColor:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 25.384134, 30),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [false, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../UI/FadeColor:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 25.5292, 27.133333, 28.633333, 30),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.14901961, 0.015686275, 0.21176471, 0), Color(0.14901961, 0.015686275, 0.21176471, 0), Color(0.15032649, 0.013993294, 0.21153146, 1), Color(0.15032649, 0.013993294, 0.21153146, 1), Color(0.14901961, 0.015686275, 0.21176471, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Camera2D:limit_smoothed")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 27.37),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite2D:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 14.6568, 27.3122),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Camera2D:position_smoothing_enabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 27.021593),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d2bti"]
+_data = {
+&"RESET": SubResource("Animation_0h7mo"),
+&"credits_scene": SubResource("Animation_3wb5j"),
+&"opening_boat_scene": SubResource("Animation_nr8wp")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxf60"]
+atlas = ExtResource("27_h0j5p")
+region = Rect2(0, 1120, 560, 560)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rxf60"]
+blend_mode = 1
+
+[node name="Credits" type="Node" unique_id=27969217]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=726812213]
+
+[node name="FadeColor" type="ColorRect" parent="UI" unique_id=491122041]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15032649, 0.013993294, 0.21153146, 1)
+
+[node name="PlayScene" type="Node2D" parent="." unique_id=589162470]
+y_sort_enabled = true
+script = ExtResource("1_hh5ci")
+
+[node name="Camera2D" type="Camera2D" parent="PlayScene" unique_id=328253252]
+position = Vector2(4702, 5944)
+zoom = Vector2(0.51, 0.51)
+limit_enabled = false
+limit_left = 0
+limit_top = 0
+limit_right = 8311
+limit_bottom = 12000
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+
+[node name="Floor" type="TextureRect" parent="PlayScene" unique_id=1717447691]
+offset_right = 8313.0
+offset_bottom = 8451.334
+scale = Vector2(0.87, 0.87)
+texture = ExtResource("2_ex0t3")
+
+[node name="FallingLeaves" type="ColorRect" parent="PlayScene" unique_id=174389275]
+z_index = 10
+material = SubResource("ShaderMaterial_rxf60")
+offset_right = 8417.0
+offset_bottom = 6395.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0.3137255)
+
+[node name="Water" type="ColorRect" parent="PlayScene" unique_id=1517970674]
+offset_top = 8447.0
+offset_right = 9615.0
+offset_bottom = 18222.0
+scale = Vector2(0.87, 0.87)
+color = Color(0.3882353, 0.7372549, 0.99215686, 1)
+
+[node name="Borders" type="StaticBody2D" parent="PlayScene" unique_id=131699400]
+modulate = Color(1, 1, 1, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayScene/Borders" unique_id=112262717]
+polygon = PackedVector2Array(8377, 16964, 8, 16913, 5, 6792, 701, 6901, 2309, 6318, 3791, 6774, 4618, 6475, 4637, 6043, 4778, 6033, 4810, 7690, 5416, 7700, 5421, 6061, 5552, 6071, 5566, 6470, 6088, 6259, 7064, 6540, 8402, 6305)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="PlayScene/Borders" unique_id=1660256887]
+polygon = PackedVector2Array(4079, -14, 4048, 1187, 4903, 854, 5963, 788, 7317, 779, 7330, 1252, 6660, 1349, 5932, 1380, 5650, 1481, 5494, 1643, 5310, 1778, 5249, 1932, 8373, 1940, 8373, -62)
+
+[node name="Terrain" type="Node2D" parent="PlayScene" unique_id=1730463499]
+y_sort_enabled = true
+position = Vector2(810, 478)
+
+[node name="Tree62" parent="PlayScene/Terrain" unique_id=1811843003 instance=ExtResource("7_3t5mb")]
+position = Vector2(4096.3374, 4311.8203)
+metadata/_scene_painted = true
+
+[node name="Tree63" parent="PlayScene/Terrain" unique_id=314038752 instance=ExtResource("7_3t5mb")]
+position = Vector2(3775.0002, 4572)
+metadata/_scene_painted = true
+
+[node name="Tree64" parent="PlayScene/Terrain" unique_id=1811554336 instance=ExtResource("7_3t5mb")]
+position = Vector2(3331, 4717)
+metadata/_scene_painted = true
+
+[node name="Tree65" parent="PlayScene/Terrain" unique_id=1032099247 instance=ExtResource("7_3t5mb")]
+position = Vector2(3716, 4845)
+metadata/_scene_painted = true
+
+[node name="Tree66" parent="PlayScene/Terrain" unique_id=162405184 instance=ExtResource("7_3t5mb")]
+position = Vector2(4366.0693, 4323.694)
+metadata/_scene_painted = true
+
+[node name="Tree68" parent="PlayScene/Terrain" unique_id=1726453263 instance=ExtResource("7_3t5mb")]
+position = Vector2(4087, 4958)
+metadata/_scene_painted = true
+
+[node name="Tree69" parent="PlayScene/Terrain" unique_id=930379813 instance=ExtResource("7_3t5mb")]
+position = Vector2(5764, 5305)
+metadata/_scene_painted = true
+
+[node name="Tree70" parent="PlayScene/Terrain" unique_id=1814040111 instance=ExtResource("7_3t5mb")]
+position = Vector2(4869, 4626)
+metadata/_scene_painted = true
+
+[node name="Tree71" parent="PlayScene/Terrain" unique_id=1684407795 instance=ExtResource("7_3t5mb")]
+position = Vector2(5330, 5198)
+metadata/_scene_painted = true
+
+[node name="Tree72" parent="PlayScene/Terrain" unique_id=1704317219 instance=ExtResource("7_3t5mb")]
+position = Vector2(4440, 4779)
+metadata/_scene_painted = true
+
+[node name="Tree81" parent="PlayScene/Terrain" unique_id=668191848 instance=ExtResource("7_3t5mb")]
+position = Vector2(5342, 4929)
+metadata/_scene_painted = true
+
+[node name="Tree93" parent="PlayScene/Terrain" unique_id=1565870283 instance=ExtResource("7_3t5mb")]
+position = Vector2(2507, 4111)
+metadata/_scene_painted = true
+
+[node name="Tree94" parent="PlayScene/Terrain" unique_id=1985056129 instance=ExtResource("7_3t5mb")]
+position = Vector2(2033, 4954)
+metadata/_scene_painted = true
+
+[node name="Bush10" parent="PlayScene/Terrain" unique_id=1294146063 instance=ExtResource("6_mip28")]
+position = Vector2(3599.54, 3465.7544)
+metadata/_scene_painted = true
+
+[node name="Bush11" parent="PlayScene/Terrain" unique_id=428561654 instance=ExtResource("6_mip28")]
+position = Vector2(3834, 4900)
+metadata/_scene_painted = true
+
+[node name="Bush12" parent="PlayScene/Terrain" unique_id=989767806 instance=ExtResource("6_mip28")]
+position = Vector2(4865.679, 5252.011)
+metadata/_scene_painted = true
+
+[node name="Bush13" parent="PlayScene/Terrain" unique_id=46358567 instance=ExtResource("6_mip28")]
+position = Vector2(2767, 5334)
+metadata/_scene_painted = true
+
+[node name="Bush14" parent="PlayScene/Terrain" unique_id=2027587306 instance=ExtResource("6_mip28")]
+position = Vector2(2338, 4216)
+metadata/_scene_painted = true
+
+[node name="Bush15" parent="PlayScene/Terrain" unique_id=1331376377 instance=ExtResource("6_mip28")]
+position = Vector2(326.37604, 4105.7866)
+metadata/_scene_painted = true
+
+[node name="Bush16" parent="PlayScene/Terrain" unique_id=1336703293 instance=ExtResource("6_mip28")]
+position = Vector2(521.91974, 4660.4463)
+metadata/_scene_painted = true
+
+[node name="Bush17" parent="PlayScene/Terrain" unique_id=1242230685 instance=ExtResource("6_mip28")]
+position = Vector2(1593.6746, 5091.25)
+metadata/_scene_painted = true
+
+[node name="Small_Big" parent="PlayScene/Terrain" unique_id=1211864473 instance=ExtResource("15_an74x")]
+position = Vector2(2667, 3955)
+metadata/_scene_painted = true
+
+[node name="Small_Rock" parent="PlayScene/Terrain" unique_id=1654079751 instance=ExtResource("16_ditui")]
+position = Vector2(3306.2866, 3646.8066)
+metadata/_scene_painted = true
+
+[node name="Small_Rock2" parent="PlayScene/Terrain" unique_id=2075498915 instance=ExtResource("16_ditui")]
+position = Vector2(5494.7554, 3423.814)
+metadata/_scene_painted = true
+
+[node name="Small_Rock3" parent="PlayScene/Terrain" unique_id=845592573 instance=ExtResource("16_ditui")]
+position = Vector2(4699.9883, 2846.3208)
+metadata/_scene_painted = true
+
+[node name="Small_Rock4" parent="PlayScene/Terrain" unique_id=759135456 instance=ExtResource("16_ditui")]
+position = Vector2(3726.5405, 2250.2437)
+metadata/_scene_painted = true
+
+[node name="Small_Rock5" parent="PlayScene/Terrain" unique_id=507941388 instance=ExtResource("16_ditui")]
+position = Vector2(3393.4814, 1275.3665)
+metadata/_scene_painted = true
+
+[node name="Small_Rock6" parent="PlayScene/Terrain" unique_id=74964741 instance=ExtResource("16_ditui")]
+position = Vector2(3983.8394, 401.97986)
+metadata/_scene_painted = true
+
+[node name="Small_Big2" parent="PlayScene/Terrain" unique_id=1043504687 instance=ExtResource("15_an74x")]
+position = Vector2(3540.7134, 630.68994)
+metadata/_scene_painted = true
+
+[node name="Small_Big4" parent="PlayScene/Terrain" unique_id=972201514 instance=ExtResource("15_an74x")]
+position = Vector2(5170.274, 2949.238)
+metadata/_scene_painted = true
+
+[node name="Small_Big5" parent="PlayScene/Terrain" unique_id=1459958516 instance=ExtResource("15_an74x")]
+position = Vector2(5433.2896, 3611.068)
+metadata/_scene_painted = true
+
+[node name="Small_Big6" parent="PlayScene/Terrain" unique_id=1357329853 instance=ExtResource("15_an74x")]
+position = Vector2(2056.957, 4294.34)
+metadata/_scene_painted = true
+
+[node name="Small_Big7" parent="PlayScene/Terrain" unique_id=440068986 instance=ExtResource("15_an74x")]
+position = Vector2(2135.5762, 5100.5425)
+metadata/_scene_painted = true
+
+[node name="Small_Big8" parent="PlayScene/Terrain" unique_id=1057341357 instance=ExtResource("15_an74x")]
+position = Vector2(112.92151, 4714.594)
+metadata/_scene_painted = true
+
+[node name="Small_Big9" parent="PlayScene/Terrain" unique_id=1829114465 instance=ExtResource("15_an74x")]
+position = Vector2(4658.534, 5229.192)
+metadata/_scene_painted = true
+
+[node name="Small_Big10" parent="PlayScene/Terrain" unique_id=58856765 instance=ExtResource("15_an74x")]
+position = Vector2(3089.0115, 1261.0729)
+metadata/_scene_painted = true
+
+[node name="Small_Big11" parent="PlayScene/Terrain" unique_id=890395817 instance=ExtResource("15_an74x")]
+position = Vector2(568.9121, 3209.3965)
+metadata/_scene_painted = true
+
+[node name="Seashells" parent="PlayScene/Terrain" unique_id=1481879850 instance=ExtResource("17_lep1p")]
+position = Vector2(2931.773, 6002.5176)
+metadata/_scene_painted = true
+
+[node name="Seashells2" parent="PlayScene/Terrain" unique_id=677418434 instance=ExtResource("17_lep1p")]
+position = Vector2(658.9667, 5845.2793)
+metadata/_scene_painted = true
+
+[node name="Seashells3" parent="PlayScene/Terrain" unique_id=1852671448 instance=ExtResource("17_lep1p")]
+position = Vector2(5058.777, 5683.752)
+metadata/_scene_painted = true
+
+[node name="Seashells4" parent="PlayScene/Terrain" unique_id=621664450 instance=ExtResource("17_lep1p")]
+position = Vector2(4458.413, 7127.4844)
+metadata/_scene_painted = true
+
+[node name="Seashells5" parent="PlayScene/Terrain" unique_id=1620461185 instance=ExtResource("17_lep1p")]
+position = Vector2(6738.366, 5919.6094)
+metadata/_scene_painted = true
+
+[node name="Seashells6" parent="PlayScene/Terrain" unique_id=242018887 instance=ExtResource("17_lep1p")]
+position = Vector2(7244.3877, 5526.5156)
+metadata/_scene_painted = true
+
+[node name="Small_Big12" parent="PlayScene/Terrain" unique_id=1002437316 instance=ExtResource("15_an74x")]
+position = Vector2(3443.5122, 2897.7769)
+metadata/_scene_painted = true
+
+[node name="Small_Big13" parent="PlayScene/Terrain" unique_id=198902624 instance=ExtResource("15_an74x")]
+position = Vector2(3343.4517, 2947.8071)
+metadata/_scene_painted = true
+
+[node name="Small_Big14" parent="PlayScene/Terrain" unique_id=65967415 instance=ExtResource("15_an74x")]
+position = Vector2(4302.605, 396.26056)
+metadata/_scene_painted = true
+
+[node name="Small_Big15" parent="PlayScene/Terrain" unique_id=2045646200 instance=ExtResource("15_an74x")]
+position = Vector2(5644.8486, 274.7583)
+metadata/_scene_painted = true
+
+[node name="Small_Big16" parent="PlayScene/Terrain" unique_id=634803192 instance=ExtResource("15_an74x")]
+position = Vector2(4534.1753, 2466.0864)
+metadata/_scene_painted = true
+
+[node name="Small_Big17" parent="PlayScene/Terrain" unique_id=1817749065 instance=ExtResource("15_an74x")]
+position = Vector2(7002.8125, 3712.558)
+metadata/_scene_painted = true
+
+[node name="Small_Big18" parent="PlayScene/Terrain" unique_id=1863389370 instance=ExtResource("15_an74x")]
+position = Vector2(5977.906, 4460.1543)
+metadata/_scene_painted = true
+
+[node name="Small_Big19" parent="PlayScene/Terrain" unique_id=1594652688 instance=ExtResource("15_an74x")]
+position = Vector2(7085.7197, 5089.1074)
+metadata/_scene_painted = true
+
+[node name="Small_Rock7" parent="PlayScene/Terrain" unique_id=921005877 instance=ExtResource("16_ditui")]
+position = Vector2(6070.8193, 4517.332)
+metadata/_scene_painted = true
+
+[node name="Small_Rock8" parent="PlayScene/Terrain" unique_id=465076347 instance=ExtResource("16_ditui")]
+position = Vector2(6892.746, 5203.462)
+metadata/_scene_painted = true
+
+[node name="Small_Rock9" parent="PlayScene/Terrain" unique_id=727972357 instance=ExtResource("16_ditui")]
+position = Vector2(7141.468, 3802.6133)
+metadata/_scene_painted = true
+
+[node name="sign" parent="PlayScene/Terrain" unique_id=395760802 instance=ExtResource("19_0gymt")]
+position = Vector2(4643, 5025)
+
+[node name="Boat" type="Node2D" parent="PlayScene" unique_id=880378050]
+z_index = 2
+position = Vector2(-366, 813)
+script = ExtResource("22_a7558")
+
+[node name="TextureRect" type="TextureRect" parent="PlayScene/Boat" unique_id=2115890295]
+offset_left = 4117.0
+offset_top = 11477.0
+offset_right = 4823.0
+offset_bottom = 12732.0
+texture = ExtResource("23_bb7hx")
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayScene/Boat" unique_id=1395098626]
+libraries/ = SubResource("AnimationLibrary_d2bti")
+autoplay = &"credits_scene"
+
+[node name="Horn" type="AudioStreamPlayer2D" parent="PlayScene/Boat" unique_id=1184920677]
+position = Vector2(4479, 12291.957)
+stream = ExtResource("24_caql8")
+
+[node name="WaterMoving" type="AudioStreamPlayer2D" parent="PlayScene/Boat" unique_id=1982313146]
+position = Vector2(4476, 12037.957)
+stream = ExtResource("25_bwir6")
+autoplay = true
+
+[node name="Credits" type="RichTextLabel" parent="PlayScene/Boat" unique_id=1111838727]
+modulate = Color(1, 1, 1, 0)
+offset_left = 3223.0
+offset_top = 11922.083
+offset_right = 4086.0
+offset_bottom = 12503.083
+theme_override_fonts/normal_font = ExtResource("26_rvbrs")
+theme_override_font_sizes/normal_font_size = 120
+bbcode_enabled = true
+text = "[wave]a game by
+ava and zoe"
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayScene/Boat" unique_id=1743857781]
+visible = false
+position = Vector2(4415, 12321)
+scale = Vector2(0.8166035, 0.8166035)
+texture = SubResource("AtlasTexture_rxf60")
+
+[node name="PointLight2D" type="PointLight2D" parent="PlayScene/Boat" unique_id=1559689423]
+position = Vector2(4497, 11831.001)
+scale = Vector2(6.384615, 6.3846154)
+color = Color(0.93922454, 0.43466303, 0.25374067, 0.54509807)
+energy = 2.37
+texture = ExtResource("17_hh5ci")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PlayScene" unique_id=1665126948]
+material = SubResource("CanvasItemMaterial_rxf60")
+offset_left = 4795.0
+offset_top = 9014.0
+offset_right = 6250.0
+offset_bottom = 13300.0
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("17_fa2y2")
+theme_override_font_sizes/normal_font_size = 121
+bbcode_enabled = true
+text = "Shaders 
+[wave]Godot Shaders[/wave]
+
+Programming 
+[wave]Ava and Zoe Bisset[/wave]
+
+Art 
+[wave]Ava Bisset[/wave]
+
+Music 
+[wave]Seth_Makes_Sounds  on Freesound, etc.[/wave]
+
+Shaders 
+[wave]Godot Shaders[/wave]
+
+A game made by twin sisters Ava and Zoe for Hack Club's Harvest Game Jam.
+
+We've spent a collective ## hours in 2 weeks making this.
+
+ Hope you enjoyed it!!
+
+<3"
+horizontal_alignment = 1
+
+[node name="Wind" type="AudioStreamPlayer" parent="." unique_id=1936971665]
+stream = ExtResource("29_uyqir")
+volume_db = 6.525
+autoplay = true
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1233279197]
+stream = ExtResource("19_hh5ci")
+volume_db = -4.685
+autoplay = true
+playback_type = 1
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2086700712]
+color = Color(0.9260778, 0.69332236, 0.56377584, 1)
