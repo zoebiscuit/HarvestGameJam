@@ -11,23 +11,86 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3uy15"]
 
+[sub_resource type="Animation" id="Animation_3xlt3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-280, -100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.5176471)]
+}
+
+[sub_resource type="Animation" id="Animation_3uy15"]
+resource_name = "jump"
+length = 0.46666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.46666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-280, -60), Vector2(-280, -100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.46666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.5176471), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sjqvs"]
+_data = {
+&"RESET": SubResource("Animation_3xlt3"),
+&"jump": SubResource("Animation_3uy15")
+}
+
 [node name="SpeechBubble" type="Node2D" unique_id=120089912]
 z_index = 5
 script = ExtResource("1_e6mr3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1198736902]
+modulate = Color(1, 1, 1, 0.5176471)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -280.0
-offset_top = -50.0
+offset_top = -100.0
 offset_right = 280.0
-offset_bottom = 50.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
+alignment = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=93131497]
 layout_mode = 2
@@ -55,7 +118,8 @@ layout_mode = 2
 theme_override_colors/default_color = Color(0.93886495, 0.94694656, 0.97757405, 1)
 theme_override_fonts/normal_font = ExtResource("3_3xlt3")
 theme_override_font_sizes/normal_font_size = 49
-text = "Drinking jack all by myself."
+bbcode_enabled = true
+text = "Drinking jack all by myself. "
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
@@ -79,3 +143,6 @@ stream = ExtResource("6_3uy15")
 [node name="Advance" type="AudioStreamPlayer2D" parent="." unique_id=199527623]
 stream = ExtResource("7_ll58w")
 pitch_scale = 2.34
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=846630247]
+libraries/ = SubResource("AnimationLibrary_sjqvs")

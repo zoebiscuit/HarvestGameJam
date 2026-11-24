@@ -19,3 +19,4 @@ disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=829577171]
 texture = SubResource("AtlasTexture_sc1ld")
+offset = Vector2(0, 799.03)

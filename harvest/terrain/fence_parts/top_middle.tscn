@@ -8,16 +8,17 @@ atlas = SubResource("CompressedTexture2D_ib765")
 region = Rect2(280, 0, 280, 280)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwitp"]
-size = Vector2(278, 176.5)
+size = Vector2(278, 93.25)
 
 [node name="TopMiddle" type="StaticBody2D" unique_id=1875478540]
 y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=448820018]
 use_parent_material = true
+position = Vector2(0, -59)
 texture = SubResource("AtlasTexture_jn5dn")
 offset = Vector2(0, -55)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1662868468]
-position = Vector2(0, 103.75)
+position = Vector2(0, 2.375)
 shape = SubResource("RectangleShape2D_dwitp")

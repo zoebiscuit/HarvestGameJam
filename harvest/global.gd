@@ -1,5 +1,7 @@
 extends Node
 
+var highlight_material = preload("res://terrain/highlighted.tres")
+var highlight_material_small = preload("res://terrain/highlighted_small.tres")
 var point: Texture2D = preload("res://img/point.png")
 var button_sfx: AudioStream = preload("res://SFX/Actions/Button_Pressed_09.ogg")
 var button_sfx2: AudioStream = preload("res://SFX/Dialogue/Dialogue_Blip_02.ogg")

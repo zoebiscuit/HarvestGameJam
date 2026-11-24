@@ -1,7 +1,17 @@
 [gd_scene format=3 uid="uid://bouqabxv20ivk"]
 
+[ext_resource type="Script" uid="uid://dqm34tvp0qjhd" path="res://terrain/planter.gd" id="1_p3jyu"]
+[ext_resource type="Shader" uid="uid://brndbna6ua6u5" path="res://terrain/highlighted_small.tres" id="2_p3jyu"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aoh68"]
 size = Vector2(1186.6666, 323.3333)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bee6o"]
+shader = ExtResource("2_p3jyu")
+shader_parameter/line_color = Vector4(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/frequency = 10.0
+shader_parameter/phase_speed = 1.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e3jvb"]
 load_path = "res://.godot/imported/houseatlas.png-b0d8bcf8a8d5a45a209eca32b58f472a.ctex"
@@ -10,12 +20,25 @@ load_path = "res://.godot/imported/houseatlas.png-b0d8bcf8a8d5a45a209eca32b58f47
 atlas = SubResource("CompressedTexture2D_e3jvb")
 region = Rect2(560, 560, 1400, 560)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_bee6o"]
+radius = 355.56293
+
 [node name="horizontal_planter" type="StaticBody2D" unique_id=1456549239]
+y_sort_enabled = true
 scale = Vector2(0.6, 0.6)
+script = ExtResource("1_p3jyu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=258342823]
-position = Vector2(-1.6667048, -13.333333)
+position = Vector2(-1.6667048, 76.666664)
 shape = SubResource("RectangleShape2D_aoh68")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=829577171]
+material = SubResource("ShaderMaterial_bee6o")
 texture = SubResource("AtlasTexture_fbynw")
+offset = Vector2(0, 100)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1415194200]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1807765736]
+position = Vector2(28.333332, -3.3333333)
+shape = SubResource("CircleShape2D_bee6o")

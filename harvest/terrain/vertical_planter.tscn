@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://ms4mb7aoaysg"]
 
+[ext_resource type="Script" uid="uid://dqm34tvp0qjhd" path="res://terrain/planter.gd" id="1_hg1eo"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aoh68"]
 size = Vector2(250, 1168.3333)
 
@@ -10,8 +12,12 @@ load_path = "res://.godot/imported/houseatlas.png-b0d8bcf8a8d5a45a209eca32b58f47
 atlas = SubResource("CompressedTexture2D_e3jvb")
 region = Rect2(0, 560, 560, 1400)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rxf60"]
+radius = 355.56293
+
 [node name="vertical_planter" type="StaticBody2D" unique_id=1456549239]
 scale = Vector2(0.6, 0.6)
+script = ExtResource("1_hg1eo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=258342823]
 position = Vector2(5, 45.833363)
@@ -19,3 +25,9 @@ shape = SubResource("RectangleShape2D_aoh68")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=829577171]
 texture = SubResource("AtlasTexture_fbynw")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1896051415]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1617143181]
+position = Vector2(28.333332, -3.3333333)
+shape = SubResource("CircleShape2D_rxf60")

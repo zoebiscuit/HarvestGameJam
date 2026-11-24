@@ -6,6 +6,7 @@ extends Node2D
 @onready var voice_positive: AudioStreamPlayer2D = $VoicePositive
 @onready var voice_angry: AudioStreamPlayer2D = $VoiceAngry
 @onready var _advance: AudioStreamPlayer2D = $Advance
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var talking : bool
 
@@ -40,6 +41,7 @@ func say(message: String, emotion := "neutral, angry, positive, negative"):
 		"positive": voice_positive.play()
 		"negative": voice_negative.play()
 	
+	animation_player.play("jump")
 	tween.tween_property(label, "visible_ratio", 1.0, text_size)
 	
 	await advance

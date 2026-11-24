@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dpwxmqymbfxan"]
+
+[ext_resource type="Shader" uid="uid://dqirb5gk3vuwt" path="res://characters/outline.gdshader" id="1_a0gkp"]
+
+[resource]
+shader = ExtResource("1_a0gkp")
+shader_parameter/line_color = Vector4(1, 1, 1, 1)
+shader_parameter/line_thickness = 7.13
+shader_parameter/frequency = 100.0
+shader_parameter/phase_speed = 10.0

@@ -9,7 +9,10 @@
 radius = 378.0
 height = 756.0
 
-[node name="GreatGreatGrandfather" type="Node2D" unique_id=495964256]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxf60"]
+size = Vector2(476.6667, 586.6666)
+
+[node name="GreatGreatGrandfather" type="StaticBody2D" unique_id=1421916504]
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_u6rx4")
 
@@ -30,3 +33,7 @@ stream = ExtResource("1_gmcqu")
 volume_db = -5.967
 attenuation = 3.4822018
 panning_strength = 5.84
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=677063419]
+position = Vector2(5.0000124, -48.333332)
+shape = SubResource("RectangleShape2D_rxf60")
