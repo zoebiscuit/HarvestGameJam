@@ -1,5 +1,6 @@
 extends CanvasLayer
 @onready var music: AudioStreamPlayer = $AudioStreamPlayer
+@onready var animation_player: AnimationPlayer = $BG2/AnimationPlayer
 
 var can_open : bool = true
 
@@ -27,6 +28,7 @@ func close():
 	hide()
 
 func open():
+	animation_player.play("fadein")
 	music.play()
 	toggle_pause()
 	show()

@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+@onready var item_menu = $ItemMenu
+
 #func _ready() -> void:
 	#$SelectionWheel.hide()
 	#

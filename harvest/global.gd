@@ -2,7 +2,7 @@ extends Node
 
 var point: Texture2D = preload("res://img/point.png")
 var button_sfx: AudioStream = preload("res://SFX/Actions/Button_Pressed_09.ogg")
-var button_sfx2: AudioStream = preload("res://SFX/Dialogue/Dialogue_Blip_16.ogg")
+var button_sfx2: AudioStream = preload("res://SFX/Dialogue/Dialogue_Blip_02.ogg")
 var audio_player := AudioStreamPlayer.new()
 
 var next_scene : String 

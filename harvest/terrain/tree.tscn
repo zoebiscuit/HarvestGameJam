@@ -9,7 +9,7 @@ shader_parameter/wind_start_threshold = 0.0
 shader_parameter/wind_end_threshold = 2.97200014117
 shader_parameter/wind_end_threshold_2 = 0.1
 shader_parameter/wind_strength = 0.0310000014725
-shader_parameter/wind_speed = 1.00100004102773
+shader_parameter/wind_speed = 1.00300004112273
 shader_parameter/scale = 2.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3f5hn"]

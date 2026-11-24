@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ms4mb7aoaysg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aoh68"]
+size = Vector2(250, 1168.3333)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e3jvb"]
+load_path = "res://.godot/imported/houseatlas.png-b0d8bcf8a8d5a45a209eca32b58f472a.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbynw"]
+atlas = SubResource("CompressedTexture2D_e3jvb")
+region = Rect2(0, 560, 560, 1400)
+
+[node name="vertical_planter" type="StaticBody2D" unique_id=1456549239]
+scale = Vector2(0.6, 0.6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=258342823]
+position = Vector2(5, 45.833363)
+shape = SubResource("RectangleShape2D_aoh68")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=829577171]
+texture = SubResource("AtlasTexture_fbynw")

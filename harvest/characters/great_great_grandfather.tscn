@@ -2,19 +2,22 @@
 
 [ext_resource type="AudioStream" uid="uid://0knl58rwcnq7" path="res://SFX/Characters/Snoring.ogg" id="1_gmcqu"]
 [ext_resource type="Script" uid="uid://bi8wkyawq0xel" path="res://characters/great_great_grandfather.gd" id="1_u6rx4"]
+[ext_resource type="Texture2D" uid="uid://bclo728x72jy" path="res://img/grandpapi.png" id="2_aoh68"]
 [ext_resource type="PackedScene" uid="uid://boclgs3nc0qty" path="res://tools/speech_bubble.tscn" id="3_fqm1p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rxf60"]
-radius = 145.0
-height = 300.0
+radius = 378.0
+height = 756.0
 
 [node name="GreatGreatGrandfather" type="Node2D" unique_id=495964256]
+scale = Vector2(0.6, 0.6)
 script = ExtResource("1_u6rx4")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1882209439]
+texture = ExtResource("2_aoh68")
 
 [node name="SpeechBubble" parent="." unique_id=120089912 instance=ExtResource("3_fqm1p")]
-position = Vector2(0, -234)
+position = Vector2(0, -452)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1742648464]
 

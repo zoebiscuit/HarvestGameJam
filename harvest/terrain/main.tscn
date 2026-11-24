@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dhr2iq6bfhxse"]
 
-[ext_resource type="PackedScene" uid="uid://prtkjxifeov1" path="res://item_menu.tscn" id="1_bt258"]
+[ext_resource type="Shader" uid="uid://tbetq3q0o10n" path="res://terrain/cloud_shadow.gdshader" id="2_bt258"]
 [ext_resource type="Script" uid="uid://bew33jb8ivbre" path="res://play_scene.gd" id="2_sidns"]
 [ext_resource type="Texture2D" uid="uid://dg5ib3ae3nvd" path="res://img/Layout1_farm.png" id="3_2lttv"]
 [ext_resource type="Shader" uid="uid://cfcslgorr0waa" path="res://fallingLeaves.gdshader" id="4_8li71"]
@@ -25,8 +25,13 @@
 [ext_resource type="AudioStream" uid="uid://cidynesrjhwgo" path="res://SFX/Foley/water-boat.ogg" id="23_e7sit"]
 [ext_resource type="FontFile" uid="uid://dk6ggj11oqke3" path="res://font/BadComic_Font_0_98/OpenType (.otf)/BadComic-Regular.otf" id="24_fx8l8"]
 [ext_resource type="AudioStream" uid="uid://dtqgf6cj5eq4e" path="res://SFX/Foley/leaves_wind.wav" id="25_hdnyk"]
-[ext_resource type="AudioStream" uid="uid://cosjt4yhhcl8y" path="res://SFX/Songs/Happy_Theme.ogg" id="26_03hhj"]
+[ext_resource type="AudioStream" uid="uid://suyolamnm83b" path="res://SFX/Songs/bg-neutral-chill-music.wav" id="25_ke3dx"]
 [ext_resource type="AudioStream" uid="uid://bh2kayfl6fajt" path="res://SFX/Songs/opening_melody.mp3" id="27_v432p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bt258"]
+shader = ExtResource("2_bt258")
+shader_parameter/r = 0.0
+shader_parameter/offset = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rxf60"]
 shader = ExtResource("4_8li71")
@@ -146,26 +151,26 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("../../UI/FadeColor:color")
+tracks/8/path = NodePath("../../UI/FadeColor:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.15032649, 0.013993294, 0.21153146, 1)]
+"values": [false]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("../../UI/FadeColor:visible")
+tracks/9/path = NodePath("../../UI/FadeColor:color")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Color(0.15032649, 0.013993294, 0.21153146, 1)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -282,26 +287,26 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("../../UI/FadeColor:color")
+tracks/8/path = NodePath("../../UI/FadeColor:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 25.5292, 27.133333, 28.404133, 30),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 25.384134, 30),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(0.14901961, 0.015686275, 0.21176471, 0), Color(0.14901961, 0.015686275, 0.21176471, 0), Color(0.15032649, 0.013993294, 0.21153146, 1), Color(0.15032649, 0.013993294, 0.21153146, 1), Color(0.14901961, 0.015686275, 0.21176471, 0)]
+"values": [false, true, false]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("../../UI/FadeColor:visible")
+tracks/9/path = NodePath("../../UI/FadeColor:color")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 25.384134, 30),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
+"times": PackedFloat32Array(0, 25.5292, 27.133333, 28.404133, 30),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.14901961, 0.015686275, 0.21176471, 0), Color(0.14901961, 0.015686275, 0.21176471, 0), Color(0.15032649, 0.013993294, 0.21153146, 1), Color(0.15032649, 0.013993294, 0.21153146, 1), Color(0.14901961, 0.015686275, 0.21176471, 0)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -328,18 +333,6 @@ size = Vector2(1031, 830)
 [node name="Main" type="Node" unique_id=27969217]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=726812213]
-
-[node name="Label" type="Label" parent="UI" unique_id=1316872428]
-visible = false
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Player equipped tool"
-
-[node name="ItemMenu" parent="UI" unique_id=1901322293 instance=ExtResource("1_bt258")]
-offset_left = 957.0
-offset_top = 556.0
-offset_right = -963.0
-offset_bottom = -524.0
 
 [node name="FadeColor" type="ColorRect" parent="UI" unique_id=491122041]
 visible = false
@@ -369,6 +362,13 @@ offset_bottom = 8451.334
 scale = Vector2(0.87, 0.87)
 texture = ExtResource("3_2lttv")
 
+[node name="Floor2" type="TextureRect" parent="PlayScene" unique_id=1085067586]
+material = SubResource("ShaderMaterial_bt258")
+offset_right = 8313.0
+offset_bottom = 8451.334
+scale = Vector2(0.87, 0.87)
+texture = ExtResource("3_2lttv")
+
 [node name="FallingLeaves" type="ColorRect" parent="PlayScene" unique_id=174389275]
 z_index = 10
 material = SubResource("ShaderMaterial_rxf60")
@@ -382,10 +382,10 @@ offset_top = 8447.0
 offset_right = 9615.0
 offset_bottom = 18222.0
 scale = Vector2(0.87, 0.87)
-color = Color(0.34509805, 0.68235296, 1, 1)
+color = Color(0.3882353, 0.7372549, 0.99215686, 1)
 
 [node name="Player" parent="PlayScene" unique_id=665135049 instance=ExtResource("6_x33uq")]
-position = Vector2(4846, 5706)
+position = Vector2(2240, 1120)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayScene/Player" unique_id=3568664]
 
@@ -1245,7 +1245,7 @@ metadata/_scene_painted = true
 y_sort_enabled = true
 
 [node name="GreatGreatGrandfather" parent="PlayScene/Characters" unique_id=495964256 node_paths=PackedStringArray("player") instance=ExtResource("19_5qvxb")]
-position = Vector2(2425, 1106)
+position = Vector2(2520, 1106)
 player = NodePath("../../Player")
 
 [node name="Boat" type="Node2D" parent="PlayScene" unique_id=880378050]
@@ -1300,8 +1300,8 @@ stream = ExtResource("25_hdnyk")
 volume_db = 6.525
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1233279197]
-stream = ExtResource("26_03hhj")
-volume_db = -17.468
+stream = ExtResource("25_ke3dx")
+volume_db = -4.685
 playback_type = 1
 
 [node name="OpeningMusic" type="AudioStreamPlayer" parent="." unique_id=1915171922]

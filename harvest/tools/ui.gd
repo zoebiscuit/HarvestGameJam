@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-
+@onready var item_menu = $ItemMenu
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hide()

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://chmfsx1g4ja47"]
+
+[ext_resource type="Texture2D" uid="uid://bbbi5tv7xhb5h" path="res://img/houseatlas.png" id="1_5bxhb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aoh68"]
+size = Vector2(2.5, 38.333374)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbynw"]
+atlas = ExtResource("1_5bxhb")
+region = Rect2(0, 0, 560, 280)
+
+[node name="gardenfloor" type="StaticBody2D" unique_id=1456549239]
+scale = Vector2(0.6, 0.6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=258342823]
+position = Vector2(3.333374, 5)
+shape = SubResource("RectangleShape2D_aoh68")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=829577171]
+texture = SubResource("AtlasTexture_fbynw")

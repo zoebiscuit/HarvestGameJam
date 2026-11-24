@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://b0ya6svhy81df"]
+
+[ext_resource type="Texture2D" uid="uid://bbbi5tv7xhb5h" path="res://img/houseatlas.png" id="1_sctmt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aoh68"]
+size = Vector2(162.70831, 127.91663)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8swo8"]
+atlas = ExtResource("1_sctmt")
+region = Rect2(1116, 1035, 279, 345)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yve3j"]
+atlas = ExtResource("1_sctmt")
+region = Rect2(837, 1035, 279, 345)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rq0xv"]
+atlas = ExtResource("1_sctmt")
+region = Rect2(558, 1035, 279, 345)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4vyq"]
+atlas = ExtResource("1_sctmt")
+region = Rect2(1395, 1035, 279, 345)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rxf60"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8swo8")
+}],
+"loop": 1,
+"name": &"Stage_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yve3j")
+}],
+"loop": 1,
+"name": &"Stage_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rq0xv")
+}],
+"loop": 1,
+"name": &"Stage_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4vyq")
+}],
+"loop": 1,
+"name": &"Stage_4",
+"speed": 5.0
+}]
+
+[node name="plant_stages" type="StaticBody2D" unique_id=1456549239]
+scale = Vector2(0.6, 0.6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=258342823]
+position = Vector2(-1.6666718, -23.333332)
+shape = SubResource("RectangleShape2D_aoh68")
+disabled = true
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=566769326]
+sprite_frames = SubResource("SpriteFrames_rxf60")
+animation = &"Stage_2"
