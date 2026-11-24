@@ -12,13 +12,13 @@ const SPEED = 500.0
 const SPRINT_SPEED = 800.0
 const JUMP_VELOCITY = -400.0
 
-# Frame indices in *_walk animations where a foot plants (adjust to match your SpriteFrames)
 const STEP_FRAMES := [1, 3]
 const WALK_ANIMS := ["down_walk", "side_walk", "up_walk"]
 
 var facing_dir := "down"
 var last_footstep := -1
 
+var can_move : bool = true
 
 func _ready() -> void:
 	anim_sprite.frame_changed.connect(_on_anim_frame_changed)
@@ -26,7 +26,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var input_vector := Vector2.ZERO
-
+	
+	if !can_move:
+		return
+	
 	if Input.is_action_pressed("up"):
 		input_vector.y -= 1.0
 	if Input.is_action_pressed("down"):

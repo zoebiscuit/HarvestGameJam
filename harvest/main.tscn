@@ -51,307 +51,6 @@ shader_parameter/far_color = Color(0.5019608, 0.73333335, 0.5019608, 0.6)
 shader_parameter/near_color = Color(1, 1, 1, 1)
 shader_parameter/particle_texture = ExtResource("4_0rl1p")
 
-[sub_resource type="Animation" id="Animation_0h7mo"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("RemoteTransform2D:remote_path")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [NodePath("../../Camera2D")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Player/RemoteTransform2D:remote_path")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [NodePath("")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-366, 813)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("WaterMoving:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("WaterMoving:volume_db")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Horn:playing")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("../../OpeningMusic:playing")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Credits:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("../../UI/FadeColor:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [false]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("../../UI/FadeColor:color")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.15032649, 0.013993294, 0.21153146, 1)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("../Camera2D:limit_smoothed")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Sprite2D:visible")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_nr8wp"]
-resource_name = "opening_boat_scene"
-length = 30.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("RemoteTransform2D:remote_path")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 27.764133),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [NodePath("../../Camera2D"), NodePath("")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Player/RemoteTransform2D:remote_path")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 27.764133),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [NodePath(""), NodePath("../../Camera2D")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 19.9948),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-366, 813), Vector2(-366, -4786)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("WaterMoving:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("WaterMoving:volume_db")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 20.0144, 21.964401),
-"transitions": PackedFloat32Array(1, 1, 2.2973945),
-"update": 0,
-"values": [0.0, 0.0, -50.358]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Horn:playing")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("../../OpeningMusic:playing")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Credits:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 10.026667, 10.966666, 14.833333, 18.026669),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("../../UI/FadeColor:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 25.384134, 30),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [false, true, false]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("../../UI/FadeColor:color")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 25.5292, 27.133333, 28.633333, 30),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(0.14901961, 0.015686275, 0.21176471, 0), Color(0.14901961, 0.015686275, 0.21176471, 0), Color(0.15032649, 0.013993294, 0.21153146, 1), Color(0.15032649, 0.013993294, 0.21153146, 1), Color(0.14901961, 0.015686275, 0.21176471, 0)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("../Camera2D:limit_smoothed")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0, 27.37),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Sprite2D:visible")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0, 14.6568, 27.3122),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_d2bti"]
-_data = {
-&"RESET": SubResource("Animation_0h7mo"),
-&"opening_boat_scene": SubResource("Animation_nr8wp")
-}
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_rxf60"]
 atlas = ExtResource("29_jq2sk")
 region = Rect2(0, 1120, 560, 560)
@@ -370,18 +69,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.15032649, 0.013993294, 0.21153146, 1)
+color = Color(0.14901961, 0.015686275, 0.21176471, 0)
 
 [node name="PlayScene" type="Node2D" parent="." unique_id=589162470]
 y_sort_enabled = true
 script = ExtResource("1_htxhm")
 
 [node name="Camera2D" type="Camera2D" parent="PlayScene" unique_id=328253252]
-position = Vector2(3610, 13007)
+position = Vector2(5013, 7280)
 limit_left = 0
 limit_top = 0
 limit_right = 8311
 limit_bottom = 12000
+limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
@@ -407,10 +107,11 @@ scale = Vector2(0.87, 0.87)
 color = Color(0.3882353, 0.7372549, 0.99215686, 1)
 
 [node name="Player" parent="PlayScene" unique_id=665135049 instance=ExtResource("5_ok6jj")]
-position = Vector2(5018, 7322)
+position = Vector2(5013, 7417)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayScene/Player" unique_id=3568664]
 position = Vector2(0, -137)
+remote_path = NodePath("../../Camera2D")
 
 [node name="Borders" type="StaticBody2D" parent="PlayScene" unique_id=131699400]
 modulate = Color(1, 1, 1, 0)
@@ -1488,7 +1189,7 @@ metadata/_scene_painted = true
 
 [node name="Boat" type="Node2D" parent="PlayScene" unique_id=880378050]
 z_index = 2
-position = Vector2(-366, 813)
+position = Vector2(-366, -4786)
 script = ExtResource("24_4w656")
 
 [node name="TextureRect" type="TextureRect" parent="PlayScene/Boat" unique_id=2115890295]
@@ -1497,9 +1198,6 @@ offset_top = 11477.0
 offset_right = 4823.0
 offset_bottom = 12732.0
 texture = ExtResource("25_e71vb")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayScene/Boat" unique_id=1395098626]
-libraries/ = SubResource("AnimationLibrary_d2bti")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayScene/Boat" unique_id=1488708679]
 position = Vector2(3976, 12194)
@@ -1512,6 +1210,7 @@ stream = ExtResource("26_rnkwl")
 [node name="WaterMoving" type="AudioStreamPlayer2D" parent="PlayScene/Boat" unique_id=1982313146]
 position = Vector2(4476, 12037.957)
 stream = ExtResource("27_vke2r")
+volume_db = -50.358
 
 [node name="Credits" type="RichTextLabel" parent="PlayScene/Boat" unique_id=1111838727]
 modulate = Color(1, 1, 1, 0)
@@ -1531,10 +1230,10 @@ position = Vector2(4415, 12321)
 scale = Vector2(0.8166035, 0.8166035)
 texture = SubResource("AtlasTexture_rxf60")
 
-[node name="Area2D" type="Area2D" parent="PlayScene" unique_id=1658584691]
+[node name="Portal" type="Area2D" parent="PlayScene" unique_id=1658584691]
 position = Vector2(6929, 655)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayScene/Area2D" unique_id=1555303720]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayScene/Portal" unique_id=1555303720]
 position = Vector2(273.5, 405)
 shape = SubResource("RectangleShape2D_rxf60")
 debug_color = Color(0.72221476, 0.2476643, 1, 0.41960785)
@@ -1542,16 +1241,17 @@ debug_color = Color(0.72221476, 0.2476643, 1, 0.41960785)
 [node name="NoYSort" type="Node2D" parent="PlayScene" unique_id=720247637]
 
 [node name="StaticBody2D2" parent="PlayScene/NoYSort" unique_id=2027998640 instance=ExtResource("29_ruth0")]
+visible = false
 position = Vector2(2517, 2080)
 metadata/_scene_painted = true
 
 [node name="Wind" type="AudioStreamPlayer" parent="." unique_id=1936971665]
 stream = ExtResource("30_rm4vd")
-volume_db = 6.525
+volume_db = 9.336
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1233279197]
 stream = ExtResource("31_pjyto")
-volume_db = -4.685
+volume_db = 9.336
 playback_type = 1
 
 [node name="OpeningMusic" type="AudioStreamPlayer" parent="." unique_id=1915171922]

@@ -6,8 +6,6 @@ extends StaticBody2D
 
 @export var player : CharacterBody2D
 
-var _snoring := true
-
 func _ready() -> void:
 	snoring.play()
 	pass # Replace with function body.
@@ -15,11 +13,12 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if area_2d.overlaps_body(player):
 		
-		if _snoring and event.is_action_pressed("enter"):
+		if !Global.grandpa_start_debrief and event.is_action_pressed("enter"):
 			start_conversation()
 			
 func start_conversation():
-	_snoring = false
+	player.can_move = false
+	Global.grandpa_start_debrief = true
 	snoring.stop()
 	await speech_bubble.say("mmmmmm...", "neutral")
 	await speech_bubble.say("mmmmmmHM...!", "neutral")
@@ -36,3 +35,4 @@ func start_conversation():
 	await speech_bubble.say("Anyone can tell just by looking...", "negative")
 	await speech_bubble.say("...but your old great great grandpa is sickly.", "negative")
 	await speech_bubble.say("You're a gift the sea has brought to me, grandchild.", "positive")
+	player.can_move = true
