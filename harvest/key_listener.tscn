@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dd36wul4kjaqr"]
+
+[ext_resource type="Texture2D" uid="uid://btqf87i258e2w" path="res://img/leaf.png" id="1_2k37l"]
+[ext_resource type="Script" uid="uid://dkiaell65pub0" path="res://key_listener.gd" id="2_cs670"]
+
+[node name="KeyListener" type="Sprite2D" unique_id=1098729343]
+texture = ExtResource("1_2k37l")
+script = ExtResource("2_cs670")
+key_name = "space"

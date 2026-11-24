@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bpd6kekobjf5"]
+
+[ext_resource type="PackedScene" uid="uid://dd36wul4kjaqr" path="res://key_listener.tscn" id="1_bwyfi"]
+[ext_resource type="PackedScene" uid="uid://cjyfdpd5eo3by" path="res://falling_key.tscn" id="2_df5pp"]
+
+[node name="GameLevel" type="Node2D" unique_id=906377798]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=713221804]
+
+[node name="KeyListener" parent="." unique_id=1098729343 instance=ExtResource("1_bwyfi")]
+position = Vector2(-818, 400)
+
+[node name="KeyListener2" parent="." unique_id=484486622 instance=ExtResource("1_bwyfi")]
+position = Vector2(-390, 400)
+
+[node name="KeyListener3" parent="." unique_id=2011965068 instance=ExtResource("1_bwyfi")]
+position = Vector2(38, 400)
+
+[node name="KeyListener4" parent="." unique_id=1767626457 instance=ExtResource("1_bwyfi")]
+position = Vector2(466, 400)
+
+[node name="KeyListener5" parent="." unique_id=356792750 instance=ExtResource("1_bwyfi")]
+position = Vector2(894, 400)
+
+[node name="FallingKey" parent="." unique_id=1491063159 instance=ExtResource("2_df5pp")]
+position = Vector2(-772, -708)
