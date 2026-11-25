@@ -10,6 +10,7 @@ func _ready() -> void:
 		"farm":
 			player.can_move = false
 			player.anim_sprite.set_animation("side_idle")
+			player.position = Vector2i(800, 922)
 			
 			Ui.fade_animation.play("fade_out")
 			await Ui.fade_animation.animation_finished

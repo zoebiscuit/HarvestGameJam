@@ -262,7 +262,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -450,7 +450,7 @@ _data = {
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rxf60"]
 atlas = ExtResource("27_h0j5p")
-region = Rect2(0, 1120, 560, 560)
+region = Rect2(1120, 1120, 560, 560)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rxf60"]
 blend_mode = 1
@@ -503,15 +503,6 @@ offset_right = 9615.0
 offset_bottom = 18222.0
 scale = Vector2(0.87, 0.87)
 color = Color(0.3882353, 0.7372549, 0.99215686, 1)
-
-[node name="Borders" type="StaticBody2D" parent="PlayScene" unique_id=131699400]
-modulate = Color(1, 1, 1, 0)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayScene/Borders" unique_id=112262717]
-polygon = PackedVector2Array(8377, 16964, 8, 16913, 5, 6792, 701, 6901, 2309, 6318, 3791, 6774, 4618, 6475, 4637, 6043, 4778, 6033, 4810, 7690, 5416, 7700, 5421, 6061, 5552, 6071, 5566, 6470, 6088, 6259, 7064, 6540, 8402, 6305)
-
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="PlayScene/Borders" unique_id=1660256887]
-polygon = PackedVector2Array(4079, -14, 4048, 1187, 4903, 854, 5963, 788, 7317, 779, 7330, 1252, 6660, 1349, 5932, 1380, 5650, 1481, 5494, 1643, 5310, 1778, 5249, 1932, 8373, 1940, 8373, -62)
 
 [node name="Terrain" type="Node2D" parent="PlayScene" unique_id=1730463499]
 y_sort_enabled = true
@@ -789,8 +780,7 @@ ava and zoe"
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayScene/Boat" unique_id=1743857781]
-visible = false
-position = Vector2(4415, 12321)
+position = Vector2(4656.0005, 11674)
 scale = Vector2(0.8166035, 0.8166035)
 texture = SubResource("AtlasTexture_rxf60")
 
@@ -851,4 +841,4 @@ attenuation = 2.143547
 playback_type = 1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2086700712]
-color = Color(0.9260778, 0.69332236, 0.56377584, 1)
+color = Color(0.7482474, 0.4780381, 0.5029418, 1)

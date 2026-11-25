@@ -3,8 +3,8 @@ extends CanvasLayer
 
 @onready var item_menu = $ItemMenu
 
-@onready var support_bar: ProgressBar = $Stats/SupportBar
-@onready var confidence_bar: ProgressBar = $Stats/ConfidenceBar
+@onready var support_bar = $SupportBar
+@onready var confidence_bar = $ConfidenceBar
 
 var support : float = 0.0
 var confidence : float = 100.0

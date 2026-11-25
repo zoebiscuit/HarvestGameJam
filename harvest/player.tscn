@@ -8,6 +8,10 @@
 [ext_resource type="AudioStream" uid="uid://cqadyyvrnduvl" path="res://SFX/Foley/footstep_grass_002.ogg" id="4_sweqy"]
 [ext_resource type="AudioStream" uid="uid://v7gxau75r6bm" path="res://SFX/Foley/footstep_grass_004.ogg" id="5_2hs0m"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxf60"]
+atlas = ExtResource("3_1jxqw")
+region = Rect2(0, 2520, 560, 280)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
 size = Vector2(196, 130)
 
@@ -142,8 +146,12 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=665135049]
-y_sort_enabled = true
 script = ExtResource("1_4flbx")
+
+[node name="shadow" type="Sprite2D" parent="." unique_id=1456316482]
+position = Vector2(4, -41.000004)
+scale = Vector2(0.763268, 0.763268)
+texture = SubResource("AtlasTexture_rxf60")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1692044324]
 position = Vector2(3, -50)

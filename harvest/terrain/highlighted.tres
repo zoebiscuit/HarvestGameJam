@@ -5,6 +5,6 @@
 [resource]
 shader = ExtResource("1_a0gkp")
 shader_parameter/line_color = Vector4(1, 1, 1, 1)
-shader_parameter/line_thickness = 7.13
-shader_parameter/frequency = 100.0
-shader_parameter/phase_speed = 10.0
+shader_parameter/line_thickness = 29.105
+shader_parameter/frequency = 93.555
+shader_parameter/phase_speed = 8.68
