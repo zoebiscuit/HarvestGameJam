@@ -3,6 +3,12 @@ extends CanvasLayer
 
 @onready var item_menu = $ItemMenu
 
+@onready var support_bar: ProgressBar = $Stats/SupportBar
+@onready var confidence_bar: ProgressBar = $Stats/ConfidenceBar
+
+var support : float = 0.0
+var confidence : float = 100.0
+
 var currently_teleporting : bool
 var last_location : String = "start"
 
@@ -13,4 +19,35 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	confidence_bar.value = confidence
+	support_bar.value = support
+	
+	
+func lose_confidence(amount : int):
+	confidence -= amount
+	
+	if confidence <= 0:
+		dead()
+	
+	return
+	
+func lose_support(amount : int):
+	
+	if support - amount <= 0:
+		support = 0
+	else:
+		support -= amount
+	
+	return
+
+func add_support(amount : int):
+	
+	if support + amount >= 100:
+		support = 100
+	else:
+		support += amount
+	
+	return
+
+func dead():
+	pass # killed screen :(

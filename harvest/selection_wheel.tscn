@@ -20,8 +20,8 @@ metadata/_custom_type_script = "uid://5g0trtfgfiyl"
 atlas = ExtResource("3_1b50i")
 region = Rect2(0, 0, 128, 128)
 script = ExtResource("2_0isde")
-name = "None"
-count = 12
+name = "Produce"
+count = 6
 metadata/_custom_type_script = "uid://5g0trtfgfiyl"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1b50i"]

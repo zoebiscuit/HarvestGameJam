@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bqd3l04aq62fi" path="res://credits.gd" id="1_hh5ci"]
 [ext_resource type="Texture2D" uid="uid://dg5ib3ae3nvd" path="res://img/Layout1_farm.png" id="2_ex0t3"]
-[ext_resource type="Shader" uid="uid://cfcslgorr0waa" path="res://fallingLeaves.gdshader" id="3_xix5j"]
 [ext_resource type="Texture2D" uid="uid://btqf87i258e2w" path="res://img/leaf.png" id="4_auy6k"]
 [ext_resource type="PackedScene" uid="uid://cawl8d28clsyh" path="res://terrain/bush.tscn" id="6_mip28"]
 [ext_resource type="PackedScene" uid="uid://huiixuyd4cne" path="res://terrain/tree.tscn" id="7_3t5mb"]
+[ext_resource type="Texture2D" uid="uid://bkshxr5kakmu4" path="res://img/boat2.png" id="11_fa2y2"]
 [ext_resource type="PackedScene" uid="uid://domhm5yuqkyji" path="res://terrain/small_big.tscn" id="15_an74x"]
 [ext_resource type="PackedScene" uid="uid://c60m60xts43ok" path="res://terrain/rock_small.tscn" id="16_ditui"]
 [ext_resource type="FontFile" uid="uid://cugn4yssf4ect" path="res://font/BadComic_Font_0_98/OpenType (.otf)/BadComic-Italic.otf" id="17_fa2y2"]
@@ -14,18 +14,97 @@
 [ext_resource type="PackedScene" uid="uid://vuxhedmi3csx" path="res://terrain/sign.tscn" id="19_0gymt"]
 [ext_resource type="AudioStream" uid="uid://gcuwkq4i8teb" path="res://SFX/Songs/770969__nicpressley__jazz-chords-gm-approximately.ogg" id="19_hh5ci"]
 [ext_resource type="Script" uid="uid://d2cjrduhappak" path="res://boat.gd" id="22_a7558"]
-[ext_resource type="Texture2D" uid="uid://bxkak5d8sp6yc" path="res://img/boat.png" id="23_bb7hx"]
 [ext_resource type="AudioStream" uid="uid://cg4nypobpnwli" path="res://SFX/Foley/boathorn.wav" id="24_caql8"]
 [ext_resource type="AudioStream" uid="uid://cidynesrjhwgo" path="res://SFX/Foley/water-boat.ogg" id="25_bwir6"]
 [ext_resource type="FontFile" uid="uid://dk6ggj11oqke3" path="res://font/BadComic_Font_0_98/OpenType (.otf)/BadComic-Regular.otf" id="26_rvbrs"]
 [ext_resource type="Texture2D" uid="uid://bc2kolt2tr0ar" path="res://img/Character_final.png" id="27_h0j5p"]
 [ext_resource type="AudioStream" uid="uid://dtqgf6cj5eq4e" path="res://SFX/Foley/leaves_wind.wav" id="29_uyqir"]
 
+[sub_resource type="Shader" id="Shader_fa2y2"]
+code = "// Waving Particles shader by Brian Smith (steampunkdemon.itch.io)
+// MIT licence
+
+shader_type canvas_item;
+
+// Uncomment the following line if you are using a version of Godot before 4:
+//	const float PI = 3.14159;
+
+// Comment out the following line if you are not applying the shader to a ColorRect:
+uniform vec2 dimensions = vec2(1152.0, 648.0); // Resolution of ColorRect in pixels
+
+uniform float rows = 20.0;
+uniform float columns = 5.0;
+uniform float vertical_scroll : hint_range(-1.0, 1.0, 0.01) = 0.5;
+uniform float horizontal_scroll : hint_range(-1.0, 1.0, 0.01) = 0.1;
+uniform float size_min : hint_range(0.1, 1.0, 0.1) = 0.3;
+uniform float size_max : hint_range(0.1, 1.0, 0.1) = 0.7; // If 'size_max' is larger than 0.7 the corners of the particles will be clipped if they are rotating.
+uniform float wave_min : hint_range(0.0, 1.0, 0.1) = 0.1;
+uniform float wave_max : hint_range(0.0, 1.0, 0.1) = 1.0; // If the particles are waving into the neighbouring columns reduce 'wave_max'.
+uniform float wave_speed : hint_range(0.0, 2.0, 0.1) = 0.5;
+uniform float wave_rotation : hint_range(-1.0, 1.0, 0.1) = 1.0;
+
+// Replace the below references to 'source_color' with 'hint_color' if you are using a version of Godot before 4:
+uniform vec4 far_color : source_color = vec4(0.5, 0.5, 0.5, 1.0);
+uniform vec4 near_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+
+// Remove the below reference to ': source_color, filter_nearest_mipmap' if you are using a version of Godot before 4.0:
+uniform sampler2D particle_texture : source_color, filter_nearest_mipmap;
+
+float greater_than(float x, float y) {
+	return max(sign(x - y), 0.0);
+}
+
+void fragment() {
+// You can comment out the below line and add a new uniform above as:
+// uniform float time = 10000.0;
+// You can then update the time uniform from your _physics_process function by adding or subtracting delta. You can also pause the particles' motion by not changing the time uniform.
+	float time = 10000.0 + TIME;
+
+// Comment out the following two lines if you are not applying the shader to a TextureRect:
+//	COLOR = texture(TEXTURE,UV); // This line is only required if you are using a version of Godot before 4.
+//	vec2 dimensions = 1.0 / TEXTURE_PIXEL_SIZE;
+
+	float row_rn = fract(sin(floor((UV.y - vertical_scroll * time) * rows)));
+	float column_rn = fract(sin(floor((UV.x + row_rn - horizontal_scroll * time) * columns)));
+	float wave = sin(wave_speed * time + column_rn * 90.0);
+	vec2 uv = (vec2(fract((UV.x + row_rn - horizontal_scroll * time + (wave * (wave_min + (wave_max - wave_min) * column_rn) / columns / 2.0)) * columns), fract((UV.y - vertical_scroll * time) * rows)) * 2.0 - 1.0) * vec2(dimensions.x / dimensions.y * rows / columns, 1.0);
+	float size = size_min + (size_max - size_min) * column_rn;
+	vec4 color = mix(far_color, near_color, column_rn);
+	
+// Comment out the below two lines if you do not need or want the particles to rotate:
+	float a = ((column_rn + wave) * wave_rotation) * PI;
+	uv *= mat2(vec2(cos(a), -sin(a)), vec2(sin(a), cos(a)));
+
+// Render particles as circles with soft edges:
+//	COLOR.rgb = mix(COLOR.rgb, color.rgb, max((size - length(uv)) / size, 0.0) * color.a);
+
+// Render particles as circles with hard edges:
+//	COLOR.rgb = mix(COLOR.rgb, color.rgb, greater_than(size, length(uv)) * color.a);
+
+// Render particles as crosses with soft edges:
+//	COLOR.rgb = mix(COLOR.rgb, color.rgb, max((size - length(uv)) / size, 0.0) * (max(greater_than(size / 10.0, abs(uv.x)), greater_than(size / 10.0, abs(uv.y)))) * color.a);
+
+// Render particles as crosses with hard edges:
+//	COLOR.rgb = mix(COLOR.rgb, color.rgb, max(greater_than(size / 5.0, abs(uv.x)) * greater_than(size, abs(uv.y)), greater_than(size / 5.0, abs(uv.y)) * greater_than(size, abs(uv.x))) * color.a);
+
+// Render particles as squares:
+//	COLOR.rgb = mix(COLOR.rgb, color.rgb, greater_than(size, abs(uv.x)) * greater_than(size, abs(uv.y)) * color.a);
+
+// Render particles as diamonds:
+//	COLOR.rgb = mix(COLOR.rgb, color.rgb, greater_than(size, abs(uv.y) + abs(uv.x)) * color.a);
+
+// Render particles using the 'particle_texture':
+// The texture should have a border of blank transparent pixels.
+	vec4 particle_texture_pixel = texture(particle_texture, (uv / size + 1.0) / 2.0) * color;
+vec4 base_color = vec4(0.0);
+COLOR.rgba = mix(base_color, particle_texture_pixel.rgba, particle_texture_pixel.a);
+}"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rxf60"]
-shader = ExtResource("3_xix5j")
+shader = SubResource("Shader_fa2y2")
 shader_parameter/dimensions = Vector2(1152, 648)
-shader_parameter/rows = 11.0
-shader_parameter/columns = 6.0
+shader_parameter/rows = 13.0
+shader_parameter/columns = 8.0
 shader_parameter/vertical_scroll = 0.02999997697743994
 shader_parameter/horizontal_scroll = 0.0899999756363199
 shader_parameter/size_min = 0.10000000149012
@@ -37,6 +116,43 @@ shader_parameter/wave_rotation = 1.0
 shader_parameter/far_color = Color(0.5019608, 0.73333335, 0.5019608, 0.6)
 shader_parameter/near_color = Color(1, 1, 1, 1)
 shader_parameter/particle_texture = ExtResource("4_auy6k")
+
+[sub_resource type="Shader" id="Shader_hh5ci"]
+code = "shader_type canvas_item;
+
+
+uniform float wind_start_threshold : hint_range(0,1) = 0.1;
+uniform float wind_end_threshold : hint_range(0,10) = 2;
+uniform float wind_end_threshold_2 : hint_range(0,2) = .1;
+uniform float wind_strength : hint_range(0,1.5) = .2;
+uniform float wind_speed  : hint_range(.2,5) = 1;
+uniform float scale = 2.0;
+
+void vertex() {
+	VERTEX *= scale;
+}
+
+void fragment() {
+    vec2 uv = (UV - REGION_RECT.xy) / REGION_RECT.zw * scale;
+	uv -= (scale - 1.) / scale;
+	
+	float dist_amount = smoothstep(wind_start_threshold * pow((1.0 - uv.y), wind_end_threshold), wind_end_threshold_2, 1.-uv.y);
+    uv.x += sin(TIME * wind_speed) * pow((1.0 - uv.y), wind_end_threshold) * dist_amount  * wind_strength ;
+    
+	COLOR = texture(TEXTURE, uv * REGION_RECT.zw + REGION_RECT.xy);
+    vec2 border = step(vec2(0.0), uv) * step(uv, vec2(1.0));
+    COLOR.a *= border.x * border.y;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3wb5j"]
+shader = SubResource("Shader_hh5ci")
+shader_parameter/wind_start_threshold = 0.0
+shader_parameter/wind_end_threshold = 0.7110000337725
+shader_parameter/wind_end_threshold_2 = 0.1
+shader_parameter/wind_strength = 0.0310000014725
+shader_parameter/wind_speed = 1.60600006976523
+shader_parameter/scale = 2.0
 
 [sub_resource type="Animation" id="Animation_0h7mo"]
 length = 0.001
@@ -402,54 +518,67 @@ y_sort_enabled = true
 position = Vector2(810, 478)
 
 [node name="Tree62" parent="PlayScene/Terrain" unique_id=1811843003 instance=ExtResource("7_3t5mb")]
+material = SubResource("ShaderMaterial_3wb5j")
 position = Vector2(4096.3374, 4311.8203)
 metadata/_scene_painted = true
 
 [node name="Tree63" parent="PlayScene/Terrain" unique_id=314038752 instance=ExtResource("7_3t5mb")]
+material = SubResource("ShaderMaterial_3wb5j")
 position = Vector2(3775.0002, 4572)
 metadata/_scene_painted = true
 
 [node name="Tree64" parent="PlayScene/Terrain" unique_id=1811554336 instance=ExtResource("7_3t5mb")]
+material = SubResource("ShaderMaterial_3wb5j")
 position = Vector2(3331, 4717)
 metadata/_scene_painted = true
 
 [node name="Tree65" parent="PlayScene/Terrain" unique_id=1032099247 instance=ExtResource("7_3t5mb")]
+material = SubResource("ShaderMaterial_3wb5j")
 position = Vector2(3716, 4845)
 metadata/_scene_painted = true
 
 [node name="Tree66" parent="PlayScene/Terrain" unique_id=162405184 instance=ExtResource("7_3t5mb")]
+material = SubResource("ShaderMaterial_3wb5j")
 position = Vector2(4366.0693, 4323.694)
 metadata/_scene_painted = true
 
 [node name="Tree68" parent="PlayScene/Terrain" unique_id=1726453263 instance=ExtResource("7_3t5mb")]
+material = SubResource("ShaderMaterial_3wb5j")
 position = Vector2(4087, 4958)
 metadata/_scene_painted = true
 
 [node name="Tree69" parent="PlayScene/Terrain" unique_id=930379813 instance=ExtResource("7_3t5mb")]
+material = SubResource("ShaderMaterial_3wb5j")
 position = Vector2(5764, 5305)
 metadata/_scene_painted = true
 
 [node name="Tree70" parent="PlayScene/Terrain" unique_id=1814040111 instance=ExtResource("7_3t5mb")]
+material = SubResource("ShaderMaterial_3wb5j")
 position = Vector2(4869, 4626)
 metadata/_scene_painted = true
 
 [node name="Tree71" parent="PlayScene/Terrain" unique_id=1684407795 instance=ExtResource("7_3t5mb")]
+material = SubResource("ShaderMaterial_3wb5j")
 position = Vector2(5330, 5198)
 metadata/_scene_painted = true
 
 [node name="Tree72" parent="PlayScene/Terrain" unique_id=1704317219 instance=ExtResource("7_3t5mb")]
+material = SubResource("ShaderMaterial_3wb5j")
 position = Vector2(4440, 4779)
 metadata/_scene_painted = true
 
 [node name="Tree81" parent="PlayScene/Terrain" unique_id=668191848 instance=ExtResource("7_3t5mb")]
+material = SubResource("ShaderMaterial_3wb5j")
 position = Vector2(5342, 4929)
 metadata/_scene_painted = true
 
 [node name="Tree93" parent="PlayScene/Terrain" unique_id=1565870283 instance=ExtResource("7_3t5mb")]
+material = SubResource("ShaderMaterial_3wb5j")
 position = Vector2(2507, 4111)
 metadata/_scene_painted = true
 
 [node name="Tree94" parent="PlayScene/Terrain" unique_id=1985056129 instance=ExtResource("7_3t5mb")]
+material = SubResource("ShaderMaterial_3wb5j")
 position = Vector2(2033, 4954)
 metadata/_scene_painted = true
 
@@ -630,7 +759,7 @@ offset_left = 4117.0
 offset_top = 11477.0
 offset_right = 4823.0
 offset_bottom = 12732.0
-texture = ExtResource("23_bb7hx")
+texture = ExtResource("11_fa2y2")
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlayScene/Boat" unique_id=1395098626]
@@ -706,15 +835,19 @@ We've spent a collective ## hours in 2 weeks making this.
 <3"
 horizontal_alignment = 1
 
-[node name="Wind" type="AudioStreamPlayer" parent="." unique_id=1936971665]
+[node name="Wind" type="AudioStreamPlayer2D" parent="." unique_id=1390904632]
+position = Vector2(5094, 5932)
 stream = ExtResource("29_uyqir")
-volume_db = 6.525
+volume_db = 5.535
 autoplay = true
 
-[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1233279197]
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1623162813]
+position = Vector2(4424, 9931)
 stream = ExtResource("19_hh5ci")
-volume_db = -4.685
+volume_db = 5.867
 autoplay = true
+max_distance = 7000.0
+attenuation = 2.143547
 playback_type = 1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2086700712]

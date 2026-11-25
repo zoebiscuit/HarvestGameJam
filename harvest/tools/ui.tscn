@@ -91,6 +91,12 @@ _data = {
 &"fade_out": SubResource("Animation_sf11f")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hsxob"]
+bg_color = Color(0.8450181, 0.51080865, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y0gk8"]
+bg_color = Color(0.36460766, 0.5888715, 0.9934427, 1)
+
 [node name="UI" type="CanvasLayer" unique_id=1511564948]
 script = ExtResource("1_y0gk8")
 
@@ -118,3 +124,22 @@ color = Color(0.3882353, 0.7372549, 0.99215686, 0)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FadeColor" unique_id=1843123364]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_ofkxr")
+
+[node name="Stats" type="VBoxContainer" parent="." unique_id=1545579984]
+offset_left = 92.0
+offset_top = 51.0
+offset_right = 642.0
+offset_bottom = 203.0
+theme_override_constants/separation = 20
+
+[node name="ConfidenceBar" type="ProgressBar" parent="Stats" unique_id=690985915]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_hsxob")
+value = 60.0
+
+[node name="SupportBar" type="ProgressBar" parent="Stats" unique_id=1685580794]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_y0gk8")
+value = 40.0

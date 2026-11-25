@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://2a7f2dheiaba"]
+
+[ext_resource type="Script" uid="uid://o43oxmjvwe5y" path="res://minigame_neighborhood.gd" id="1_jrq8m"]
+[ext_resource type="Texture2D" uid="uid://b8l8kgll0ig0h" path="res://img/bar.png" id="2_1dllx"]
+[ext_resource type="AudioStream" uid="uid://bu5pu65r7mopk" path="res://SFX/Songs/funky-loop.mp3" id="2_ofmld"]
+[ext_resource type="Texture2D" uid="uid://cgqoxwfv23bt7" path="res://img/normal.png" id="3_0n14d"]
+[ext_resource type="AudioStream" uid="uid://qkul2qjma7p8" path="res://SFX/Positive/Success_01.ogg" id="3_31avx"]
+[ext_resource type="Texture2D" uid="uid://bq3iwxt223in7" path="res://img/fail.png" id="3_mwo12"]
+[ext_resource type="Texture2D" uid="uid://m7hq6f2uxhxw" path="res://img/ticker.png" id="4_0n14d"]
+[ext_resource type="AudioStream" uid="uid://b35sal5lfct1b" path="res://SFX/Negative/Failure_01.ogg" id="4_3llie"]
+[ext_resource type="Texture2D" uid="uid://bbogi0avwb4ln" path="res://img/target.png" id="4_jiq1x"]
+[ext_resource type="Texture2D" uid="uid://dcgo245uganop" path="res://img/success.png" id="4_vx1mh"]
+[ext_resource type="AudioStream" uid="uid://ddca461yi5yln" path="res://SFX/Actions/Clicked_In_01.ogg" id="5_1dllx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rxf60"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0n14d")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mwo12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0n14d")
+}],
+"loop": 0,
+"name": &"fail",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_vx1mh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0n14d")
+}],
+"loop": 0,
+"name": &"success",
+"speed": 4.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jrq8m"]
+radius = 47.0
+height = 124.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0gk8"]
+size = Vector2(153, 150)
+
+[node name="MinigameNeighborhood" type="Control" unique_id=943053070]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jrq8m")
+
+[node name="Graphic" type="Control" parent="." unique_id=338831717]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Texture" type="AnimatedSprite2D" parent="Graphic" unique_id=1375696547]
+sprite_frames = SubResource("SpriteFrames_rxf60")
+animation = &"success"
+
+[node name="Band" type="Control" parent="." unique_id=1628707795]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Band" unique_id=628273155]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -110.0
+offset_right = 960.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_1dllx")
+
+[node name="Target" type="Control" parent="Band" unique_id=860963217]
+anchors_preset = 0
+offset_left = 1659.0
+offset_top = 932.0
+offset_right = 1659.0
+offset_bottom = 932.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Target" type="Area2D" parent="Band/Target" unique_id=1579460787]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Band/Target/Target" unique_id=175908331]
+position = Vector2(66, 68)
+shape = SubResource("CapsuleShape2D_jrq8m")
+
+[node name="TextureRect" type="TextureRect" parent="Band/Target" unique_id=757172735]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.000015
+offset_top = -30.000008
+offset_right = 375.0
+offset_bottom = 267.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.59574294, 0.59574294)
+texture = ExtResource("4_jiq1x")
+
+[node name="Ticker" type="Control" parent="Band" unique_id=2012329511]
+anchors_preset = 0
+offset_left = 165.0
+offset_top = 931.0
+offset_right = 165.0
+offset_bottom = 931.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Ticker" type="Area2D" parent="Band/Ticker" unique_id=1717519865]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Band/Ticker/Ticker" unique_id=820259435]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_y0gk8")
+
+[node name="TextureRect" type="TextureRect" parent="Band/Ticker" unique_id=684003417]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.0
+offset_top = -148.5
+offset_right = 162.0
+offset_bottom = 148.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_0n14d")
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=397205875]
+stream = ExtResource("2_ofmld")
+volume_db = -14.054
+autoplay = true
+
+[node name="Accept" type="AudioStreamPlayer" parent="." unique_id=828853208]
+stream = ExtResource("3_31avx")
+volume_db = -20.613
+
+[node name="Fail" type="AudioStreamPlayer" parent="." unique_id=1717519652]
+stream = ExtResource("4_3llie")
+volume_db = -17.179
+
+[node name="Click" type="AudioStreamPlayer" parent="." unique_id=1974540658]
+stream = ExtResource("5_1dllx")
+volume_db = -19.207
