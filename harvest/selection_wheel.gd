@@ -7,7 +7,7 @@ extends Control
 @onready var close_sfx: AudioStreamPlayer = $CloseSFX
 @onready var new_select_sfx: AudioStreamPlayer = $NewSelectSFX
 
-const SPRITE_SIZE = Vector2(128,128)
+const SPRITE_SIZE = Vector2(170,170)
 
 #gathering variables to edit
 @export var bkg_color: Color

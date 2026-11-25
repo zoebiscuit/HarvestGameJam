@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://5g0trtfgfiyl" path="res://wheel_option.gd" id="2_0isde"]
 [ext_resource type="Texture2D" uid="uid://bnw1ngfyj617q" path="res://icon.svg" id="3_1b50i"]
 [ext_resource type="Texture2D" uid="uid://u71cfknpg3rv" path="res://img/ItemMenu1.png" id="4_1b50i"]
+[ext_resource type="Texture2D" uid="uid://dlk51ot6kso11" path="res://img/inventory.png" id="4_vcnht"]
 [ext_resource type="AudioStream" uid="uid://cmip1y1bwfey2" path="res://SFX/Actions/Highlight_06.ogg" id="5_v5lg8"]
 [ext_resource type="AudioStream" uid="uid://cua2hqp8wxmp8" path="res://SFX/Menus/Menu_Open_05.ogg" id="6_4l438"]
 [ext_resource type="AudioStream" uid="uid://cjowdyp5arcui" path="res://SFX/Menus/Menu_Close_05.ogg" id="7_pt43d"]
@@ -17,24 +18,24 @@ name = "None"
 metadata/_custom_type_script = "uid://5g0trtfgfiyl"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0isde"]
-atlas = ExtResource("3_1b50i")
-region = Rect2(0, 0, 128, 128)
+atlas = ExtResource("4_vcnht")
+region = Rect2(0, 0, 280, 280)
 script = ExtResource("2_0isde")
 name = "Produce"
 count = 6
 metadata/_custom_type_script = "uid://5g0trtfgfiyl"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1b50i"]
-atlas = ExtResource("3_1b50i")
-region = Rect2(0, 0, 128, 128)
+atlas = ExtResource("4_vcnht")
+region = Rect2(280, 0, 280, 280)
 script = ExtResource("2_0isde")
-name = "None"
+name = "Seeds"
 count = 14
 metadata/_custom_type_script = "uid://5g0trtfgfiyl"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6tlpn"]
-atlas = ExtResource("3_1b50i")
-region = Rect2(0, 0, 128, 128)
+atlas = ExtResource("4_vcnht")
+region = Rect2(840, 0, 280, 280)
 script = ExtResource("2_0isde")
 count = -1
 metadata/_custom_type_script = "uid://5g0trtfgfiyl"

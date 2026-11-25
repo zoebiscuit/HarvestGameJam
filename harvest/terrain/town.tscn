@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://5iungss8i0f5" path="res://terrain/fence_parts/bottom_middle.tscn" id="14_qgjcy"]
 [ext_resource type="PackedScene" uid="uid://cy4c63duru61w" path="res://terrain/fence_parts/top_left.tscn" id="15_dx13e"]
 [ext_resource type="AudioStream" uid="uid://dtqgf6cj5eq4e" path="res://SFX/Foley/leaves_wind.wav" id="25_kviaf"]
-[ext_resource type="AudioStream" uid="uid://cosjt4yhhcl8y" path="res://SFX/Songs/Happy_Theme.ogg" id="26_7ai1v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rxf60"]
 shader = ExtResource("4_itmos")
@@ -91,6 +90,7 @@ limit_left = 0
 limit_top = 0
 limit_right = 8311
 limit_bottom = 12000
+limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
@@ -129,7 +129,7 @@ modulate = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(8377, 16964, 8, 16913, -15, 5759, -15, 6220, 905, 5871, 2602, 5125, 4315, 3872, 5711, 2888, 5965, 2825, 6298, 3253, 6314, 3999, 8344, 3999, 8402, 6305)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="PlayScene/Borders" unique_id=521666428]
-polygon = PackedVector2Array(-46, 8372, 5, -10, 8361, 29, 8361, 8461, 9609, 8473, 9380, -876, -963, -1003, -1269, 8601)
+polygon = PackedVector2Array(-46, 8372, 5, -10, 4578.3965, 11.345398, 8361, 29, 8361, 8461, 9609, 8473, 9380, -876, -963, -1003, -1269, 8601)
 
 [node name="Terrain" type="Node2D" parent="PlayScene" unique_id=1730463499]
 y_sort_enabled = true
@@ -313,7 +313,7 @@ metadata/_scene_painted = true
 
 [node name="Tree12" parent="PlayScene/Terrain" unique_id=718909101 instance=ExtResource("6_1q5qx")]
 material = SubResource("ShaderMaterial_66j67")
-position = Vector2(2744.1953, -358.76904)
+position = Vector2(2704, -116.80322)
 metadata/_scene_painted = true
 
 [node name="Tree13" parent="PlayScene/Terrain" unique_id=1946669374 instance=ExtResource("6_1q5qx")]
@@ -323,12 +323,12 @@ metadata/_scene_painted = true
 
 [node name="Tree14" parent="PlayScene/Terrain" unique_id=1923624124 instance=ExtResource("6_1q5qx")]
 material = SubResource("ShaderMaterial_66j67")
-position = Vector2(3354.8794, -398.16797)
+position = Vector2(2541, 2286)
 metadata/_scene_painted = true
 
 [node name="Tree15" parent="PlayScene/Terrain" unique_id=1843953125 instance=ExtResource("6_1q5qx")]
 material = SubResource("ShaderMaterial_66j67")
-position = Vector2(3748.8687, -476.96582)
+position = Vector2(3540, -269)
 metadata/_scene_painted = true
 
 [node name="Tree16" parent="PlayScene/Terrain" unique_id=530355871 instance=ExtResource("6_1q5qx")]
@@ -636,7 +636,7 @@ position = Vector2(-497.97717, 3510.1174)
 metadata/_scene_painted = true
 
 [node name="Bush26" parent="PlayScene/Terrain" unique_id=1112837274 instance=ExtResource("7_bb5b1")]
-position = Vector2(3437.6367, 2070.0093)
+position = Vector2(2408, 2352)
 metadata/_scene_painted = true
 
 [node name="Bush27" parent="PlayScene/Terrain" unique_id=206268703 instance=ExtResource("7_bb5b1")]
@@ -730,6 +730,5 @@ stream = ExtResource("25_kviaf")
 volume_db = 6.525
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1233279197]
-stream = ExtResource("26_7ai1v")
 volume_db = -17.468
 playback_type = 1
