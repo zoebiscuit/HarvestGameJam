@@ -829,7 +829,7 @@ horizontal_alignment = 1
 [node name="Wind" type="AudioStreamPlayer2D" parent="." unique_id=1390904632]
 position = Vector2(5094, 5932)
 stream = ExtResource("29_uyqir")
-volume_db = 5.535
+volume_db = 15.165
 autoplay = true
 
 [node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1623162813]

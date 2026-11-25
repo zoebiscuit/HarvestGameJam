@@ -27,7 +27,7 @@ metadata/_custom_type_script = "uid://5g0trtfgfiyl"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1b50i"]
 atlas = ExtResource("4_vcnht")
-region = Rect2(280, 0, 280, 280)
+region = Rect2(290.53192, 0, 269.46808, 280)
 script = ExtResource("2_0isde")
 name = "Seeds"
 count = 14

@@ -15,6 +15,7 @@
 [ext_resource type="Shader" uid="uid://d2krld0aopo3l" path="res://terrain/hue.gdshader" id="13_6w0in"]
 [ext_resource type="PackedScene" uid="uid://5iungss8i0f5" path="res://terrain/fence_parts/bottom_middle.tscn" id="14_qgjcy"]
 [ext_resource type="PackedScene" uid="uid://cy4c63duru61w" path="res://terrain/fence_parts/top_left.tscn" id="15_dx13e"]
+[ext_resource type="AudioStream" uid="uid://b614yo6egmje" path="res://SFX/Songs/kindof.wav" id="17_qgjcy"]
 [ext_resource type="AudioStream" uid="uid://dtqgf6cj5eq4e" path="res://SFX/Foley/leaves_wind.wav" id="25_kviaf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rxf60"]
@@ -85,7 +86,7 @@ y_sort_enabled = true
 script = ExtResource("1_386tj")
 
 [node name="Camera2D" type="Camera2D" parent="PlayScene" unique_id=328253252]
-position = Vector2(785, 893)
+position = Vector2(1056, 930)
 limit_left = 0
 limit_top = 0
 limit_right = 8311
@@ -359,6 +360,31 @@ metadata/_scene_painted = true
 [node name="Tree21" parent="PlayScene/Terrain" unique_id=2111395030 instance=ExtResource("6_1q5qx")]
 material = SubResource("ShaderMaterial_66j67")
 position = Vector2(3975.4126, 439.0598)
+metadata/_scene_painted = true
+
+[node name="Tree64" parent="PlayScene/Terrain" unique_id=2042982765 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(3484, 825)
+metadata/_scene_painted = true
+
+[node name="Tree" parent="PlayScene/Terrain/Tree64" unique_id=1918610792 instance=ExtResource("6_1q5qx")]
+position = Vector2(324.06934, 166.85681)
+metadata/_scene_painted = true
+
+[node name="Tree2" parent="PlayScene/Terrain/Tree64" unique_id=212275147 instance=ExtResource("6_1q5qx")]
+position = Vector2(1293.6094, 148.47693)
+metadata/_scene_painted = true
+
+[node name="Tree3" parent="PlayScene/Terrain/Tree64" unique_id=478583273 instance=ExtResource("6_1q5qx")]
+position = Vector2(650.3125, -62.891846)
+metadata/_scene_painted = true
+
+[node name="Tree4" parent="PlayScene/Terrain/Tree64" unique_id=2127181842 instance=ExtResource("6_1q5qx")]
+position = Vector2(-2777.7788, 1611.6309)
+metadata/_scene_painted = true
+
+[node name="Tree5" parent="PlayScene/Terrain/Tree64" unique_id=443835965 instance=ExtResource("6_1q5qx")]
+position = Vector2(-2258.4292, 2301.1128)
 metadata/_scene_painted = true
 
 [node name="Tree22" parent="PlayScene/Terrain" unique_id=161536181 instance=ExtResource("6_1q5qx")]
@@ -730,5 +756,6 @@ stream = ExtResource("25_kviaf")
 volume_db = 6.525
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1233279197]
-volume_db = -17.468
+stream = ExtResource("17_qgjcy")
+volume_db = -7.433
 playback_type = 1
