@@ -18,7 +18,7 @@ func _ready():
 	var tween = get_tree().create_tween()
 	tween.set_loops()
 	tween.tween_property(self, "global_position:x", 1900.0, 4)
-	tween.tween_property(self, "global_position:x", 100.0, 4)
+	tween.tween_property(self, "global_position:x", 0.0, 4)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

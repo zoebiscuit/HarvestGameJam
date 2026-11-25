@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://criprs3tyjmfb"]
+
+[ext_resource type="Texture2D" uid="uid://o35mipbh8lae" path="res://img/dirt_hole.webp" id="1_1s0jb"]
+[ext_resource type="Script" uid="uid://qv3kqwadb80l" path="res://hole.gd" id="2_cki6r"]
+
+[node name="Hole" type="Sprite2D" unique_id=150339965]
+texture = ExtResource("1_1s0jb")
+script = ExtResource("2_cki6r")

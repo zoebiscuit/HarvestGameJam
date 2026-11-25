@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ti40novcejcb"]
+
+[ext_resource type="Texture2D" uid="uid://bwjf7mb4rmfg4" path="res://img/shovel.webp" id="1_qoefi"]
+[ext_resource type="Script" uid="uid://cnsrcu1p8bfj4" path="res://shovel.gd" id="2_2174v"]
+[ext_resource type="Texture2D" uid="uid://o35mipbh8lae" path="res://img/dirt_hole.webp" id="3_up0ri"]
+[ext_resource type="Script" uid="uid://qv3kqwadb80l" path="res://hole.gd" id="4_jmpxy"]
+
+[node name="Planting" type="Control" unique_id=830012601]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Shovel" type="Sprite2D" parent="." unique_id=57659594]
+position = Vector2(245.34297, 202.25998)
+rotation = -0.43633232
+scale = Vector2(0.78051585, 0.80898637)
+texture = ExtResource("1_qoefi")
+script = ExtResource("2_2174v")
+
+[node name="Hole" type="Sprite2D" parent="." unique_id=1580093029]
+position = Vector2(-225.5, -306.5)
+scale = Vector2(0.6958955, 0.74264705)
+texture = ExtResource("3_up0ri")
+script = ExtResource("4_jmpxy")

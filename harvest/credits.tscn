@@ -156,6 +156,7 @@ shader_parameter/scale = 2.0
 
 [sub_resource type="Animation" id="Animation_0h7mo"]
 length = 0.001
+step = 0.0333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
