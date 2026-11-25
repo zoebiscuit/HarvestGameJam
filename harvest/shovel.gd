@@ -11,6 +11,8 @@ var init_y = position.y
 var hole_count = 0
 var speed_y_progressive = 1.0
 
+@onready var seeds = $"../Seeds"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
@@ -29,7 +31,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("space"):
 		tween.kill()
 		
-		if position.y < 800:
+		if position.y < 800 and hole_count <=4 and hole_count > -1:
 			current_position_x = position.x
 			tween = get_tree().create_tween()
 			tween.tween_property(self, "global_position:y", 801.0, .5)
@@ -45,6 +47,12 @@ func _process(delta: float) -> void:
 		tween.tween_property(self, "global_position:x", 1900.0,  .5 +speed_y_progressive)
 		tween.tween_property(self, "global_position:x", 0.0, .5 + speed_y_progressive)
 		
+	if hole_count > 4:
+		self.hide()
+		seeds.show()
+		hole_count = -1
+		seeds.seed_count = 0
+		
 			
 func CreateNewHole():
 		var hole_inst = hole.instantiate()
@@ -53,6 +61,7 @@ func CreateNewHole():
 			
 		current_hole = hole_inst
 		hole_count += 1
+		print("holes: " + str(hole_count))
 			
 			
 		

@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://cnsrcu1p8bfj4" path="res://shovel.gd" id="2_2174v"]
 [ext_resource type="Texture2D" uid="uid://o35mipbh8lae" path="res://img/dirt_hole.webp" id="3_up0ri"]
 [ext_resource type="Script" uid="uid://qv3kqwadb80l" path="res://hole.gd" id="4_jmpxy"]
+[ext_resource type="Texture2D" uid="uid://dlk51ot6kso11" path="res://img/inventory.png" id="5_j7j81"]
+[ext_resource type="Script" uid="uid://dl02lxjl5hjpq" path="res://seeds.gd" id="6_en7ld"]
+[ext_resource type="PackedScene" uid="uid://p71bhnxmucsf" path="res://planted_seeds.tscn" id="7_en7ld"]
 
 [node name="Planting" type="Control" unique_id=830012601]
 layout_mode = 3
@@ -21,3 +24,13 @@ position = Vector2(-225.5, -306.5)
 scale = Vector2(0.6958955, 0.74264705)
 texture = ExtResource("3_up0ri")
 script = ExtResource("4_jmpxy")
+
+[node name="Seeds" type="Sprite2D" parent="." unique_id=1573478360]
+position = Vector2(223, 247)
+texture = ExtResource("5_j7j81")
+region_enabled = true
+region_rect = Rect2(301.80838, 3.887848, 250.53452, 278.5866)
+script = ExtResource("6_en7ld")
+
+[node name="PlantedSeeds" parent="." unique_id=999870462 instance=ExtResource("7_en7ld")]
+position = Vector2(174, -287)

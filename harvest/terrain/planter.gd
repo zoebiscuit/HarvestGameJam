@@ -15,6 +15,10 @@ func _process(delta: float) -> void:
 		
 		sprite_2d.material = Global.highlight_material
 		if Input.is_action_just_pressed("enter"):
-			get_tree().change_scene_to_file("res://minigame_planting.tscn")
+			#Ui.fade_animation.play("fade-in")
+			Ui.last_location = "farm"
+			Global.next_scene = "res://minigame_planting.tscn"
+			get_tree().change_scene_to_packed(Global.loading_screen)
+			#get_tree().change_scene_to_file("res://minigame_planting.tscn")
 		
 	else: sprite_2d.material = null
