@@ -86,7 +86,7 @@ y_sort_enabled = true
 script = ExtResource("1_386tj")
 
 [node name="Camera2D" type="Camera2D" parent="PlayScene" unique_id=328253252]
-position = Vector2(1056, 930)
+position = Vector2(725, 846)
 limit_left = 0
 limit_top = 0
 limit_right = 8311
@@ -118,7 +118,7 @@ color = Color(0.34509805, 0.68235296, 1, 1)
 
 [node name="Player" parent="PlayScene" unique_id=665135049 instance=ExtResource("6_0nhun")]
 y_sort_enabled = true
-position = Vector2(785, 893)
+position = Vector2(725, 846)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayScene/Player" unique_id=3568664]
 remote_path = NodePath("../../Camera2D")
