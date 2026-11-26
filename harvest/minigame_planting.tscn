@@ -4,15 +4,69 @@
 [ext_resource type="Script" uid="uid://cnsrcu1p8bfj4" path="res://shovel.gd" id="2_2174v"]
 [ext_resource type="Texture2D" uid="uid://o35mipbh8lae" path="res://img/dirt_hole.webp" id="3_up0ri"]
 [ext_resource type="Script" uid="uid://qv3kqwadb80l" path="res://hole.gd" id="4_jmpxy"]
+[ext_resource type="Texture2D" uid="uid://dlk51ot6kso11" path="res://img/inventory.png" id="5_j7j81"]
+[ext_resource type="Script" uid="uid://dl02lxjl5hjpq" path="res://seeds.gd" id="6_en7ld"]
+[ext_resource type="PackedScene" uid="uid://p71bhnxmucsf" path="res://planted_seeds.tscn" id="7_en7ld"]
+[ext_resource type="Texture2D" uid="uid://cgqoxwfv23bt7" path="res://img/normal.png" id="8_n8fpq"]
+[ext_resource type="Texture2D" uid="uid://bq3iwxt223in7" path="res://img/fail.png" id="9_hw3a7"]
+[ext_resource type="Texture2D" uid="uid://dcgo245uganop" path="res://img/success.png" id="10_ouxda"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jeyhf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_n8fpq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_hw3a7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_n8fpq")
+}],
+"loop": false,
+"name": &"fail",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_ouxda")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_n8fpq")
+}],
+"loop": false,
+"name": &"success",
+"speed": 4.0
+}]
 
 [node name="Planting" type="Control" unique_id=830012601]
 layout_mode = 3
 anchors_preset = 0
 
+[node name="Graphic" type="Control" parent="." unique_id=181807964]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Texture" type="AnimatedSprite2D" parent="Graphic" unique_id=1543105617]
+position = Vector2(982, 555)
+sprite_frames = SubResource("SpriteFrames_jeyhf")
+animation = &"success"
+
 [node name="Shovel" type="Sprite2D" parent="." unique_id=57659594]
 position = Vector2(245.34297, 202.25998)
-rotation = -0.43633232
-scale = Vector2(0.78051585, 0.80898637)
+rotation = -0.43633235
+scale = Vector2(0.78051585, 0.8089863)
 texture = ExtResource("1_qoefi")
 script = ExtResource("2_2174v")
 
@@ -21,3 +75,13 @@ position = Vector2(-225.5, -306.5)
 scale = Vector2(0.6958955, 0.74264705)
 texture = ExtResource("3_up0ri")
 script = ExtResource("4_jmpxy")
+
+[node name="Seeds" type="Sprite2D" parent="." unique_id=1573478360]
+position = Vector2(223, 247)
+texture = ExtResource("5_j7j81")
+region_enabled = true
+region_rect = Rect2(301.80838, 3.887848, 250.53452, 278.5866)
+script = ExtResource("6_en7ld")
+
+[node name="PlantedSeeds" parent="." unique_id=999870462 instance=ExtResource("7_en7ld")]
+position = Vector2(174, -287)

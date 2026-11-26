@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://p71bhnxmucsf"]
+
+[ext_resource type="Texture2D" uid="uid://dlk51ot6kso11" path="res://img/inventory.png" id="1_nvjcj"]
+[ext_resource type="Script" uid="uid://1anvm8grxlie" path="res://planted_seeds.gd" id="2_uyj4m"]
+
+[node name="PlantedSeeds" type="Sprite2D" unique_id=999870462]
+texture = ExtResource("1_nvjcj")
+region_enabled = true
+region_rect = Rect2(0, 0, 288.32928, 281.71115)
+script = ExtResource("2_uyj4m")

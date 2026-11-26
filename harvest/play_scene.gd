@@ -34,6 +34,15 @@ func _ready() -> void:
 			await Ui.fade_animation.animation_finished
 			player.can_move = true
 			Ui.currently_teleporting = false
+		"farm":
+			player.position = Vector2(player.position.x, player.position.y)
+			player.can_move = false
+			player.anim_sprite.set_animation("side_idle")
+			
+			Ui.fade_animation.play("fade_out")
+			await Ui.fade_animation.animation_finished
+			player.can_move = true
+			Ui.currently_teleporting = false
 	
 	Ui.show()
 	PauseMenu.can_open = true
