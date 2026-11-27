@@ -60,6 +60,16 @@ size = Vector2(1031, 830)
 
 [node name="Main" type="Node" unique_id=27969217]
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=328253252]
+position = Vector2(5013, 7280)
+limit_left = 0
+limit_top = 0
+limit_right = 8311
+limit_bottom = 12000
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+
 [node name="UI" type="CanvasLayer" parent="." unique_id=726812213]
 
 [node name="FadeColor" type="ColorRect" parent="UI" unique_id=491122041]
@@ -74,16 +84,6 @@ color = Color(0.14901961, 0.015686275, 0.21176471, 0)
 [node name="PlayScene" type="Node2D" parent="." unique_id=589162470]
 y_sort_enabled = true
 script = ExtResource("1_htxhm")
-
-[node name="Camera2D" type="Camera2D" parent="PlayScene" unique_id=328253252]
-position = Vector2(5013, 7280)
-limit_left = 0
-limit_top = 0
-limit_right = 8311
-limit_bottom = 12000
-limit_smoothed = true
-position_smoothing_enabled = true
-position_smoothing_speed = 3.0
 
 [node name="Floor" type="TextureRect" parent="PlayScene" unique_id=1717447691]
 offset_right = 8313.0
@@ -111,7 +111,7 @@ position = Vector2(5013, 7417)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayScene/Player" unique_id=3568664]
 position = Vector2(0, -137)
-remote_path = NodePath("../../Camera2D")
+remote_path = NodePath("../../../Camera2D")
 
 [node name="Borders" type="StaticBody2D" parent="PlayScene" unique_id=131699400]
 modulate = Color(1, 1, 1, 0)
@@ -1201,7 +1201,7 @@ texture = ExtResource("25_e71vb")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayScene/Boat" unique_id=1488708679]
 position = Vector2(3976, 12194)
-remote_path = NodePath("../../Camera2D")
+remote_path = NodePath("../../../Camera2D")
 
 [node name="Horn" type="AudioStreamPlayer2D" parent="PlayScene/Boat" unique_id=1184920677]
 position = Vector2(4479, 12291.957)

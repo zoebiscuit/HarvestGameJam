@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://pas2hxcy6bsp"]
+
+[ext_resource type="Script" uid="uid://bn6yxxhrwem05" path="res://characters_town/frog.gd" id="1_yt8h7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3lf3"]
+size = Vector2(213.33333, 95)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yt8h7"]
+load_path = "res://.godot/imported/characters.png-88520683499aeaed0a9487423f02cf31.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4oho"]
+atlas = SubResource("CompressedTexture2D_yt8h7")
+region = Rect2(840, 560, 560, 560)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1456549239]
+modulate = Color(2.0223482, 1.7984169, 2.0223482, 1)
+y_sort_enabled = true
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_yt8h7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=258342823]
+position = Vector2(-10, -23.333332)
+shape = SubResource("RectangleShape2D_h3lf3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=829577171]
+use_parent_material = true
+texture = SubResource("AtlasTexture_o4oho")
+offset = Vector2(0, -92.075)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=573429375]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1971223919]

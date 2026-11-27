@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dnm76ukumfqxd"]
+
+[ext_resource type="Script" uid="uid://ci52tkshqtmyg" path="res://characters_town/bears.gd" id="1_rxsmf"]
+[ext_resource type="PackedScene" uid="uid://boclgs3nc0qty" path="res://tools/speech_bubble.tscn" id="2_rd2m2"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yt8h7"]
+load_path = "res://.godot/imported/characters.png-88520683499aeaed0a9487423f02cf31.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63tbg"]
+atlas = SubResource("CompressedTexture2D_yt8h7")
+region = Rect2(0, 1120, 1120, 1120)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h5sbr"]
+radius = 513.3333
+height = 1026.6666
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1456549239]
+y_sort_enabled = true
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_rxsmf")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=1050278164]
+position = Vector2(-3.333332, 8.333333)
+polygon = PackedVector2Array(-326.66666, -465, -366.66666, -156.66666, -364.99997, 26.666668, -444.99997, 338.3333, -195, 454.99997, 31.666664, 208.33333, 481.66666, 141.66667, 435, -98.333336, 393.33334, -183.33333, 331.66666, -286.66666)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=829577171]
+use_parent_material = true
+texture = SubResource("AtlasTexture_63tbg")
+
+[node name="Bear_1" parent="." unique_id=120089912 instance=ExtResource("2_rd2m2")]
+position = Vector2(-286.66666, -606.6667)
+
+[node name="Bear_2" parent="." unique_id=58540694 instance=ExtResource("2_rd2m2")]
+position = Vector2(281.66666, -416.66663)
+
+[node name="Bear_3" parent="." unique_id=892473386 instance=ExtResource("2_rd2m2")]
+position = Vector2(-259.99997, -130)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1043190406]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=852010628]
+shape = SubResource("CapsuleShape2D_h5sbr")

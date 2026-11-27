@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ywoiysqm5oax"]
+
+[ext_resource type="Texture2D" uid="uid://c525xmh3gic2t" path="res://img/characters.png" id="1_jg2fr"]
+[ext_resource type="Script" uid="uid://dk0pkxa8pd0oi" path="res://characters_town/politician.gd" id="1_uuggc"]
+[ext_resource type="PackedScene" uid="uid://boclgs3nc0qty" path="res://tools/speech_bubble.tscn" id="2_wlqnd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wlqnd"]
+size = Vector2(413.3333, 462.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uuggc"]
+atlas = ExtResource("1_jg2fr")
+region = Rect2(1120, 1120, 560, 560)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1456549239]
+y_sort_enabled = true
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_uuggc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=258342823]
+position = Vector2(3.3333356, -2.9166772)
+shape = SubResource("RectangleShape2D_wlqnd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=829577171]
+use_parent_material = true
+texture = SubResource("AtlasTexture_uuggc")
+
+[node name="SpeechBubble" parent="." unique_id=120089912 instance=ExtResource("2_wlqnd")]
+position = Vector2(-3.333333, -370)

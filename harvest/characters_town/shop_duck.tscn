@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dx8lfmaxdhoyp"]
+
+[ext_resource type="PackedScene" uid="uid://boclgs3nc0qty" path="res://tools/speech_bubble.tscn" id="1_s6cj6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eiygc"]
+size = Vector2(462.91663, 461.6667)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h4bfs"]
+load_path = "res://.godot/imported/characters.png-88520683499aeaed0a9487423f02cf31.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxf60"]
+atlas = SubResource("CompressedTexture2D_h4bfs")
+region = Rect2(840, 0, 560, 560)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1456549239]
+y_sort_enabled = true
+scale = Vector2(0.6, 0.6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=258342823]
+position = Vector2(21.875011, -12.499992)
+shape = SubResource("RectangleShape2D_eiygc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=829577171]
+use_parent_material = true
+texture = SubResource("AtlasTexture_rxf60")
+
+[node name="SpeechBubble" parent="." unique_id=120089912 instance=ExtResource("1_s6cj6")]
+position = Vector2(0, -376.66666)
+
+[node name="Area2D" type="Area2D" parent="SpeechBubble" unique_id=1737826080]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpeechBubble/Area2D" unique_id=1813252363]

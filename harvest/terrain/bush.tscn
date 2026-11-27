@@ -40,8 +40,8 @@ shader_parameter/wind_speed = 1.59100006905273
 shader_parameter/scale = 2.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rxf60"]
-radius = 65.0
-height = 130.0
+radius = 34.0
+height = 68.0
 
 [node name="Bush" type="StaticBody2D" unique_id=1875478540]
 y_sort_enabled = true
@@ -51,8 +51,8 @@ material = SubResource("ShaderMaterial_onf8i")
 use_parent_material = true
 scale = Vector2(0.77890897, 0.77890897)
 texture = ExtResource("1_lvnc6")
-offset = Vector2(0, 25.88)
+offset = Vector2(0, -29.295)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1662868468]
-position = Vector2(6, 106)
+position = Vector2(-1, -1)
 shape = SubResource("CapsuleShape2D_rxf60")

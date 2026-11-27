@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c8j4c02aee1gb"]
 
 [ext_resource type="Script" uid="uid://bfwgn1fjsg6cr" path="res://terrain/town_scene.gd" id="1_386tj"]
-[ext_resource type="Texture2D" uid="uid://bikm7j0vc383t" path="res://img/Layout1_town.png" id="2_8r3gn"]
+[ext_resource type="Texture2D" uid="uid://drl60210mk40p" path="res://img/plaibg.png" id="2_qgjcy"]
 [ext_resource type="Shader" uid="uid://cfcslgorr0waa" path="res://fallingLeaves.gdshader" id="4_itmos"]
 [ext_resource type="Texture2D" uid="uid://btqf87i258e2w" path="res://img/leaf.png" id="5_1twoj"]
 [ext_resource type="PackedScene" uid="uid://b8xmwd4tud3ej" path="res://player.tscn" id="6_0nhun"]
@@ -15,7 +15,12 @@
 [ext_resource type="Shader" uid="uid://d2krld0aopo3l" path="res://terrain/hue.gdshader" id="13_6w0in"]
 [ext_resource type="PackedScene" uid="uid://5iungss8i0f5" path="res://terrain/fence_parts/bottom_middle.tscn" id="14_qgjcy"]
 [ext_resource type="PackedScene" uid="uid://cy4c63duru61w" path="res://terrain/fence_parts/top_left.tscn" id="15_dx13e"]
+[ext_resource type="PackedScene" uid="uid://ywoiysqm5oax" path="res://characters_town/politician.tscn" id="16_4jykf"]
+[ext_resource type="PackedScene" uid="uid://pas2hxcy6bsp" path="res://characters_town/frog.tscn" id="17_6w0in"]
 [ext_resource type="AudioStream" uid="uid://b614yo6egmje" path="res://SFX/Songs/kindof.wav" id="17_qgjcy"]
+[ext_resource type="PackedScene" uid="uid://dnm76ukumfqxd" path="res://characters_town/bears.tscn" id="18_3pax5"]
+[ext_resource type="PackedScene" uid="uid://dx8lfmaxdhoyp" path="res://characters_town/shop_duck.tscn" id="19_e6scs"]
+[ext_resource type="PackedScene" uid="uid://d2xyirrmqltbu" path="res://characters_town/crab_sunbathing.tscn" id="20_5bdsr"]
 [ext_resource type="AudioStream" uid="uid://dtqgf6cj5eq4e" path="res://SFX/Foley/leaves_wind.wav" id="25_kviaf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rxf60"]
@@ -81,12 +86,9 @@ size = Vector2(653, 534)
 
 [node name="Main" type="Node" unique_id=27969217]
 
-[node name="PlayScene" type="Node2D" parent="." unique_id=589162470]
-y_sort_enabled = true
-script = ExtResource("1_386tj")
-
-[node name="Camera2D" type="Camera2D" parent="PlayScene" unique_id=328253252]
-position = Vector2(725, 846)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=328253252]
+z_as_relative = false
+position = Vector2(814, 846)
 limit_left = 0
 limit_top = 0
 limit_right = 8311
@@ -95,11 +97,16 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
-[node name="Floor" type="TextureRect" parent="PlayScene" unique_id=1717447691]
-offset_right = 8313.0
-offset_bottom = 8451.334
+[node name="Floor" type="TextureRect" parent="." unique_id=1717447691]
+z_index = -10
+offset_right = 9615.0
+offset_bottom = 9775.0
 scale = Vector2(0.87, 0.87)
-texture = ExtResource("2_8r3gn")
+texture = ExtResource("2_qgjcy")
+
+[node name="PlayScene" type="Node2D" parent="." unique_id=589162470]
+y_sort_enabled = true
+script = ExtResource("1_386tj")
 
 [node name="FallingLeaves" type="ColorRect" parent="PlayScene" unique_id=174389275]
 z_index = 10
@@ -118,10 +125,10 @@ color = Color(0.34509805, 0.68235296, 1, 1)
 
 [node name="Player" parent="PlayScene" unique_id=665135049 instance=ExtResource("6_0nhun")]
 y_sort_enabled = true
-position = Vector2(725, 846)
+position = Vector2(814, 846)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayScene/Player" unique_id=3568664]
-remote_path = NodePath("../../Camera2D")
+remote_path = NodePath("../../../Camera2D")
 
 [node name="Borders" type="StaticBody2D" parent="PlayScene" unique_id=131699400]
 modulate = Color(1, 1, 1, 0)
@@ -131,6 +138,12 @@ polygon = PackedVector2Array(8377, 16964, 8, 16913, -15, 5759, -15, 6220, 905, 5
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="PlayScene/Borders" unique_id=521666428]
 polygon = PackedVector2Array(-46, 8372, 5, -10, 4578.3965, 11.345398, 8361, 29, 8361, 8461, 9609, 8473, 9380, -876, -963, -1003, -1269, 8601)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="PlayScene/Borders" unique_id=1096895052]
+polygon = PackedVector2Array(1906, 544, 2207, 481, 2207, 351, 2328, 326, 2324, 247, 3013, 243, 3042, 339, 3159, 360, 3163, 736, 2211, 719, 2211, 861, 3464, 869, 4642, 26, 5060, 301, 4776, 518, 4955, 669, 5536, 351, 6630, 310, 6635, 982, 7608, 1016, 7612, 556, 8368, 556, 8418, 2168, 7761, 2057, 7768, 1861, 7353, 1767, 7324, 2198, 7729, 2290, 7813, 2849, 7604, 3330, 8397, 3342, 8920, 3004, 8406, -162, 6630, -171, 5862, -225, 1889, -258)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="PlayScene/Borders" unique_id=161444216]
+polygon = PackedVector2Array(6213, 3004, 7249, 3092, 7086, 3639, 7270, 4261, 7270, 4641, 7044, 5159, 6317, 5210, 6234, 4792, 6305, 4349, 6263, 3923, 6338, 3605, 6313, 3372)
 
 [node name="Terrain" type="Node2D" parent="PlayScene" unique_id=1730463499]
 y_sort_enabled = true
@@ -150,7 +163,7 @@ position = Vector2(4297.1704, -198.5614)
 metadata/_scene_painted = true
 
 [node name="Bush12" parent="PlayScene/Terrain/Tree1" unique_id=605538308 instance=ExtResource("7_bb5b1")]
-position = Vector2(7887.033, 745.71094)
+position = Vector2(7974, 1114)
 metadata/_scene_painted = true
 
 [node name="Bush13" parent="PlayScene/Terrain/Tree1" unique_id=294790791 instance=ExtResource("7_bb5b1")]
@@ -294,7 +307,7 @@ metadata/_scene_painted = true
 
 [node name="Tree8" parent="PlayScene/Terrain" unique_id=607920470 instance=ExtResource("6_1q5qx")]
 material = SubResource("ShaderMaterial_66j67")
-position = Vector2(17.720337, 2219.4639)
+position = Vector2(724, 1782)
 metadata/_scene_painted = true
 
 [node name="Tree9" parent="PlayScene/Terrain" unique_id=812382334 instance=ExtResource("6_1q5qx")]
@@ -380,7 +393,7 @@ position = Vector2(650.3125, -62.891846)
 metadata/_scene_painted = true
 
 [node name="Tree4" parent="PlayScene/Terrain/Tree64" unique_id=2127181842 instance=ExtResource("6_1q5qx")]
-position = Vector2(-2777.7788, 1611.6309)
+position = Vector2(-2213, 1309)
 metadata/_scene_painted = true
 
 [node name="Tree5" parent="PlayScene/Terrain/Tree64" unique_id=443835965 instance=ExtResource("6_1q5qx")]
@@ -564,7 +577,7 @@ metadata/_scene_painted = true
 
 [node name="Tree57" parent="PlayScene/Terrain" unique_id=303421027 instance=ExtResource("6_1q5qx")]
 material = SubResource("ShaderMaterial_66j67")
-position = Vector2(7171.0874, 1966.5483)
+position = Vector2(7034, 1969)
 metadata/_scene_painted = true
 
 [node name="Tree58" parent="PlayScene/Terrain" unique_id=1290453137 instance=ExtResource("6_1q5qx")]
@@ -592,11 +605,6 @@ material = SubResource("ShaderMaterial_66j67")
 position = Vector2(5000.873, 1673.9316)
 metadata/_scene_painted = true
 
-[node name="Tree63" parent="PlayScene/Terrain" unique_id=128024867 instance=ExtResource("6_1q5qx")]
-material = SubResource("ShaderMaterial_66j67")
-position = Vector2(6591.466, 1534.2495)
-metadata/_scene_painted = true
-
 [node name="Bush10" parent="PlayScene/Terrain" unique_id=1109088675 instance=ExtResource("7_bb5b1")]
 position = Vector2(3031.944, 1763.6575)
 metadata/_scene_painted = true
@@ -619,14 +627,6 @@ metadata/_scene_painted = true
 
 [node name="Bush15" parent="PlayScene/Terrain" unique_id=808218113 instance=ExtResource("7_bb5b1")]
 position = Vector2(5969.8447, 2266.8748)
-metadata/_scene_painted = true
-
-[node name="Bush16" parent="PlayScene/Terrain" unique_id=1186802469 instance=ExtResource("7_bb5b1")]
-position = Vector2(6961.4785, 1526.8494)
-metadata/_scene_painted = true
-
-[node name="Bush17" parent="PlayScene/Terrain" unique_id=1383416758 instance=ExtResource("7_bb5b1")]
-position = Vector2(6746.871, 1697.0552)
 metadata/_scene_painted = true
 
 [node name="Bush18" parent="PlayScene/Terrain" unique_id=696225382 instance=ExtResource("7_bb5b1")]
@@ -740,8 +740,183 @@ position = Vector2(5530, 2870)
 scale = Vector2(0.5, 0.5)
 metadata/_scene_painted = true
 
+[node name="Tree65" parent="PlayScene/Terrain" unique_id=1132859412 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(1179.51, 2393.124)
+metadata/_scene_painted = true
+
+[node name="Tree66" parent="PlayScene/Terrain" unique_id=1752546802 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(-226.53809, 3005.3271)
+metadata/_scene_painted = true
+
+[node name="Tree67" parent="PlayScene/Terrain" unique_id=462801592 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(-239.99304, 2177.8442)
+metadata/_scene_painted = true
+
+[node name="Tree68" parent="PlayScene/Terrain" unique_id=989374660 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(-78.53296, 1458.0013)
+metadata/_scene_painted = true
+
+[node name="Tree69" parent="PlayScene/Terrain" unique_id=223462154 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(-603.2782, 2144.2065)
+metadata/_scene_painted = true
+
+[node name="Tree70" parent="PlayScene/Terrain" unique_id=1031948076 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(123.29199, 3267.6997)
+metadata/_scene_painted = true
+
+[node name="Tree71" parent="PlayScene/Terrain" unique_id=1001588632 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(-226.53809, 3321.5195)
+metadata/_scene_painted = true
+
+[node name="Tree72" parent="PlayScene/Terrain" unique_id=2080820486 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(1085.325, 3355.1572)
+metadata/_scene_painted = true
+
+[node name="Tree73" parent="PlayScene/Terrain" unique_id=883596694 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(2350.0957, 2171.1167)
+metadata/_scene_painted = true
+
+[node name="Tree74" parent="PlayScene/Terrain" unique_id=836332158 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(1973.3555, 1949.1089)
+metadata/_scene_painted = true
+
+[node name="Tree75" parent="PlayScene/Terrain" unique_id=1692732001 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(2080.9956, 2198.0264)
+metadata/_scene_painted = true
+
+[node name="Tree76" parent="PlayScene/Terrain" unique_id=1277331877 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(2080.9956, 2198.0264)
+metadata/_scene_painted = true
+
+[node name="Tree77" parent="PlayScene/Terrain" unique_id=1879636769 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(2080.9956, 2198.0264)
+metadata/_scene_painted = true
+
+[node name="Tree78" parent="PlayScene/Terrain" unique_id=30485914 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(2080.9956, 2198.0264)
+metadata/_scene_painted = true
+
+[node name="Tree79" parent="PlayScene/Terrain" unique_id=2126268912 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(2054.0854, 2702.5894)
+metadata/_scene_painted = true
+
+[node name="Tree80" parent="PlayScene/Terrain" unique_id=1018850395 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(1872.4429, 2440.2168)
+metadata/_scene_painted = true
+
+[node name="Tree81" parent="PlayScene/Terrain" unique_id=22765423 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(2726.836, 2628.587)
+metadata/_scene_painted = true
+
+[node name="Tree82" parent="PlayScene/Terrain" unique_id=1055284794 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(3258.3086, 2258.5742)
+metadata/_scene_painted = true
+
+[node name="Tree83" parent="PlayScene/Terrain" unique_id=1582042385 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(2794.1108, 1996.2017)
+metadata/_scene_painted = true
+
+[node name="Tree84" parent="PlayScene/Terrain" unique_id=836796395 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(3022.8457, 2507.4917)
+metadata/_scene_painted = true
+
+[node name="Tree85" parent="PlayScene/Terrain" unique_id=1820731484 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(2646.1055, 469.05835)
+metadata/_scene_painted = true
+
+[node name="Tree86" parent="PlayScene/Terrain" unique_id=81757326 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(903.6824, 462.33087)
+metadata/_scene_painted = true
+
+[node name="Tree87" parent="PlayScene/Terrain" unique_id=1509373002 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(3379.4033, 1114.8987)
+metadata/_scene_painted = true
+
+[node name="Tree88" parent="PlayScene/Terrain" unique_id=1024193512 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(4220.3413, 1054.3511)
+metadata/_scene_painted = true
+
+[node name="Tree89" parent="PlayScene/Terrain" unique_id=2105600100 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(4798.9067, 314.3258)
+metadata/_scene_painted = true
+
+[node name="Tree90" parent="PlayScene/Terrain" unique_id=1679592640 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(5390.927, -15.321838)
+metadata/_scene_painted = true
+
+[node name="Tree91" parent="PlayScene/Terrain" unique_id=807386648 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(6978.6177, 2716.0444)
+metadata/_scene_painted = true
+
+[node name="Tree63" parent="PlayScene/Terrain" unique_id=1778755208 instance=ExtResource("6_1q5qx")]
+material = SubResource("ShaderMaterial_66j67")
+position = Vector2(4935, 774)
+metadata/_scene_painted = true
+
 [node name="Characters" type="Node2D" parent="PlayScene" unique_id=62022517]
 y_sort_enabled = true
+
+[node name="politician" parent="PlayScene/Characters" unique_id=509013156 instance=ExtResource("16_4jykf")]
+position = Vector2(2676, 486)
+scale = Vector2(0.7571221, 0.7571221)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayScene/Characters/politician" unique_id=820306149]
+
+[node name="frog" parent="PlayScene/Characters" unique_id=1955824146 instance=ExtResource("17_6w0in")]
+position = Vector2(2903, 1106)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayScene/Characters/frog" unique_id=863628500]
+remote_path = NodePath("../../../Camera2D")
+
+[node name="bears" parent="PlayScene/Characters" unique_id=1664335607 node_paths=PackedStringArray("player", "player_remote", "remote", "camera") instance=ExtResource("18_3pax5")]
+position = Vector2(1267, 2816)
+scale = Vector2(0.74252117, 0.74252117)
+player = NodePath("../../Player")
+player_remote = NodePath("../../Player/RemoteTransform2D")
+remote = NodePath("RemoteTransform2D")
+camera = NodePath("../../../Camera2D")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayScene/Characters/bears" unique_id=1911214029]
+remote_path = NodePath("../../../Camera2D")
+
+[node name="bigduck" parent="PlayScene/Characters" unique_id=1968431077 instance=ExtResource("19_e6scs")]
+position = Vector2(8189, 932)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayScene/Characters/bigduck" unique_id=1919760418]
+remote_path = NodePath("../../../Camera2D")
+
+[node name="crab" parent="PlayScene/Characters" unique_id=1588967201 instance=ExtResource("20_5bdsr")]
+position = Vector2(2308, 4618)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayScene/Characters/crab" unique_id=2133026116]
+remote_path = NodePath("../../../Camera2D")
 
 [node name="Portal" type="Area2D" parent="PlayScene" unique_id=1658584691]
 position = Vector2(227, 655)

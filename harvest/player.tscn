@@ -149,20 +149,21 @@ animations = [{
 script = ExtResource("1_4flbx")
 
 [node name="shadow" type="Sprite2D" parent="." unique_id=1456316482]
-position = Vector2(4, -41.000004)
+position = Vector2(2, 16.000008)
 scale = Vector2(0.763268, 0.763268)
 texture = SubResource("AtlasTexture_rxf60")
+offset = Vector2(2.6203117, -74.678894)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1692044324]
 position = Vector2(3, -50)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=950784915]
-position = Vector2(0, -227)
+position = Vector2(1, 2)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_rxf60")
 animation = &"side_walk"
-offset = Vector2(0, 100)
+offset = Vector2(-1.3333334, -205.33334)
 
 [node name="Footstep1" type="AudioStreamPlayer2D" parent="." unique_id=1159033846]
 position = Vector2(-21, -151)

@@ -43,6 +43,7 @@ func say(message: String, emotion := "neutral, angry, positive, negative"):
 	
 	animation_player.play("jump")
 	tween.tween_property(label, "visible_ratio", 1.0, text_size)
+	await tween.finished
 	
 	await advance
 	_advance.play()

@@ -405,7 +405,7 @@ volume_db = 6.525
 
 [node name="OpeningMusic" type="AudioStreamPlayer" parent="." unique_id=1915171922]
 stream = ExtResource("10_6pd66")
-volume_db = -24.161
+volume_db = -14.126
 playback_type = 1
 
 [connection signal="start" from="PlayScene/Boat/TitleScreen" to="PlayScene" method="_on_title_screen_start"]
