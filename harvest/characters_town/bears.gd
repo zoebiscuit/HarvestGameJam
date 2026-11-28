@@ -11,13 +11,21 @@ extends StaticBody2D
 @onready var bear_2: Node2D = $Bear_2
 @onready var bear_3: Node2D = $Bear_3
 
+var choice: int = 1
+
+func _ready() -> void:
+	player_remote.remote_path = camera.get_path()
+	
+	remote.update_position = false
+	remote.remote_path = camera.get_path()
+
 # Called when the node enters the scene tree for the first time.
 func _unhandled_input(event: InputEvent) -> void:
 	if area_2d.overlaps_body(player) and event.is_action_pressed("enter"):
 		if !Global.bears_start:
 			start_conversation()
 		elif Global.bears_casual:
-			pass
+			random_convo()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,7 +36,9 @@ func start_conversation():
 	Ui.hide()
 	Global.bears_start = true
 	player.can_move = false
-	remote.remote_path = camera.get_path()
+	
+	remote.update_position = true
+	player_remote.update_position = false
 	
 	await bear_1.say("Aha, got you there Jon!", "positive")
 	await bear_2.say("[shake]Oh, shut up.", "angry")
@@ -57,11 +67,47 @@ func start_conversation():
 	
 	await bear_1.say("I MEAN I don't mind more tech,", "neutral")
 	await bear_1.say("though I want to support you and great great grandfather.", "neutral")
-	await bear_1.say("We're willing to help out in anyway.", "positive")
+	await bear_1.say("We're willing to help out in any way.", "positive")
 	bear_3.say("Yeah.", "positive")
 	await bear_2.say("Yeah!!", "positive")
 	
+	Ui.add_support(5)
 	player.can_move = true
-	player_remote.remote_path = camera.get_path()
+	remote.update_position = false
+	player_remote.update_position = true
 	Ui.show()
 	
+	await get_tree().create_timer(1.0).timeout
+	Global.bears_casual = true
+	
+func random_convo():
+	
+	Ui.hide()
+	player.can_move = false
+	remote.update_position = true
+	player_remote.update_position = false
+	
+	Global.bears_casual = false
+	
+	match choice:
+		1: 
+			await bear_1.say("[wave]*Sigh*", "neutral")
+			await bear_3.say("Haha.", "positive")
+		2: 
+			await bear_2.say("Pick up two, dummy.", "neutral")
+			await bear_3.say("Don't wanna.", "angry")
+		3: 
+			await bear_2.say("There goes 200 dollars.", "neutral")
+	
+	remote.update_position = false
+	player_remote.update_position = true
+	Ui.show()
+	
+	if choice > 2:
+		choice = 1
+	else:
+		choice += 1
+	
+	player.can_move = true
+	await get_tree().create_timer(1.0).timeout
+	Global.bears_casual = true

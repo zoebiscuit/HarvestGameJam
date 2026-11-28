@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ci52tkshqtmyg" path="res://characters_town/bears.gd" id="1_rxsmf"]
 [ext_resource type="PackedScene" uid="uid://boclgs3nc0qty" path="res://tools/speech_bubble.tscn" id="2_rd2m2"]
+[ext_resource type="AudioStream" uid="uid://chnrwxi4n1al8" path="res://SFX/749323__magnesus__using-playing-cards.ogg" id="3_rd2m2"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yt8h7"]
 load_path = "res://.godot/imported/characters.png-88520683499aeaed0a9487423f02cf31.ctex"
@@ -21,7 +22,7 @@ script = ExtResource("1_rxsmf")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=1050278164]
 position = Vector2(-3.333332, 8.333333)
-polygon = PackedVector2Array(-326.66666, -465, -366.66666, -156.66666, -364.99997, 26.666668, -444.99997, 338.3333, -195, 454.99997, 31.666664, 208.33333, 481.66666, 141.66667, 435, -98.333336, 393.33334, -183.33333, 331.66666, -286.66666)
+polygon = PackedVector2Array(-339.99997, -288.33334, -366.66666, -156.66666, -364.99997, 26.666668, -444.99997, 338.3333, -195, 454.99997, 31.666664, 208.33333, 481.66666, 141.66667, 435, -98.333336, 194.99998, -106.666664, 121.66666, -110, 33.333332, -133.33333, -138.33333, -338.33334)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=829577171]
 use_parent_material = true
@@ -40,3 +41,11 @@ position = Vector2(-259.99997, -130)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=852010628]
 shape = SubResource("CapsuleShape2D_h5sbr")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=61377073]
+stream = ExtResource("3_rd2m2")
+volume_db = 3.853
+pitch_scale = 1.74
+autoplay = true
+max_distance = 1000.0
+attenuation = 2.462301

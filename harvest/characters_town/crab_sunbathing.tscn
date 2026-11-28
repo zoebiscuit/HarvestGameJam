@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d2xyirrmqltbu"]
 
 [ext_resource type="Script" uid="uid://uucc3b2m6xt" path="res://characters_town/crab_sunbathing.gd" id="1_kfdp2"]
+[ext_resource type="PackedScene" uid="uid://boclgs3nc0qty" path="res://tools/speech_bubble.tscn" id="2_2usvl"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yt8h7"]
 load_path = "res://.godot/imported/characters.png-88520683499aeaed0a9487423f02cf31.ctex"
@@ -8,6 +9,10 @@ load_path = "res://.godot/imported/characters.png-88520683499aeaed0a9487423f02cf
 [sub_resource type="AtlasTexture" id="AtlasTexture_0fnbt"]
 atlas = SubResource("CompressedTexture2D_yt8h7")
 region = Rect2(0, 0, 840, 1120)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2usvl"]
+radius = 356.66666
+height = 713.3333
 
 [node name="StaticBody2D" type="StaticBody2D" unique_id=1456549239]
 y_sort_enabled = true
@@ -26,3 +31,8 @@ offset = Vector2(0, -64.51)
 [node name="Area2D" type="Area2D" parent="." unique_id=245677690]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2027727448]
+position = Vector2(8.333333, -3.3333333)
+shape = SubResource("CapsuleShape2D_2usvl")
+
+[node name="SpeechBubble" parent="." unique_id=120089912 instance=ExtResource("2_2usvl")]
+position = Vector2(-141.66666, -439.99997)

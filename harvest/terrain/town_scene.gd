@@ -2,9 +2,12 @@ extends Node2D
 @onready var music: AudioStreamPlayer = $"../Music"
 @onready var wind: AudioStreamPlayer = $"../Wind"
 @onready var player: CharacterBody2D = $Player
+@onready var player_remote = $Player/RemoteTransform2D
 @onready var portal: Area2D = $Portal
+@onready var donkey: StaticBody2D = $Characters/politician
 
 func _ready() -> void:
+	wind.play()
 	
 	match Ui.last_location:
 		"farm":
@@ -22,12 +25,15 @@ func _ready() -> void:
 			
 	if !Global.politician_cutscene:
 		#TODO : The main scene with the politician and the townspeople go here
+		
+		await donkey.start_conversation()
+		
 		pass
 	
 	# NOTE DO NOT FORGET TO TURN THIS BACK ON IF OFF!!!
 	
 	music.play()
-	wind.play()
+	#wind.play()
 
 
 func _process(delta: float) -> void:
