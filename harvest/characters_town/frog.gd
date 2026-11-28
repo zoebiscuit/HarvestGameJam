@@ -71,7 +71,7 @@ func random_convo():
 			await frog.say("Wonder when he's coming back...", "neutral")
 		2: 
 			await frog.say("I don't really get along with the bears around here,", "neutral")
-			await frog.say("They I'm a slimy piece of trash.", "angry")
+			await frog.say("They say I'm a slimy piece of trash.", "angry")
 			await frog.say("Try not inheriting whatever attitude they got kid.", "angry")
 		3: 
 			await frog.say("He's never really specific on where the funds go,", "neutral")

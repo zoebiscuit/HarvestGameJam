@@ -10,6 +10,8 @@ extends StaticBody2D
 var choice: int = 1
 
 func _ready() -> void:
+	if Global.politician_cutscene: hide()
+	
 	player_remote.remote_path = camera.get_path()
 	
 	remote.update_position = false
